@@ -3,11 +3,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class ApiStructuresExtractor {
     private final JsonElement dictionary;
-    private final static Pattern EQUAL_PATTERN = Pattern.compile("=");
 
     /**
      *Set a JsonElement as a dictionary
@@ -29,7 +27,7 @@ public class ApiStructuresExtractor {
 
         for (JsonElement key: structure) {
             line = key.getAsString();
-            String[] parameter = EQUAL_PATTERN.split(line);
+            String[] parameter = line.split("=");
             if(parameter.length == 2) {
                 parameter[0] = parameter[0].replaceAll("\\s","");
                 parameter[1]= parameter[1].replace(" ${","")
