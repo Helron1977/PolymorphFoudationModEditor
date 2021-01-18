@@ -73,7 +73,7 @@ public class ApiStructuresExtractor {
      * Display in Console, line per line, each parameter and parmeter type contained in this map of parameters.
      * @param parameters a LinkedHashMap String, String of structure s parameters.
      */
-    public static void consoleDisplaylinkedMapToString(LinkedHashMap<String, String> parameters) {
+    public static void consoleDisplayLinkedMapToString(LinkedHashMap<String, String> parameters) {
         for (String param : parameters.keySet()) {
             System.out.print(param + " = ");
             System.out.println(parameters.get(param));

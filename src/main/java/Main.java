@@ -48,21 +48,15 @@ public class Main {
             LinkedHashMap<String, String> parameters = ApiStructuresExtractor.clean(templates);
 
             //display templates s parameters name and parameters Type and default values
-            ApiStructuresExtractor.consoleDisplaylinkedMapToString(parameters);
+            ApiStructuresExtractor.consoleDisplayLinkedMapToString(parameters);
         }
         for(int j =0; j < structures.entryList().size(); j++){
             //look for the VALUES of Enum Structures
             JsonArray templates = structures.extractTemplates(structures.entryList().get(j));
 
             //Clean the ENUM templates
-            //System.out.println(structures.extractTemplatesNames(structures.entryList().get(j)));
-            //System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
+            System.out.println(structures.extractTemplates(structures.entryList().get(j)));
+            System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
         }
-
-
-
-
-
     }
-
 }
