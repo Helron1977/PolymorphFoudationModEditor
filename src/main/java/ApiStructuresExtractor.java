@@ -7,15 +7,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ApiStructuresExtractor {
-    private final JsonElement dictionary;
     private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
+    private final JsonElement dictionary;
+    private final LinkedList<String> dictionaryIndex;
+
+    private final LinkedList<String> dictionaryClassIndex;
+    private final LinkedList<String> dictionaryEnumIndex;
+    private final LinkedList<String> dictionaryAssetIndex;
 
     /**
-     *Set a JsonElement as a dictionary
+     *Set a JsonElement as a dictionary and set an Index list , an Index Class list, an Index Enum list, an Asset list
      * @param dictionary A JsonElement result of a JsonParser.parseReader( Reader) to JsonObject
      */
     public ApiStructuresExtractor(JsonElement dictionary) {
         this.dictionary = dictionary;
+        this.dictionaryIndex = entryList();
+        this.dictionaryClassIndex = extractMatchTypeIndex(dictionaryIndex, "CLASS");
+        this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, "ASSET");
+        this.dictionaryEnumIndex = extractMatchTypeIndex(dictionaryIndex, "ENUM");
+    }
+
+    /**
+     * Extract and Store in a LinkedList String all the Index matching with the String use in arg
+     * @param dictionaryIndex LinkedList String Index of the Json API descriptor
+     * @param matchingString String to find in Index LinkedList String
+     * @return LinkedList String of an Index Type
+     */
+    private LinkedList<String> extractMatchTypeIndex(LinkedList<String> dictionaryIndex, String matchingString) {
+        LinkedList<String> dictionaryMatchTypeIndex = new LinkedList<>();
+
+        for (String index: dictionaryIndex) {
+            if(index.contains(matchingString))
+                dictionaryMatchTypeIndex.add(index);
+        }
+        return dictionaryMatchTypeIndex;
     }
 
     /**
@@ -73,7 +98,7 @@ public class ApiStructuresExtractor {
                     enumValues.add(m.group());
                     //System.out.print(m.group() + " ");
                 }
-                System.out.println();
+                //System.out.println();
             }
         }
         return enumValues;
@@ -84,8 +109,8 @@ public class ApiStructuresExtractor {
      * Here the code compare this list to the Entry summary of a dictionary.
      * @return a List Strings of the entry contained in the JsonElement dictionary
      */
-    public List<String> entryList(){
-        List<String> entry = new ArrayList<>();
+    public LinkedList<String> entryList(){
+        LinkedList<String> entry = new LinkedList<>();
         Set<Map.Entry<String, JsonElement>> structuresIndex = this.dictionary.getAsJsonObject().entrySet();
         for (Map.Entry<String, JsonElement> test: structuresIndex) {
                 entry.add(test.getKey());
@@ -103,5 +128,21 @@ public class ApiStructuresExtractor {
     public JsonArray extractTemplates(String templateToExtract){
         JsonObject vscTemplate = dictionary.getAsJsonObject().getAsJsonObject(templateToExtract);
         return vscTemplate.getAsJsonArray("body");
+    }
+
+    public List<String> getDictionaryIndex() {
+        return dictionaryIndex;
+    }
+
+    public LinkedList<String> getDictionaryClassIndex() {
+        return dictionaryClassIndex;
+    }
+
+    public LinkedList<String> getDictionaryEnumIndex() {
+        return dictionaryEnumIndex;
+    }
+
+    public LinkedList<String> getDictionaryAssetIndex() {
+        return dictionaryAssetIndex;
     }
 }

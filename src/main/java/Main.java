@@ -33,12 +33,15 @@ public class Main {
         //Build dictionary and a Structures[] Index
         JsonElement dictionary = JsonParser.parseReader(reader).getAsJsonObject();
         ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
-        //System.out.println(structures.entryList().toString());
+        System.out.println(structures.getDictionaryIndex());
+        System.out.println(structures.getDictionaryAssetIndex());
+        System.out.println(structures.getDictionaryClassIndex());
+        System.out.println(structures.getDictionaryEnumIndex());
 
         //parse and Display the entire dictionary looking for API Class Template
         for(int i = 0; i < structures.entryList().size(); i++) {
             //look for a specific snippet template
-            JsonArray templates = structures.extractTemplates(structures.entryList().get(i));
+            JsonArray templates = structures.extractTemplates(structures.getDictionaryIndex().get(i));
 
 
             //Clean the templates : use regex to identify the vsc list position tag
@@ -52,7 +55,8 @@ public class Main {
             JsonArray templates = structures.extractTemplates(structures.entryList().get(j));
 
             //Clean the ENUM templates
-            ApiStructuresExtractor.cleanEnumTemplate(templates);
+            //System.out.println(structures.extractTemplatesNames(structures.entryList().get(j)));
+            //System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
         }
 
 
