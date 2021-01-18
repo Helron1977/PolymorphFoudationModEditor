@@ -20,6 +20,7 @@ public class Main {
                     Get each line as a String
                     Split on '='
                     use regex to identify the vsc list position tag
+        look for the VALUES of Enum Structures
      */
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -34,18 +35,28 @@ public class Main {
         ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
         //System.out.println(structures.entryList().toString());
 
-        //parse and Display the entire dictionary
+        //parse and Display the entire dictionary looking for API Class Template
         for(int i = 0; i < structures.entryList().size(); i++) {
             //look for a specific snippet template
-            JsonArray structure = structures.extractTemplate(structures.entryList().get(i));
+            JsonArray templates = structures.extractTemplates(structures.entryList().get(i));
 
 
-            //Clean the structure : use regex to identify the vsc list position tag
-            LinkedHashMap<String, String> parameters = ApiStructuresExtractor.clean(structure);
+            //Clean the templates : use regex to identify the vsc list position tag
+            LinkedHashMap<String, String> parameters = ApiStructuresExtractor.clean(templates);
 
-            //display structure parameters name and parameters Type and default values
+            //display templates s parameters name and parameters Type and default values
             ApiStructuresExtractor.consoleDisplaylinkedMapToString(parameters);
         }
+        for(int j =0; j < structures.entryList().size(); j++){
+            //look for the VALUES of Enum Structures
+            JsonArray templates = structures.extractTemplates(structures.entryList().get(j));
+
+            //Clean the ENUM templates
+            ApiStructuresExtractor.cleanEnumTemplate(templates);
+        }
+
+
+
 
 
     }

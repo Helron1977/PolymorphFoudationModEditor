@@ -3,9 +3,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ApiStructuresExtractor {
     private final JsonElement dictionary;
+    private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
 
     /**
      *Set a JsonElement as a dictionary
@@ -53,6 +56,30 @@ public class ApiStructuresExtractor {
     }
 
     /**
+     * Parse the Capital letter as VALUES of Enums. Enums do not have an equal char.So can be identify by a lenght of 1
+     * @param templates JsonArray of JsonElement containing a code to parse
+     * @return linkedList of String, the Enums Values
+     */
+    public static List<String> cleanEnumTemplate(JsonArray templates) {
+        LinkedList<String> enumValues = new LinkedList<>();
+
+        for( JsonElement template : templates){
+            String line = template.getAsString();
+            String[] enumTemplate = line.split("=");
+            Matcher m = custom.matcher(enumTemplate[0]);
+
+            if (enumTemplate.length == 1 && m.find()) {
+                while (m.find()) {
+                    enumValues.add(m.group());
+                    //System.out.print(m.group() + " ");
+                }
+                System.out.println();
+            }
+        }
+        return enumValues;
+    }
+
+    /**
      * Provide a List Strings of structures NAMES corresponding to Class or Enum describe in the Json VSC Snippets file.
      * Here the code compare this list to the Entry summary of a dictionary.
      * @return a List Strings of the entry contained in the JsonElement dictionary
@@ -68,13 +95,12 @@ public class ApiStructuresExtractor {
     }
 
     /**
-     * Extract a specific Structure called here Template that represent a specific Class or Enum contained ...
-     * in the Json VSC Snippets file.
+     * Extract a specific API Template contained in the Json VSC Snippets file.
      * Here the code compare this template as a definition in a dictionary
      * @param templateToExtract String template to extract
      * @return JsonArray extracted Template
      */
-    public JsonArray extractTemplate(String templateToExtract){
+    public JsonArray extractTemplates(String templateToExtract){
         JsonObject vscTemplate = dictionary.getAsJsonObject().getAsJsonObject(templateToExtract);
         return vscTemplate.getAsJsonArray("body");
     }
