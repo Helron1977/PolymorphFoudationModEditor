@@ -23,7 +23,7 @@ public class ApiStructuresExtractor {
         this.dictionary = dictionary;
         this.dictionaryIndex = entryList();
         this.dictionaryClassIndex = extractMatchTypeIndex(dictionaryIndex, "CLASS");
-        this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, "ASSET");
+        this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, "-ASSET");
         this.dictionaryEnumIndex = extractMatchTypeIndex(dictionaryIndex, "ENUM");
     }
 
@@ -90,15 +90,10 @@ public class ApiStructuresExtractor {
 
         for( JsonElement template : templates){
             String line = template.getAsString();
-            String[] enumTemplate = line.split("=");
-            Matcher m = custom.matcher(enumTemplate[0]);
+            Matcher m = custom.matcher(line);
 
-            if (enumTemplate.length == 1 && m.find()) {
-                while (m.find()) {
-                    enumValues.add(m.group());
-                    //System.out.print(m.group() + " ");
-                }
-                //System.out.println();
+            while (m.find()) {
+                enumValues.add(m.group());
             }
         }
         return enumValues;

@@ -57,5 +57,14 @@ public class Main {
             //Clean the ENUM templates
             System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
         }
+
+        for(String index: structures.getDictionaryAssetIndex()){
+            //look for the VALUES of Enum Structures
+            JsonArray templates = structures.extractTemplates(index);
+
+            //Clean the ENUM templates
+            System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
+        }
+
     }
 }
