@@ -39,10 +39,9 @@ public class Main {
         System.out.println(structures.getDictionaryEnumIndex());
 
         //parse and Display the entire dictionary looking for API Class Template
-        for(int i = 0; i < structures.entryList().size(); i++) {
-            //look for a specific snippet template
-            JsonArray templates = structures.extractTemplates(structures.getDictionaryIndex().get(i));
 
+        for (String index: structures.getDictionaryClassIndex()) {
+            JsonArray templates = structures.extractTemplates(index);
 
             //Clean the templates : use regex to identify the vsc list position tag
             LinkedHashMap<String, String> parameters = ApiStructuresExtractor.clean(templates);
@@ -50,12 +49,12 @@ public class Main {
             //display templates s parameters name and parameters Type and default values
             ApiStructuresExtractor.consoleDisplayLinkedMapToString(parameters);
         }
-        for(int j =0; j < structures.entryList().size(); j++){
+
+        for(String index: structures.getDictionaryEnumIndex()){
             //look for the VALUES of Enum Structures
-            JsonArray templates = structures.extractTemplates(structures.entryList().get(j));
+            JsonArray templates = structures.extractTemplates(index);
 
             //Clean the ENUM templates
-            System.out.println(structures.extractTemplates(structures.entryList().get(j)));
             System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
         }
     }
