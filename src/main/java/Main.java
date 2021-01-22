@@ -46,6 +46,12 @@ public class Main {
         structures.classToString("TEXTURE");
         structures.enumToString("TEXTURE_WRAP");
         structures.assetToString("TEXTURE");
+        LinkedHashMap<String, String> params = structures.extractClass("TEXTURE");
+        for (String param: params.keySet()) {
+            System.out.println(params.get(param));
+        }
+        System.out.println(structures.extractParamDefaultValue(params.get("WrapMode")));
+        System.out.println(structures.extractParamType(params.get("WrapMode")));
 
 
         //parse and Display the entire dictionary looking for API Class Template

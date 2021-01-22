@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 public class ApiStructuresExtractor {
     private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
+    private final static Pattern defaultValueMatcher = Pattern.compile("\\S+(?=\\))");
     private final String CLASSPREFIX = "Foundation-CLASS_";
     private final String ENUMPREFIX = "Foundation-ENUM_";
     private static final String ASSETPREFIX = "Foundation-ASSET_";
@@ -141,6 +142,29 @@ public class ApiStructuresExtractor {
             System.out.print(param + " = ");
             System.out.println(parameters.get(param));
         }
+    }
+
+    /**
+     * Extract the default Value from a String param Type that contain it.
+     * ex: TEXTURE_WRAP (default: TEXTURE_WRAP.CLAMP) returns TEXTURE_WRAP.CLAMP
+     * @param param String Param containing the default value.
+     * @return String the default value.
+     */
+    public String extractParamDefaultValue(String param){
+        Matcher m = defaultValueMatcher.matcher(param);
+        if(m.find())
+            return m.group();
+        return null;
+    }
+
+    /**
+     * Extract an expected parameter type from String param, first word of the String.
+     * @param param String Param containing the expected Type.
+     * @return a String, expected parameter type.
+     */
+    public String extractParamType(String param){
+        Scanner sc = new Scanner(param);
+        return sc.next();
     }
 
     /**
