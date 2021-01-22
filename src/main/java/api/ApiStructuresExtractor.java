@@ -1,3 +1,5 @@
+package api;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -8,6 +10,9 @@ import java.util.regex.Pattern;
 
 public class ApiStructuresExtractor {
     private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
+    private final String CLASSPREFIX = "Foundation-CLASS_";
+    private final String ENUMPREFIX = "Foundation-ENUM_";
+    private static final String ASSETPREFIX = "Foundation-ASSET_";
     private final JsonElement dictionary;
     private final LinkedList<String> dictionaryIndex;
 
@@ -123,6 +128,52 @@ public class ApiStructuresExtractor {
     public JsonArray extractTemplates(String templateToExtract){
         JsonObject vscTemplate = dictionary.getAsJsonObject().getAsJsonObject(templateToExtract);
         return vscTemplate.getAsJsonArray("body");
+    }
+
+    /**
+     * Extract the parameters of a API Class using a String ID without the prefix set as CONST.
+     * @param classToExtract a String Name, id of the class to display
+     */
+    public void classToString(String classToExtract){
+        JsonArray templates = extractTemplates(CLASSPREFIX+ classToExtract);
+        LinkedHashMap<String, String> parameters = ApiStructuresExtractor.clean(templates);
+        for (String param : parameters.keySet()) {
+            System.out.print(param + " = ");
+            System.out.println(parameters.get(param));
+        }
+    }
+
+    /**
+     * Extract a Class of the Api using a String ID whitout the prefix set as CONST.
+     * @param classToExtract a String id of the Class to extract
+     * @return a LinkedHashMap param, param type
+     */
+    public LinkedHashMap<String, String> extractClass(String classToExtract) {
+        JsonArray templates = extractTemplates(CLASSPREFIX+ classToExtract);
+        return ApiStructuresExtractor.clean(templates);
+    }
+
+    /**
+     * Extract the values of an API ENUM using an id without the prefix, set as CONST.
+     * @param enumToExtract a String, id of the Enum to display
+     */
+    public void enumToString(String enumToExtract){
+        //look for the VALUES of Enum Structures
+        JsonArray templates = extractTemplates(ENUMPREFIX+enumToExtract);
+        //Clean the ENUM templates
+        System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
+    }
+
+    /**
+     * Extract the values of the API ASSET using a String ID without the prefix set as CONST.
+     * @param assetToExtract a String, id of the Asset to display
+     */
+    public void assetToString(String assetToExtract) {
+        //look for the VALUES of Enum Structures
+        JsonArray templates = extractTemplates(ASSETPREFIX+assetToExtract);
+
+        //Clean the ENUM templates
+        System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
     }
 
     public List<String> getDictionaryIndex() {

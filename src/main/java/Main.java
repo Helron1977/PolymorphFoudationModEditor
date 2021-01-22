@@ -1,13 +1,18 @@
+import api.ApiStructuresExtractor;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import ihm.Frame;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.List;
 
 
 public class Main {
@@ -38,9 +43,14 @@ public class Main {
         System.out.println(structures.getDictionaryClassIndex());
         System.out.println(structures.getDictionaryEnumIndex());
 
+        structures.classToString("TEXTURE");
+        structures.enumToString("TEXTURE_WRAP");
+        structures.assetToString("TEXTURE");
+
+
         //parse and Display the entire dictionary looking for API Class Template
 
-        for (String index: structures.getDictionaryClassIndex()) {
+/*        for (String index: structures.getDictionaryClassIndex()) {
             JsonArray templates = structures.extractTemplates(index);
 
             //Clean the templates : use regex to identify the vsc list position tag
@@ -48,23 +58,47 @@ public class Main {
 
             //display templates s parameters name and parameters Type and default values
             ApiStructuresExtractor.consoleDisplayLinkedMapToString(parameters);
-        }
+        }*/
 
-        for(String index: structures.getDictionaryEnumIndex()){
+/*        for(String index: structures.getDictionaryEnumIndex()){
             //look for the VALUES of Enum Structures
             JsonArray templates = structures.extractTemplates(index);
 
             //Clean the ENUM templates
             System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
-        }
-
+        }*/
+/*
         for(String index: structures.getDictionaryAssetIndex()){
             //look for the VALUES of Enum Structures
             JsonArray templates = structures.extractTemplates(index);
 
             //Clean the ENUM templates
             System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
+        }*/
+
+/*        Frame f = new Frame();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        f.setSize(dim);
+
+        for (String index : structures.getDictionaryAssetIndex()) {
+
+            //look for the VALUES of Enum Structures
+            JsonArray templates = structures.extractTemplates(index);
+            JLabel lbl = new JLabel("Foundation-ENUM_TEXTURE_WRAP");
+            f.getContentPane().add(lbl);
+
+            //Clean the ENUM templates
+            List<String> enumValues = ApiStructuresExtractor.cleanEnumTemplate(templates);
+            JComboBox b = new JComboBox();
+            for (String value: enumValues) {
+                b.addItem(value);
+            }
+            f.getContentPane().add(b);
         }
+
+
+        f.setLocation(dim.width/2 - f.getWidth()/2, dim.height/2 - f.getHeight()/2);
+        f.setVisible(true);*/
 
     }
 }
