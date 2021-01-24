@@ -13,10 +13,9 @@ public class ApiStructuresExtractor {
     private final static Pattern defaultValueMatcher = Pattern.compile("\\S+(?=\\))");
     private final String CLASSPREFIX = "Foundation-CLASS_";
     private final String ENUMPREFIX = "Foundation-ENUM_";
-    private static final String ASSETPREFIX = "Foundation-ASSET_";
+    private final String ASSETPREFIX = "Foundation-ASSET_";
     private final JsonElement dictionary;
     private final LinkedList<String> dictionaryIndex;
-
     private final LinkedList<String> dictionaryClassIndex;
     private final LinkedList<String> dictionaryEnumIndex;
     private final LinkedList<String> dictionaryAssetIndex;
@@ -50,7 +49,7 @@ public class ApiStructuresExtractor {
     }
 
     /**
-     * Clean a jsonArray of VSC snippet's tags
+     * Clean a jsonArray of VSC snippet's tags and DataType param.
      * @param structure JsonArray of parameter Set
      * @return LinkedHasMap (Parameter Label ; String Parameter Type and default Value)
      */
@@ -62,14 +61,16 @@ public class ApiStructuresExtractor {
         for (JsonElement key: structure) {
             line = key.getAsString();
             String[] parameter = line.split("=");
-            if(parameter.length == 2) {
-                parameter[0] = parameter[0].replaceAll("\\s","");
-                parameter[1]= parameter[1].replace(" ${","")
-                        .replace("},","")
-                        .replace("\",","\"")
-                        .replace("\"","")
+
+            if (parameter.length == 2) {
+                parameter[0] = parameter[0].replaceAll("\\s", "");
+                parameter[1] = parameter[1].replace(" ${", "")
+                        .replace("},", "")
+                        .replace("\",", "\"")
+                        .replace("\"", "")
                         .replaceAll("[\\d]+:", "");
-                parameters.put(parameter[0], parameter[1]);
+                if(!parameter[0].equals("DataType"))
+                    parameters.put(parameter[0], parameter[1]);
             }
         }
         return parameters;
@@ -180,12 +181,14 @@ public class ApiStructuresExtractor {
     /**
      * Extract the values of an API ENUM using an id without the prefix, set as CONST.
      * @param enumToExtract a String, id of the Enum to display
+     * @return A List String of the Enum values
      */
-    public void enumToString(String enumToExtract){
+    public List<String> enumToList(String enumToExtract){
         //look for the VALUES of Enum Structures
         JsonArray templates = extractTemplates(ENUMPREFIX+enumToExtract);
         //Clean the ENUM templates
-        System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
+        return ApiStructuresExtractor.cleanEnumTemplate(templates);
+        //System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
     }
 
     /**

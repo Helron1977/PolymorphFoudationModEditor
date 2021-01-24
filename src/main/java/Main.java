@@ -1,18 +1,13 @@
 import api.ApiStructuresExtractor;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import ihm.Frame;
+import ihm.classForm;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
-
 import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.List;
+import java.util.LinkedHashMap;
 
 
 public class Main {
@@ -38,20 +33,23 @@ public class Main {
         //Build dictionary and a Structures[] Index
         JsonElement dictionary = JsonParser.parseReader(reader).getAsJsonObject();
         ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
-        System.out.println(structures.getDictionaryIndex());
+/*        System.out.println(structures.getDictionaryIndex());
         System.out.println(structures.getDictionaryAssetIndex());
         System.out.println(structures.getDictionaryClassIndex());
-        System.out.println(structures.getDictionaryEnumIndex());
+        System.out.println(structures.getDictionaryEnumIndex());*/
 
-        structures.classToString("TEXTURE");
-        structures.enumToString("TEXTURE_WRAP");
+        //structures.classToString("TEXTURE");
+        structures.enumToList("TEXTURE_WRAP");
         structures.assetToString("TEXTURE");
         LinkedHashMap<String, String> params = structures.extractClass("TEXTURE");
-        for (String param: params.keySet()) {
+
+        classForm test = new classForm(structures);
+/*        for (String param: params.keySet()) {
+            System.out.println(param);
             System.out.println(params.get(param));
-        }
-        System.out.println(structures.extractParamDefaultValue(params.get("WrapMode")));
-        System.out.println(structures.extractParamType(params.get("WrapMode")));
+            System.out.println(structures.extractParamDefaultValue(params.get("WrapMode")));
+            System.out.println(structures.extractParamType(params.get("WrapMode")));
+        }*/
 
 
         //parse and Display the entire dictionary looking for API Class Template
