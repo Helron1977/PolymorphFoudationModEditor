@@ -7,7 +7,9 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -51,14 +53,17 @@ public class classForm extends JFrame {
     private void buildEachRows(LinkedHashMap<String, String> params) {
         int cptRow = 0;
         for( String param : params.keySet()){
-            String paramType = structure.extractParamType(params.get(param));
-            buildFormRow(param, paramType, cptRow);
+            String fullParamDescription = params.get(param);
+            String paramType = structure.extractParamType(fullParamDescription);
+            String defaultValue = structure.extractParamDefaultValue(fullParamDescription);
+            buildFormRow(param, paramType, cptRow, defaultValue);
             cptRow++;
         }
     }
 
-    private void buildFormRow(String label, String field, int lineNumber) {
+    private void buildFormRow(String label, String field, int lineNumber, String defaultValue) {
         JLabel lbl = new JLabel(label);
+        System.out.println( "je suis le field"+field);
         gbc.gridx = 0;
         gbc.gridwidth = 1;
         gbc.gridy= lineNumber;
@@ -66,43 +71,105 @@ public class classForm extends JFrame {
         gb.setConstraints(lbl, gbc);
         getContentPane().add(lbl);
 
-
-        buildField(field, lineNumber);
+        buildField(field, lineNumber, defaultValue);
 
 
 
     }
 
-    private void buildField(String field, int lineNumber) {
+    private void buildField(String field, int lineNumber, String defaultValue) {
         int paramType = identifyType(field);
 
-        switch (paramType){
-            case 1 :         JTextField jt = new JTextField(field);
+        switch (paramType) {
+            case 1:
+                JTextField jt = new JTextField(field);
                 gbc.gridx = 1;
                 gbc.gridwidth = 1;
-                gbc.gridy= lineNumber;
+                gbc.gridy = lineNumber;
                 gb.setConstraints(jt, gbc);
                 getContentPane().add(jt);
-            case 2:          JComboBox jbc = new JComboBox();
-
-                jbc.addItem("test");
+                break;
+            case 2:
+                JComboBox<String> jbc = new JComboBox<String>();
+                if (structure.isAsset(field)) {
+                    for (String value : structure.assetToList(field)) {
+                        jbc.addItem(value);
+                    }
+                    System.out.println("defaut:" + structure.extractParamDefaultValue(field));
+                    if(defaultValue != null){
+                        jbc.addItem(defaultValue);
+                        jbc.setSelectedItem(defaultValue);
+                    }
+                    gbc.gridx = 1;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gb.setConstraints(jbc, gbc);
+                    getContentPane().add(jbc);
+                    break;
+                } else if (structure.isEnum(field)) {
+                    for (String value : structure.enumToList(field)) {
+                        jbc.addItem(value);
+                    }
+                    if(defaultValue != null){
+                        jbc.setSelectedItem(defaultValue);
+                    }
+                    gbc.gridx = 1;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gb.setConstraints(jbc, gbc);
+                    getContentPane().add(jbc);
+                    break;
+                }
+            case 4:
+                JCheckBox jcb = new JCheckBox();
+                if(defaultValue != null){
+                    if(defaultValue.equals("true"))
+                        jcb.setSelected(true);
+                    else if(defaultValue.equals("false"))
+                        jcb.setSelected(false);
+                }
                 gbc.gridx = 1;
                 gbc.gridwidth = 1;
-                gbc.gridy= lineNumber;
-                gb.setConstraints(jbc, gbc);
-                getContentPane().add(jbc);
+                gbc.gridy = lineNumber;
+                gbc.fill = GridBagConstraints.BOTH;
+                gb.setConstraints(jcb, gbc);
+                getContentPane().add(jcb);
+                break;
+            case 5:
+                JSpinner js = new JSpinner();
+                gbc.gridx = 1;
+                gbc.gridwidth = 1;
+                gbc.gridy = lineNumber;
+                gbc.fill = GridBagConstraints.BOTH;
+                gb.setConstraints(js, gbc);
+                getContentPane().add(js);
+                break;
         }
     }
 
     private int identifyType(String field) {
-        Matcher m = cap.matcher(field);
-        boolean match = m.matches();
 
         if(field.contains("string")){
             return 1;
         }
-        else if(match)
+        else if(field.equals(field.toUpperCase())){
+            System.out.println(field);
             return 2;
-        return 0;
+        }
+        else if(field.contains("list<")){
+            System.out.println(field);
+            return 3;
+        }
+        else if(field.contains("boolean")) {
+            System.out.println("bool");
+            return 4;
+        }
+        else if(field.contains("integer")) {
+            System.out.println("integer");
+            return 5;
+        }
+        return 6;
     }
 }

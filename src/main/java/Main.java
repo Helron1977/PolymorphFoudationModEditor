@@ -1,4 +1,5 @@
 import api.ApiStructuresExtractor;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import ihm.classForm;
@@ -39,11 +40,10 @@ public class Main {
         System.out.println(structures.getDictionaryEnumIndex());*/
 
         //structures.classToString("TEXTURE");
-        structures.enumToList("TEXTURE_WRAP");
-        structures.assetToString("TEXTURE");
+        //System.out.println(structures.enumToList("TEXTURE_WRAP"));
+        //structures.assetToString("TEXTURE");
         LinkedHashMap<String, String> params = structures.extractClass("TEXTURE");
 
-        classForm test = new classForm(structures);
 /*        for (String param: params.keySet()) {
             System.out.println(param);
             System.out.println(params.get(param));
@@ -64,13 +64,16 @@ public class Main {
             ApiStructuresExtractor.consoleDisplayLinkedMapToString(parameters);
         }*/
 
-/*        for(String index: structures.getDictionaryEnumIndex()){
+/*        for(String index: structures.getDictionaryEnumIndex()) {
             //look for the VALUES of Enum Structures
             JsonArray templates = structures.extractTemplates(index);
+            System.out.println(index);
 
             //Clean the ENUM templates
             System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
         }*/
+
+        classForm test = new classForm(structures);
 /*
         for(String index: structures.getDictionaryAssetIndex()){
             //look for the VALUES of Enum Structures

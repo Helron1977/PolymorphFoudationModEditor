@@ -38,7 +38,7 @@ public class ApiStructuresExtractor {
      * @param matchingString String to find in Index LinkedList String
      * @return LinkedList String of an Index Type
      */
-    private LinkedList<String> extractMatchTypeIndex(LinkedList<String> dictionaryIndex, String matchingString) {
+    public LinkedList<String> extractMatchTypeIndex(LinkedList<String> dictionaryIndex, String matchingString) {
         LinkedList<String> dictionaryMatchTypeIndex = new LinkedList<>();
 
         for (String index: dictionaryIndex) {
@@ -85,6 +85,35 @@ public class ApiStructuresExtractor {
             System.out.print(param + " = ");
             System.out.println(parameters.get(param));
         }
+    }
+
+    /**
+     * return true if the String use in param match with an Enum of the API
+     * @param paramType the String you are looking for.
+     * @return a boolean true/false
+     */
+    public boolean isEnum(String paramType){
+        for(String index: getDictionaryEnumIndex()) {
+            if((ENUMPREFIX+paramType).equals(index)){
+                System.out.println("enum");
+                return true;}
+        }
+        return false;
+    }
+
+    /**
+     * return true if the String use in param match with an Asset of the API
+     * @param paramType the String you are looking for.
+     * @return a boolean true/false
+     */
+    public boolean isAsset(String paramType){
+        for(String index: getDictionaryAssetIndex()) {
+            if((ASSETPREFIX+paramType).equals(index)) {
+                System.out.println("asset");
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -153,8 +182,9 @@ public class ApiStructuresExtractor {
      */
     public String extractParamDefaultValue(String param){
         Matcher m = defaultValueMatcher.matcher(param);
-        if(m.find())
-            return m.group();
+        if(m.find()){
+            System.out.println(m.group());
+            return m.group();}
         return null;
     }
 
@@ -187,20 +217,21 @@ public class ApiStructuresExtractor {
         //look for the VALUES of Enum Structures
         JsonArray templates = extractTemplates(ENUMPREFIX+enumToExtract);
         //Clean the ENUM templates
-        return ApiStructuresExtractor.cleanEnumTemplate(templates);
+        return cleanEnumTemplate(templates);
         //System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
     }
 
     /**
      * Extract the values of the API ASSET using a String ID without the prefix set as CONST.
      * @param assetToExtract a String, id of the Asset to display
+     * @return
      */
-    public void assetToString(String assetToExtract) {
+    public List<String> assetToList(String assetToExtract) {
         //look for the VALUES of Enum Structures
         JsonArray templates = extractTemplates(ASSETPREFIX+assetToExtract);
 
         //Clean the ENUM templates
-        System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
+        return ApiStructuresExtractor.cleanEnumTemplate(templates);
     }
 
     public List<String> getDictionaryIndex() {
