@@ -4,64 +4,37 @@ import api.ApiStructuresExtractor;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class classForm extends JFrame {
-    private static GridBagLayout gb = new GridBagLayout();
-    private static GridBagConstraints gbc = new GridBagConstraints();
-    private ApiStructuresExtractor structure;
-    private static Pattern cap = Pattern.compile("([A-Z]\\w+)");
-    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+public class My_Tabs extends JTabbedPane{
+    private static final GridBagLayout gb = new GridBagLayout();
+    private static final GridBagConstraints gbc = new GridBagConstraints();
+    public static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    private final ApiStructuresExtractor structures;
 
-    public classForm(ApiStructuresExtractor structure) throws HeadlessException {
-        super("Foundation Wizard");
-        this.structure = structure;
-        buildForm(structure);
+    public My_Tabs(String class_ID, ApiStructuresExtractor structures) {
+        this.structures = structures;
+
+        JPanel panel = new My_Pane(class_ID, structures,this);
+        this.add(class_ID, panel);
+
+        setBounds(40,20,300,300);
     }
 
-    private void buildForm(ApiStructuresExtractor structures) {
-        JPanel panel = new JPanel();
 
-        WindowListener l = new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        };
-        addWindowListener(l);
-        setContentPane(panel);
-
-        setLayout(gb);
-        setSize(dim);
-        setLocation(dim.width/2 - getWidth()/2, dim.height/2 - getHeight()/2);
-        setVisible(true);
-
-        LinkedHashMap<String, String> params = structures.extractClass("BUILDING");
-        buildEachRows(params);
-        repaint();
-
-
-    }
-
-    private void buildEachRows(LinkedHashMap<String, String> params) {
+    private void buildEachRows(LinkedHashMap<String, String> params, JPanel panel) {
         int cptRow = 0;
         for( String param : params.keySet()){
             String fullParamDescription = params.get(param);
-            String paramType = structure.extractParamType(fullParamDescription);
-            String defaultValue = structure.extractParamDefaultValue(fullParamDescription);
-            buildFormRow(param, paramType, cptRow, defaultValue);
+            String paramType = structures.extractParamType(fullParamDescription);
+            String defaultValue = structures.extractParamDefaultValue(fullParamDescription);
+            buildFormRow(param, paramType, cptRow, defaultValue, panel);
             cptRow++;
         }
     }
 
-    private void buildFormRow(String label, String field, int lineNumber, String defaultValue) {
+    private void buildFormRow(String label, String field, int lineNumber, String defaultValue, JPanel panel) {
+
         JLabel lbl = new JLabel(label);
         System.out.println( "je suis le field"+field);
         gbc.gridx = 0;
@@ -69,15 +42,13 @@ public class classForm extends JFrame {
         gbc.gridy= lineNumber;
         gbc.fill= GridBagConstraints.BOTH;
         gb.setConstraints(lbl, gbc);
-        getContentPane().add(lbl);
+        panel.add(lbl);
 
-        buildField(field, lineNumber, defaultValue);
-
-
+        buildField(field, lineNumber, defaultValue, panel);
 
     }
 
-    private void buildField(String field, int lineNumber, String defaultValue) {
+    private void buildField(String field, int lineNumber, String defaultValue, JPanel panel) {
         int paramType = identifyType(field);
 
         switch (paramType) {
@@ -87,15 +58,15 @@ public class classForm extends JFrame {
                 gbc.gridwidth = 1;
                 gbc.gridy = lineNumber;
                 gb.setConstraints(jt, gbc);
-                getContentPane().add(jt);
+                panel.add(jt);
                 break;
             case 2:
-                JComboBox<String> jbc = new JComboBox<String>();
-                if (structure.isAsset(field)) {
-                    for (String value : structure.assetToList(field)) {
+                JComboBox<String> jbc = new JComboBox<>();
+                if (structures.isAsset(field)) {
+                    for (String value : structures.assetToList(field)) {
                         jbc.addItem(value);
                     }
-                    System.out.println("defaut:" + structure.extractParamDefaultValue(field));
+                    System.out.println("defaut:" + structures.extractParamDefaultValue(field));
                     if(defaultValue != null){
                         jbc.addItem(defaultValue);
                         jbc.setSelectedItem(defaultValue);
@@ -105,10 +76,18 @@ public class classForm extends JFrame {
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jbc, gbc);
-                    getContentPane().add(jbc);
+                    panel.add(jbc);
+                    My_ButtonPlus bt = new My_ButtonPlus(structures, field, this);
+                    gbc.gridx = 2;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.REMAINDER;
+                    gb.setConstraints(bt, gbc);
+                    panel.add(bt);
+
                     break;
-                } else if (structure.isEnum(field)) {
-                    for (String value : structure.enumToList(field)) {
+                } else if (structures.isEnum(field)) {
+                    for (String value : structures.enumToList(field)) {
                         jbc.addItem(value);
                     }
                     if(defaultValue != null){
@@ -119,7 +98,7 @@ public class classForm extends JFrame {
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jbc, gbc);
-                    getContentPane().add(jbc);
+                    panel.add(jbc);
                     break;
                 }
             case 4:
@@ -135,7 +114,7 @@ public class classForm extends JFrame {
                 gbc.gridy = lineNumber;
                 gbc.fill = GridBagConstraints.BOTH;
                 gb.setConstraints(jcb, gbc);
-                getContentPane().add(jcb);
+                panel.add(jcb);
                 break;
             case 5:
                 JSpinner js = new JSpinner();
@@ -144,7 +123,7 @@ public class classForm extends JFrame {
                 gbc.gridy = lineNumber;
                 gbc.fill = GridBagConstraints.BOTH;
                 gb.setConstraints(js, gbc);
-                getContentPane().add(js);
+                panel.add(js);
                 break;
         }
     }
