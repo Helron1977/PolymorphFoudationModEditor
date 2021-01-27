@@ -38,7 +38,7 @@ public class MyPane extends JPanel {
     private void buildFormRow(String label, String field, int lineNumber, String defaultValue, JPanel panel) {
 
         JLabel lbl = new JLabel(label);
-        System.out.println( "je suis le field"+field);
+        System.out.println( "field"+field);
         gbc.gridx = 0;
         gbc.gridwidth = 1;
         gbc.gridy= lineNumber;
@@ -70,7 +70,7 @@ public class MyPane extends JPanel {
                     for (String value : structures.assetToList(field)) {
                         jbc.addItem(value);
                     }
-                    System.out.println("defaut:" + structures.extractParamDefaultValue(field));
+                    System.out.println("default:" + structures.extractParamDefaultValue(field));
                     if(defaultValue != null){
                         jbc.addItem(defaultValue);
                         jbc.setSelectedItem(defaultValue);
