@@ -2,27 +2,41 @@
 
 title __API's Class Diagram__\n
 
+  namespace  main{
     namespace api {
       class api.ApiStructuresExtractor {
+          - ASSETPREFIX : String
+          - CLASSPREFIX : String
+          - ENUMPREFIX : String
           {static} - custom : Pattern
+          {static} - defaultValueMatcher : Pattern
           - dictionary : JsonElement
           - dictionaryAssetIndex : LinkedList<String>
           - dictionaryClassIndex : LinkedList<String>
           - dictionaryEnumIndex : LinkedList<String>
           - dictionaryIndex : LinkedList<String>
           + ApiStructuresExtractor()
+          + assetToList()
+          + classToString()
           {static} + clean()
           {static} + cleanEnumTemplate()
           {static} + consoleDisplayLinkedMapToString()
           + entryList()
+          + enumToList()
+          + extractClass()
+          + extractMatchTypeIndex()
+          + extractParamDefaultValue()
+          + extractParamType()
           + extractTemplates()
           + getDictionaryAssetIndex()
           + getDictionaryClassIndex()
           + getDictionaryEnumIndex()
           + getDictionaryIndex()
-          - extractMatchTypeIndex()
+          + isAsset()
+          + isEnum()
       }
     }
+  }
   
 
 

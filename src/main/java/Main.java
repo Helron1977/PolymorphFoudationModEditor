@@ -2,9 +2,9 @@ import api.ApiStructuresExtractor;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import ihm.App;
-import ihm.My_Frame;
 
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
@@ -24,7 +24,7 @@ public class Main {
                     use regex to identify the vsc list position tag
         look for the VALUES of Enum Structures
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
 
         //Load the file ( SnippetsForVSC.Jsonc)
         FileInputStream source = new FileInputStream("C:\\Users\\rolan\\OneDrive\\Desktop\\source.jsonc");

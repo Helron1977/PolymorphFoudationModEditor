@@ -2,11 +2,11 @@
 
 title __JAVA's Class Diagram__\n
 
-
+  namespace java {
     class Main {
         {static} + main()
     }
-
+  }
   
 
 

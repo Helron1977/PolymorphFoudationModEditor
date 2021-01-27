@@ -6,16 +6,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedHashMap;
 
-public class My_Tabs extends JTabbedPane{
+public class MyTabs extends JTabbedPane{
     private static final GridBagLayout gb = new GridBagLayout();
     private static final GridBagConstraints gbc = new GridBagConstraints();
     public static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private final ApiStructuresExtractor structures;
 
-    public My_Tabs(String class_ID, ApiStructuresExtractor structures) {
+    public MyTabs(String class_ID, ApiStructuresExtractor structures) {
         this.structures = structures;
 
-        JPanel panel = new My_Pane(class_ID, structures,this);
+        JPanel panel = new MyPane(class_ID, structures,this);
         this.add(class_ID, panel);
 
         setBounds(40,20,300,300);

@@ -6,14 +6,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedHashMap;
 
-public class My_Pane extends JPanel {
+public class MyPane extends JPanel {
     private static final GridBagLayout gb = new GridBagLayout();
     private static final GridBagConstraints gbc = new GridBagConstraints();
     public static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    private final My_Tabs tabs;
+    private final MyTabs tabs;
     private final ApiStructuresExtractor structures;
 
-    public My_Pane(String class_ID, ApiStructuresExtractor structures, My_Tabs tabs) {
+    public MyPane(String class_ID, ApiStructuresExtractor structures, MyTabs tabs) {
         this.structures = structures;
         this.tabs = tabs;
 
@@ -75,18 +75,19 @@ public class My_Pane extends JPanel {
                         jbc.addItem(defaultValue);
                         jbc.setSelectedItem(defaultValue);
                     }
-                    gbc.gridx = 1;
-                    gbc.gridwidth = 1;
-                    gbc.gridy = lineNumber;
-                    gbc.fill = GridBagConstraints.BOTH;
-                    gb.setConstraints(jbc, gbc);
+                        gbc.gridx = 1;
+                        gbc.gridwidth = 1;
+                        gbc.gridy = lineNumber;
+                        gbc.fill = GridBagConstraints.BOTH;
+                        gb.setConstraints(jbc, gbc);
                     panel.add(jbc);
+
                     My_ButtonPlus bt = new My_ButtonPlus(structures, field, tabs);
-                    gbc.gridx = 2;
-                    gbc.gridwidth = 1;
-                    gbc.gridy = lineNumber;
-                    gbc.fill = GridBagConstraints.REMAINDER;
-                    gb.setConstraints(bt, gbc);
+                        gbc.gridx = 2;
+                        gbc.gridwidth = 1;
+                        gbc.gridy = lineNumber;
+                        gbc.fill = GridBagConstraints.REMAINDER;
+                        gb.setConstraints(bt, gbc);
                     panel.add(bt);
 
                     break;
@@ -97,14 +98,34 @@ public class My_Pane extends JPanel {
                     if(defaultValue != null){
                         jbc.setSelectedItem(defaultValue);
                     }
+                        gbc.gridx = 1;
+                        gbc.gridwidth = 1;
+                        gbc.gridy = lineNumber;
+                        gbc.fill = GridBagConstraints.BOTH;
+                        gb.setConstraints(jbc, gbc);
+                    panel.add(jbc);
+                    break;
+                }
+            case 3:
+                field = field .replaceAll("list<","")
+                              .replaceAll(">","");
+                System.out.println(field);
+                JTextField jtf = new JTextField();
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
-                    gb.setConstraints(jbc, gbc);
-                    panel.add(jbc);
-                    break;
-                }
+                    gb.setConstraints(jtf, gbc);
+                panel.add(jtf);
+
+                My_ButtonPlus bt = new My_ButtonPlus(structures, field, tabs);
+                    gbc.gridx = 2;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.REMAINDER;
+                    gb.setConstraints(bt, gbc);
+                panel.add(bt);
+
             case 4:
                 JCheckBox jcb = new JCheckBox();
                 if(defaultValue != null){
@@ -113,20 +134,20 @@ public class My_Pane extends JPanel {
                     else if(defaultValue.equals("false"))
                         jcb.setSelected(false);
                 }
-                gbc.gridx = 1;
-                gbc.gridwidth = 1;
-                gbc.gridy = lineNumber;
-                gbc.fill = GridBagConstraints.BOTH;
-                gb.setConstraints(jcb, gbc);
+                    gbc.gridx = 1;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gb.setConstraints(jcb, gbc);
                 panel.add(jcb);
                 break;
             case 5:
                 JSpinner js = new JSpinner();
-                gbc.gridx = 1;
-                gbc.gridwidth = 1;
-                gbc.gridy = lineNumber;
-                gbc.fill = GridBagConstraints.BOTH;
-                gb.setConstraints(js, gbc);
+                    gbc.gridx = 1;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gb.setConstraints(js, gbc);
                 panel.add(js);
                 break;
         }

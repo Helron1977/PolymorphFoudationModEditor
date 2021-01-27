@@ -9,9 +9,9 @@ public class App {
 
     public App(ApiStructuresExtractor structures) {
         this.structures = structures;
-        Frame test = new My_Frame("BUILDING WIZARD");
-        My_Tabs my_tab = new My_Tabs("BUILDING", structures);
-        test.add(my_tab);
+        Frame test = new MyFrame("FOUNDATION WIZARD");
+        MyTabs myTab = new MyTabs("BUILDING", structures);
+        test.add(myTab);
 
     }
 }

@@ -5,11 +5,11 @@ import api.ApiStructuresExtractor;
 import javax.swing.*;
 
 public class My_ButtonPlus extends JButton {
-    public My_ButtonPlus(ApiStructuresExtractor structures, String class_ID, My_Tabs tabs) {
+    public My_ButtonPlus(ApiStructuresExtractor structures, String class_ID, MyTabs tabs) {
         super("+");
         this.addActionListener(e -> {
             try {
-                My_Pane tab= new My_Pane(class_ID, structures, tabs);
+                MyPane tab= new MyPane(class_ID, structures, tabs);
                 tabs.add(class_ID,tab);
 
             } catch (Exception exception) {
