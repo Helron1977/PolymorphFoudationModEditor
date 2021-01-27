@@ -17,9 +17,9 @@ public class MyPane extends JPanel {
         this.structures = structures;
         this.tabs = tabs;
 
-        setLayout(gb);
-        setSize(dim);
-        setLocation(dim.width/2 - getWidth()/2, dim.height/2 - getHeight()/2);
+            setLayout(gb);
+            setSize(dim);
+            setLocation(dim.width/2 - getWidth()/2, dim.height/2 - getHeight()/2);
 
         LinkedHashMap<String, String> params = structures.extractClass(class_ID);
         buildEachRows(params,this);
@@ -30,6 +30,7 @@ public class MyPane extends JPanel {
             String fullParamDescription = params.get(param);
             String paramType = structures.extractParamType(fullParamDescription);
             String defaultValue = structures.extractParamDefaultValue(fullParamDescription);
+
             buildFormRow(param, paramType, cptRow, defaultValue, panel);
             cptRow++;
         }
@@ -38,12 +39,11 @@ public class MyPane extends JPanel {
     private void buildFormRow(String label, String field, int lineNumber, String defaultValue, JPanel panel) {
 
         JLabel lbl = new JLabel(label);
-        System.out.println( "field"+field);
-        gbc.gridx = 0;
-        gbc.gridwidth = 1;
-        gbc.gridy= lineNumber;
-        gbc.fill= GridBagConstraints.BOTH;
-        gb.setConstraints(lbl, gbc);
+            gbc.gridx = 0;
+            gbc.gridwidth = 1;
+            gbc.gridy= lineNumber;
+            gbc.fill= GridBagConstraints.BOTH;
+            gb.setConstraints(lbl, gbc);
         panel.add(lbl);
 
         buildField(field, lineNumber, defaultValue, panel);
@@ -70,7 +70,7 @@ public class MyPane extends JPanel {
                     for (String value : structures.assetToList(field)) {
                         jbc.addItem(value);
                     }
-                    System.out.println("default:" + structures.extractParamDefaultValue(field));
+
                     if(defaultValue != null){
                         jbc.addItem(defaultValue);
                         jbc.setSelectedItem(defaultValue);
@@ -82,7 +82,7 @@ public class MyPane extends JPanel {
                         gb.setConstraints(jbc, gbc);
                     panel.add(jbc);
 
-                    My_ButtonPlus bt = new My_ButtonPlus(structures, field, tabs);
+                    PlusButton bt = new PlusButton(structures, field, tabs);
                         gbc.gridx = 2;
                         gbc.gridwidth = 1;
                         gbc.gridy = lineNumber;
@@ -109,7 +109,7 @@ public class MyPane extends JPanel {
             case 3:
                 field = field .replaceAll("list<","")
                               .replaceAll(">","");
-                System.out.println(field);
+
                 JTextField jtf = new JTextField();
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
@@ -118,7 +118,7 @@ public class MyPane extends JPanel {
                     gb.setConstraints(jtf, gbc);
                 panel.add(jtf);
 
-                My_ButtonPlus bt = new My_ButtonPlus(structures, field, tabs);
+                PlusButton bt = new PlusButton(structures, field, tabs);
                     gbc.gridx = 2;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
@@ -159,19 +159,15 @@ public class MyPane extends JPanel {
             return 1;
         }
         else if(field.equals(field.toUpperCase())){
-            System.out.println(field);
             return 2;
         }
         else if(field.contains("list<")){
-            System.out.println(field);
             return 3;
         }
         else if(field.contains("boolean")) {
-            System.out.println("bool");
             return 4;
         }
         else if(field.contains("integer")) {
-            System.out.println("integer");
             return 5;
         }
         return 6;
