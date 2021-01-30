@@ -1,6 +1,6 @@
-package ihm;
+package helron.foundationWizzard.com.ihm;
 
-import api.ApiStructuresExtractor;
+import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
 import javax.swing.*;
 

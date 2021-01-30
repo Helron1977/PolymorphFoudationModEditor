@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"api","l":"ApiStructuresExtractor"},{"p":"ihm","l":"classForm"},{"p":"<Unnamed>","l":"Main"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"api","l":"ApiStructuresExtractor"},{"p":"ihm","l":"App"},{"p":"<Unnamed>","l":"Main"},{"p":"ihm","l":"MyFrame"},{"p":"ihm","l":"MyPane"},{"p":"ihm","l":"MyTabs"},{"p":"ihm","l":"PlusButton"}];updateSearchResults();

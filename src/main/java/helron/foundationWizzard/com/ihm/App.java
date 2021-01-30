@@ -1,6 +1,6 @@
-package ihm;
+package helron.foundationWizzard.com.ihm;
 
-import api.ApiStructuresExtractor;
+import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
 import java.awt.*;
 
@@ -12,6 +12,5 @@ public class App {
         Frame test = new MyFrame("FOUNDATION WIZARD");
         MyTabs myTab = new MyTabs("BUILDING", structures);
         test.add(myTab);
-
     }
 }

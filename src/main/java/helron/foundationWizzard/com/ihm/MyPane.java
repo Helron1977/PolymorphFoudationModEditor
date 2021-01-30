@@ -1,6 +1,6 @@
-package ihm;
+package helron.foundationWizzard.com.ihm;
 
-import api.ApiStructuresExtractor;
+import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +12,7 @@ public class MyPane extends JPanel {
     public static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private final MyTabs tabs;
     private final ApiStructuresExtractor structures;
+    private final LinkedHashMap<String, String> userInput = new LinkedHashMap<>();
 
     public MyPane(String class_ID, ApiStructuresExtractor structures, MyTabs tabs) {
         this.structures = structures;
@@ -22,21 +23,45 @@ public class MyPane extends JPanel {
             setLocation(dim.width/2 - getWidth()/2, dim.height/2 - getHeight()/2);
 
         LinkedHashMap<String, String> params = structures.extractClass(class_ID);
-        buildEachRows(params,this);
+        buildEachRows(params);
+
     }
-    private void buildEachRows(LinkedHashMap<String, String> params, JPanel panel) {
+
+    private void addValidateButton(int lineNumber) {
+        ValidateButton bt = new ValidateButton();
+        gbc.gridx = 7;
+        gbc.gridwidth = 0;
+        gbc.gridy = lineNumber+1;
+        gbc.fill = GridBagConstraints.REMAINDER;
+        gb.setConstraints(bt, gbc);
+        this.add(bt);
+
+    }
+
+    private void buildEachRows(LinkedHashMap<String, String> params) {
         int cptRow = 0;
         for( String param : params.keySet()){
             String fullParamDescription = params.get(param);
             String paramType = structures.extractParamType(fullParamDescription);
             String defaultValue = structures.extractParamDefaultValue(fullParamDescription);
 
-            buildFormRow(param, paramType, cptRow, defaultValue, panel);
+            buildFormRow(param, paramType, cptRow, defaultValue);
             cptRow++;
         }
+        addValidateButton(cptRow);
     }
 
-    private void buildFormRow(String label, String field, int lineNumber, String defaultValue, JPanel panel) {
+    private void addEditorPane(int lineNumber) {
+        MyEditorJtext ejt = new MyEditorJtext("testsdjfk qjdsfmkdk,qsd, va,k ,zk\n sjdkqsdk ql");
+        gbc.gridx = 4;
+        gbc.gridwidth = 2;
+        gbc.gridy = lineNumber;
+        gbc.gridheight = lineNumber;
+        gbc.fill = GridBagConstraints.REMAINDER;
+        gb.setConstraints(ejt, gbc);
+    }
+
+    private void buildFormRow(String label, String field, int lineNumber, String defaultValue) {
 
         JLabel lbl = new JLabel(label);
             gbc.gridx = 0;
@@ -44,15 +69,12 @@ public class MyPane extends JPanel {
             gbc.gridy= lineNumber;
             gbc.fill= GridBagConstraints.BOTH;
             gb.setConstraints(lbl, gbc);
-        panel.add(lbl);
+        this.add(lbl);
 
-        buildField(field, lineNumber, defaultValue, panel);
-
-
-
+        buildField(field, lineNumber, defaultValue);
     }
 
-    private void buildField(String field, int lineNumber, String defaultValue, JPanel panel) {
+    private void buildField(String field, int lineNumber, String defaultValue) {
         int paramType = identifyType(field);
 
         switch (paramType) {
@@ -62,7 +84,7 @@ public class MyPane extends JPanel {
                 gbc.gridwidth = 1;
                 gbc.gridy = lineNumber;
                 gb.setConstraints(jt, gbc);
-                panel.add(jt);
+                this.add(jt);
                 break;
             case 2:
                 JComboBox<String> jbc = new JComboBox<>();
@@ -80,7 +102,7 @@ public class MyPane extends JPanel {
                         gbc.gridy = lineNumber;
                         gbc.fill = GridBagConstraints.BOTH;
                         gb.setConstraints(jbc, gbc);
-                    panel.add(jbc);
+                    this.add(jbc);
 
                     PlusButton bt = new PlusButton(structures, field, tabs);
                         gbc.gridx = 2;
@@ -88,7 +110,7 @@ public class MyPane extends JPanel {
                         gbc.gridy = lineNumber;
                         gbc.fill = GridBagConstraints.REMAINDER;
                         gb.setConstraints(bt, gbc);
-                    panel.add(bt);
+                    this.add(bt);
 
                     break;
                 } else if (structures.isEnum(field)) {
@@ -103,7 +125,7 @@ public class MyPane extends JPanel {
                         gbc.gridy = lineNumber;
                         gbc.fill = GridBagConstraints.BOTH;
                         gb.setConstraints(jbc, gbc);
-                    panel.add(jbc);
+                    this.add(jbc);
                     break;
                 }
             case 3:
@@ -116,7 +138,7 @@ public class MyPane extends JPanel {
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jtf, gbc);
-                panel.add(jtf);
+                this.add(jtf);
 
                 PlusButton bt = new PlusButton(structures, field, tabs);
                     gbc.gridx = 2;
@@ -124,7 +146,7 @@ public class MyPane extends JPanel {
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.REMAINDER;
                     gb.setConstraints(bt, gbc);
-                panel.add(bt);
+                this.add(bt);
 
             case 4:
                 JCheckBox jcb = new JCheckBox();
@@ -139,7 +161,7 @@ public class MyPane extends JPanel {
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jcb, gbc);
-                panel.add(jcb);
+                this.add(jcb);
                 break;
             case 5:
                 JSpinner js = new JSpinner();
@@ -148,7 +170,23 @@ public class MyPane extends JPanel {
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(js, gbc);
-                panel.add(js);
+                this.add(js);
+                break;
+            case 6:
+                float value = 0f;
+                float min = 0f;
+                float max = 100f;
+                float step = 0.01f;
+
+                SpinnerNumberModel myFloatSpinner = new SpinnerNumberModel(value, min, max, step);
+
+                JSpinner jfs = new JSpinner(myFloatSpinner);
+                    gbc.gridx = 1;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gbc.fill = GridBagConstraints.BOTH;
+                    gb.setConstraints(jfs, gbc);
+                this.add(jfs);
                 break;
         }
     }
@@ -170,6 +208,9 @@ public class MyPane extends JPanel {
         else if(field.contains("integer")) {
             return 5;
         }
-        return 6;
+        else if(field.contains("float")) {
+            return 6;
+        }
+        return 0;
     }
 }

@@ -12,6 +12,14 @@
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
+
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+    </resources>
+</build>
     <dependencyManagement>
 
         <dependencies>
@@ -34,14 +42,6 @@
                 <artifactId>codemodel</artifactId>
                 <version>3.0.0</version>
             </dependency>
-
-            <!-- https://mvnrepository.com/artifact/com.squareup/javapoet -->
-            <dependency>
-                <groupId>com.squareup</groupId>
-                <artifactId>javapoet</artifactId>
-                <version>1.10.0</version>
-            </dependency>
-
 
         </dependencies>
     </dependencyManagement>

@@ -1,10 +1,13 @@
-import api.ApiStructuresExtractor;
+package helron.foundationWizzard.com;
+
+import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import ihm.App;
+import helron.foundationWizzard.com.ihm.App;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
@@ -23,8 +26,9 @@ public class Main {
      */
     public static void main(String[] args) throws FileNotFoundException {
 
+
         //Load the file ( SnippetsForVSC.Jsonc)
-        FileInputStream source = new FileInputStream("C:\\Users\\rolan\\OneDrive\\Desktop\\source.jsonc");
+        InputStream source = Main.class.getResourceAsStream("/struct.json");
 
         //Read
         InputStreamReader reader = new InputStreamReader(source, StandardCharsets.UTF_8);

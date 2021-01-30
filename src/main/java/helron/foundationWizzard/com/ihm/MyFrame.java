@@ -1,4 +1,4 @@
-package ihm;
+package helron.foundationWizzard.com.ihm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,11 +18,14 @@ public class MyFrame extends JFrame{
                 System.exit(0);
             }
         };
+
         addWindowListener(l);
-        setVisible(true);
+
         Dimension frameDim = MyTabs.dim;
-        frameDim.setSize(MyTabs.dim.width/2,MyTabs.dim.height/2 );
+            frameDim.setSize(MyTabs.dim.width,MyTabs.dim.height );
+
         setSize(MyTabs.dim);
+        setVisible(true);
     }
 
 }

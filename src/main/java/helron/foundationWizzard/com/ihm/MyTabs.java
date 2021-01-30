@@ -1,6 +1,6 @@
-package ihm;
+package helron.foundationWizzard.com.ihm;
 
-import api.ApiStructuresExtractor;
+import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +14,6 @@ public class MyTabs extends JTabbedPane {
         JPanel panel = new MyPane(class_ID, structures, this);
         this.add(class_ID, panel);
 
-        setBounds(40, 20, 300, 300);
+            setBounds(40, 20, 300, 300);
     }
 }

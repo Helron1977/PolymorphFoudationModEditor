@@ -1,4 +1,4 @@
-package api;
+package helron.foundationWizzard.com.api;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
