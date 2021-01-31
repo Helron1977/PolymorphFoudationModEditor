@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"api"},{"l":"ihm"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"helron.foundationWizzard.com"},{"l":"helron.foundationWizzard.com.api"},{"l":"helron.foundationWizzard.com.ihm"}];updateSearchResults();

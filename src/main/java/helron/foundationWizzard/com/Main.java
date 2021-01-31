@@ -5,10 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import helron.foundationWizzard.com.ihm.App;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 
@@ -24,7 +21,7 @@ public class Main {
                     use regex to identify the vsc list position tag
         look for the VALUES of Enum Structures
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
 
         //Load the file ( SnippetsForVSC.Jsonc)

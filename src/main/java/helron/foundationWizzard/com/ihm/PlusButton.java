@@ -5,11 +5,11 @@ import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 import javax.swing.*;
 
 public class PlusButton extends JButton {
-    public PlusButton(ApiStructuresExtractor structures, String class_ID, MyTabs tabs) {
+    public PlusButton(ApiStructuresExtractor structures, String class_ID, FormsContainer tabs) {
         super("+");
         this.addActionListener(e -> {
             try {
-                MyPane tab= new MyPane(class_ID, structures, tabs);
+                Form tab= new Form(class_ID, structures, tabs);
                 tabs.add(class_ID,tab);
 
             } catch (Exception exception) {

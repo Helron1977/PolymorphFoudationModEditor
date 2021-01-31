@@ -95,7 +95,7 @@ public class ApiStructuresExtractor {
     public boolean isEnum(String paramType){
         for(String index: getDictionaryEnumIndex()) {
             if((ENUMPREFIX+paramType).equals(index)){
-                System.out.println("enum");
+                //System.out.println("enum");
                 return true;}
         }
         return false;
@@ -109,7 +109,6 @@ public class ApiStructuresExtractor {
     public boolean isAsset(String paramType){
         for(String index: getDictionaryAssetIndex()) {
             if((ASSETPREFIX+paramType).equals(index)) {
-                System.out.println("asset");
                 return true;
             }
         }
@@ -183,7 +182,7 @@ public class ApiStructuresExtractor {
     public String extractParamDefaultValue(String param){
         Matcher m = defaultValueMatcher.matcher(param);
         if(m.find()){
-            System.out.println(m.group());
+            //System.out.println(m.group());
             return m.group();}
         return null;
     }
@@ -224,7 +223,7 @@ public class ApiStructuresExtractor {
     /**
      * Extract the values of the API ASSET using a String ID without the prefix set as CONST.
      * @param assetToExtract a String, id of the Asset to display
-     * @return
+     * @return a List of String
      */
     public List<String> assetToList(String assetToExtract) {
         //look for the VALUES of Enum Structures
