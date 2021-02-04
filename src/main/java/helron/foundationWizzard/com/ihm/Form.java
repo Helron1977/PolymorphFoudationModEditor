@@ -33,6 +33,7 @@ public class Form extends JPanel {
         this.formsContainer = formsContainer;
 
             setLayout(gb);
+            setBackground(Color.white);
             setSize(dim);
             setLocation(dim.width/2 - getWidth()/2, dim.height/2 - getHeight()/2);
 

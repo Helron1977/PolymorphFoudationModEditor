@@ -22,5 +22,6 @@ public class FormsContainer extends JTabbedPane {
         this.add(class_ID, panel);
 
             setBounds(40, 20, 300, 300);
+            setBackground(Color.white);
     }
 }

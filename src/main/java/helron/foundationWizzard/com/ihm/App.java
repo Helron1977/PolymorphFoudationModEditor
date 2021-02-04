@@ -14,8 +14,6 @@ public class App {
         Panel panel = new Panel();
         FormsContainer myTab = new FormsContainer("BUILDING", structures);
         panel.add(myTab,BorderLayout.CENTER);
-        ImagePanel ip = new ImagePanel();
-        panel.add(ip, BorderLayout.WEST);
         frame.add(panel,BorderLayout.CENTER);
     }
 }
