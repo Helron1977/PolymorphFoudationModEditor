@@ -27,10 +27,10 @@ public class MainFrame extends JFrame{
 
         addWindowListener(l);
 
-        Dimension frameDim = FormsContainer.dim;
-            frameDim.setSize(FormsContainer.dim.width, FormsContainer.dim.height );
+/*        Dimension frameDim = FormsContainer.dim;
+            frameDim.setSize(FormsContainer.dim.width*3/4, FormsContainer.dim.height*3/4 );
 
-        setSize(FormsContainer.dim);
+        setSize(FormsContainer.dim);*/
         setVisible(true);
     }
 

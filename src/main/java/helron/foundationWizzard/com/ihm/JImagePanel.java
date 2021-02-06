@@ -65,7 +65,7 @@ public class JImagePanel extends JPanel {
      * @param args
      */
     public static void main(String[] args) {
-        JImagePanel imagePanel = new JImagePanel("src/main/resources/fiefdomLogo.png");
+        JImagePanel imagePanel = new JImagePanel("/fiefdomLogo.png");
         //Strech the image
         imagePanel.setStretch(false);
         //center the image

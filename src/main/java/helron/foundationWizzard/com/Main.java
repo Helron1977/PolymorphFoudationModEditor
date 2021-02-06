@@ -4,6 +4,7 @@ import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import helron.foundationWizzard.com.ihm.App;
+import helron.foundationWizzard.com.ihm.Home;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -34,7 +35,8 @@ public class Main {
         JsonElement dictionary = JsonParser.parseReader(reader).getAsJsonObject();
         ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
 
-        new App(structures);
+        new Home(structures);
+
 
 
     }

@@ -90,7 +90,13 @@ public class Form extends JPanel {
     private void buildFormRow(String label, String field, int lineNumber, String defaultValue) {
 
         JTextField lbl = new JTextField(label);
-        lbl.setOpaque(true);
+            lbl.setBackground(Color.white);
+            lbl.setOpaque(true);
+        if (lineNumber % 2 == 1) {
+            lbl.setBackground(Color.white);
+        } else {
+            lbl.setBackground(new Color(0x5194E8));
+        }
         lbl.setEditable(false);
             gbc.gridx = 0;
             gbc.gridwidth = 1;

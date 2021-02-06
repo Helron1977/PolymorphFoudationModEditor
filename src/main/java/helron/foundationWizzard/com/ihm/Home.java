@@ -1,49 +1,20 @@
 package helron.foundationWizzard.com.ihm;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import helron.foundationWizzard.com.Main;
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 public class Home extends JPanel {
-    public Home() {
-        LayoutManager layout = new BorderLayout();
-        setLayout(layout);
-        Panel leftpanel = new Panel();
-        leftpanel.setBackground(new Color(255,255,255));
-        JTextArea jta = new JTextArea("test");
-        JButton jb= new JButton("test");
-        leftpanel.add(jta);
-        add(jb);
-        add(leftpanel,BorderLayout.WEST);
-    }
-
-    public static void main(String[] args) {
-        InputStream source = Main.class.getResourceAsStream("/struct.json");
-
-        //Read
-        InputStreamReader reader = new InputStreamReader(source, StandardCharsets.UTF_8);
-
-        //Build dictionary and a Structures[] Index
-        JsonElement dictionary = JsonParser.parseReader(reader).getAsJsonObject();
-        ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
-
-
-
-
-        Frame frame = new MainFrame("testtitle");
-
+    public Home(ApiStructuresExtractor structures) throws IOException {
+        Frame frame = new MainFrame("Foundation Mod Editor");
         frame.setResizable(true);
         Panel panel = new Panel();
 
@@ -66,20 +37,21 @@ public class Home extends JPanel {
 
         JPanel verticalSeparator = new JPanel();
         verticalSeparator.setBackground(new Color(67,119,202));
-        LayoutManager layoutVerticalSeparator = new GridLayout(5,1);
+        LayoutManager layoutVerticalSeparator = new GridLayout(3,1);
         verticalSeparator.setLayout(layoutVerticalSeparator);
+        verticalSeparator.setPreferredSize(new Dimension(300,1024));
 
 
         JPanel selectMenu = new JPanel(new GridLayout(2,1));
-            selectMenu.setOpaque(false);
+        selectMenu.setOpaque(false);
         JTextField subMenu = new JTextField("Select your form");
-            subMenu.setBackground(new Color(0x5194E8));
-            subMenu.setFont(new Font("Serif", Font.BOLD, 15));
-            subMenu.setForeground(Color.white);
-            subMenu.setOpaque(true);
-            subMenu.setEditable(false);
-            subMenu.setBorder(new EmptyBorder(0,0,0,0));
-            subMenu.setHorizontalAlignment(JTextField.CENTER);
+        subMenu.setBackground(new Color(0x5194E8));
+        subMenu.setFont(new Font("Serif", Font.BOLD, 15));
+        subMenu.setForeground(Color.white);
+        subMenu.setOpaque(true);
+        subMenu.setEditable(false);
+        subMenu.setBorder(new EmptyBorder(0,0,0,0));
+        subMenu.setHorizontalAlignment(JTextField.CENTER);
         JComboBox<String> formSelector = new JComboBox<>();
             formSelector.setForeground(Color.white);
             formSelector.setBorder(BorderFactory.createEmptyBorder());
@@ -94,26 +66,31 @@ public class Home extends JPanel {
             boxField.setBorder(BorderFactory.createEmptyBorder());
             boxField.setBackground(new Color(0x5194E8));
             boxField.setFocusable(false);
-            formSelector.addItem("BUILDING");
-            formSelector.addItem("EVENT");
+        formSelector.addItem("BUILDING");
+        formSelector.addItem("EVENT");
 
         JPanel loadSavePanel = new JPanel();
-            GridBagLayout loadSavePanelLayout = new GridBagLayout();
-            GridBagConstraints gbc = new GridBagConstraints();
-                gbc.gridx = 1;
-                gbc.insets = new Insets(0,0,0,15);
-                gbc.fill= GridBagConstraints.BOTH;
+        GridBagLayout loadSavePanelLayout = new GridBagLayout();
+        GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridx = 1;
+            gbc.insets = new Insets(0,0,0,15);
+            gbc.fill= GridBagConstraints.BOTH;
             loadSavePanel.setLayout(loadSavePanelLayout);
             loadSavePanel.setBackground(new Color(143, 198, 246));
             loadSavePanel.setOpaque(true);
-        JImagePanel saveIcon = new JImagePanel("src/main/resources/save-files.png");
+
+        InputStream saveIconeStream =Main.class.getResourceAsStream("/save-files.png");
+        JImagePanel saveIcon = new JImagePanel(ImageIO.read(saveIconeStream));
             saveIcon.setStretch(true);
             saveIcon.setPreferredSize(new Dimension(50,50));
 
-        JImagePanel loadIcon = new JImagePanel("src/main/resources/folder.png");
+        InputStream loadIconStream = Main.class.getResourceAsStream("/folder.png");
+        JImagePanel loadIcon = new JImagePanel(ImageIO.read(loadIconStream));
             loadIcon.setStretch(true);
             loadIcon.setPreferredSize(new Dimension(50,50));
-        JImagePanel deleteIcon = new JImagePanel("src/main/resources/delete.png");
+
+        InputStream deleteIconStream = Main.class.getResourceAsStream("/delete.png");
+        JImagePanel deleteIcon = new JImagePanel(ImageIO.read(deleteIconStream));
             deleteIcon.setStretch(true);
             deleteIcon.setPreferredSize(new Dimension(50,50));
 
@@ -132,52 +109,33 @@ public class Home extends JPanel {
         menu.setLayout(layoutMenu);
 
 
-        JImagePanel logo = new JImagePanel("src/main/resources/fiefdomLogo.png");
+        InputStream logoStream =Main.class.getResourceAsStream("/fiefdomLogo.png");
+        JImagePanel logo = new JImagePanel(ImageIO.read(logoStream));
         logo.setOpaque(false);
         logo.setStretch(true);
-        logo.setPreferredSize(new Dimension(250,250));
+        logo.setBackground(new Color(143, 198, 246));
+        logo.setPreferredSize(new Dimension(150,150));
 
-        JPanel emptyUpLeftCorner = new JPanel();
-        emptyUpLeftCorner.setPreferredSize(new Dimension(150,150));
-        emptyUpLeftCorner.setOpaque(false);
 
-        JTextField title01 = new JTextField("HOME");
-        title01.setHorizontalAlignment(JTextField.CENTER);
-        title01.setForeground(Color.white);
-        title01.setFont(new Font("Serif", Font.BOLD, 20));
-        title01.setOpaque(false);
-        title01.setEditable(false);
-        title01.setBorder(new EmptyBorder(0,0,0,0));
+        JLink title01 = new JLink("HOME", "https://www.polymorph.games/");
 
-        JTextField title02 = new JTextField();
-        title02.setText("   WIKI   ");
-        title02.setHorizontalAlignment(JTextField.CENTER);
-        title02.setForeground(Color.white);
-        title02.setFont(new Font("Serif", Font.BOLD, 20));
-        title02.setOpaque(false);
-        title02.setEditable(false);
-        title02.setBorder(new EmptyBorder(0,0,0,0));
 
-        JTextField title03 = new JTextField();
-        title03.setText("   UPDATE   ");
-        title03.setHorizontalAlignment(JTextField.CENTER);
-        title03.setForeground(Color.white);
-        title03.setFont(new Font("Serif", Font.BOLD, 20));
-        title03.setOpaque(false);
-        title03.setEditable(false);
-        title03.setBorder(new EmptyBorder(0,0,0,0));
+        JLink title02 = new JLink("WIKI","http://www.polymorph.games/foundation/modding/");
+
+
+        JtextFileChooser title03 = new JtextFileChooser("   UPDATE   ");
 
 
 
-        menu.add(emptyUpLeftCorner);
+
         menu.add(title01);
         menu.add(title02);
         menu.add(title03);
 
+
         verticalSeparator.add(logo);
-        verticalSeparator.add(selectMenu);
-        verticalSeparator.add(emptyUpLeftCorner);
         verticalSeparator.add(loadSavePanel);
+        verticalSeparator.add(selectMenu);
 
         leftpanel.add(menu);
         leftpanel.add(verticalSeparator, BorderLayout.EAST);
@@ -188,5 +146,11 @@ public class Home extends JPanel {
         panel.add(leftpanel,BorderLayout.WEST);
         frame.setVisible(true);
         frame.add(panel);
+        frame.pack();
+        Dimension frameDim = FormsContainer.dim;
+        frameDim.setSize(FormsContainer.dim.width*3/4, FormsContainer.dim.height*3/4 );
+
+        frame.setSize(frameDim);
+
     }
 }
