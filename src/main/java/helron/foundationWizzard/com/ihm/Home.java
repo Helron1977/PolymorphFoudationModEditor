@@ -4,9 +4,12 @@ import helron.foundationWizzard.com.Main;
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
 import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
@@ -22,9 +25,11 @@ public class Home extends JPanel {
         frame.setResizable(true);
         //Panel panel = new Panel();
 
-        //TODO set a path in resources. set down the quality of the background image
-        JImagePanel panel = new JImagePanel("src/main/resources/splash.png");
-        panel.setStretch(false);
+        //TODO set down the quality of the background image
+        InputStream test = Main.class.getResourceAsStream("/splash.png");
+        Image backGround = ImageIO.read(test);
+        JImagePanel panel = new JImagePanel(backGround);
+        panel.setStretch(true);
 
         UIManager.put("TabbedPane.contentOpaque", false);
 
@@ -165,8 +170,8 @@ public class Home extends JPanel {
 
 
         verticalSeparator.add(logo);
-        verticalSeparator.add(loadSavePanel);
         verticalSeparator.add(selectMenu);
+        //verticalSeparator.add(loadSavePanel);
 
         leftpanel.add(menu);
         leftpanel.add(verticalSeparator, BorderLayout.EAST);

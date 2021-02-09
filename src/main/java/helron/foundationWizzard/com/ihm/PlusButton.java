@@ -21,7 +21,21 @@ public class PlusButton extends JButton {
         this.addActionListener(e -> {
             try {
                 Form tab= new Form(class_ID, structures, tabs);
+                tab.setOpaque(false);
                 tabs.add(class_ID,tab);
+
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        });
+    }
+    public PlusButton(DefaultListModel<String> listData, JList<String> jList, ApiStructuresExtractor structures, String class_ID, FormsContainer tabs) {
+        super("+");
+        this.addActionListener(e -> {
+            try {
+                FormRequestDialog rq = new FormRequestDialog(listData,jList,structures, class_ID, tabs);
+                //Form tab= new Form(class_ID, structures, tabs);
+                //tabs.add(class_ID,tab);
 
             } catch (Exception exception) {
                 exception.printStackTrace();

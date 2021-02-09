@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Objects;
+import java.util.Vector;
 
 /**
  * Build and set a  Form from ApiStructuresExtractor data source.
@@ -106,7 +107,8 @@ public class Form extends JPanel {
         if (lineNumber % 2 == 1) {
             lbl.setBackground(Color.white);
         } else {
-            lbl.setBackground(new Color(0x5194E8));
+            lbl.setBackground(new Color(0x22471D));
+            lbl.setForeground(Color.white);
         }
         lbl.setEditable(false);
             gbc.gridx = 0;
@@ -211,16 +213,24 @@ public class Form extends JPanel {
                     field = field.replaceAll("list<", "")
                             .replaceAll(">", "");
 
-                    ListenedTextField jtf = new ListenedTextField(label, field);
+
+                    //ListenedTextField jtf = new ListenedTextField(label, field);
+                    //Vector<String> listData=new Vector<>();
+                    DefaultListModel<String> listData = new DefaultListModel<>();
+
+
+
+                    ListenedJList jl = new ListenedJList(listData,label);
+
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
-                    gb.setConstraints(jtf, gbc);
-                    this.add(jtf);
+                    gb.setConstraints(jl, gbc);
+                    this.add(jl);
 
 
-                    PlusButton bt = new PlusButton(structures, field, formsContainer);
+                    PlusButton bt = new PlusButton(listData, jl, structures, field, formsContainer);
                     gbc.gridx = 2;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
@@ -247,7 +257,7 @@ public class Form extends JPanel {
 
                     break;
                 case INTEGER:
-                    JSpinner js = new JSpinner();
+                    ListenedJSpinner js = new ListenedJSpinner(label);
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;

@@ -8,10 +8,10 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 public class ListenedJCheckBox extends JCheckBox implements FocusListener {
-    String lbl;
+    String label;
 
     public ListenedJCheckBox(String linkedlabel) {
-        this.lbl = linkedlabel;
+        this.label = linkedlabel;
         addFocusListener(this);
     }
 
@@ -24,7 +24,7 @@ public class ListenedJCheckBox extends JCheckBox implements FocusListener {
     @Override
     public void focusLost(FocusEvent e) {
         setBackground(new Color(0xAFF3C1));
-        Form.inputs.put(lbl,isSelected()?"true":"false");
+        Form.inputs.put(label,isSelected()?"true":"false");
         LuaGenerator lg = new LuaGenerator(Form.inputs);
         System.out.println(lg.InitializeLuaTable("myMod"));
     }

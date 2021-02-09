@@ -55,7 +55,7 @@ public class LuaGenerator {
      * @param listToScript a list that contain the Asset names.
      * @return a string, the script
      */
-    private String buildLuaList(List<String> listToScript) {
+    public String buildLuaList(List<String> listToScript) {
         StringJoiner sj = new StringJoiner(",\n\t","{\n\t","\n}");
         for (String value: listToScript) {
             sj.add(value);

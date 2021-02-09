@@ -1,32 +1,12 @@
 @startuml
 
-title __WIZZARD's Class Diagram__\n
-
-  namespace helron.foundationWizzard.com {
-    class helron.foundationWizzard.com.Main {
-    }
-  }
-  
-
-  namespace helron.foundationWizzard.com {
-    namespace api {
-      class helron.foundationWizzard.com.api.ApiStructuresExtractor {
-      }
-    }
-  }
-  
-
-  namespace helron.foundationWizzard.com {
-    namespace api {
-      class helron.foundationWizzard.com.api.LuaGenerator {
-      }
-    }
-  }
-  
+title __IHM's Class Diagram__\n
 
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.App {
+          + App()
+          {static} + main()
       }
     }
   }
@@ -35,6 +15,12 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       enum FieldType {
+        ASSET_ENUM
+        BOOLEAN
+        FLOAT
+        INTEGER
+        LIST
+        STRING
       }
     }
   }
@@ -43,6 +29,19 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.Form {
+          {static} + dim : Dimension
+          {static} + inputs : LinkedHashMap<String, String>
+          - assetID : String
+          - class_ID : String
+          {static} - gb : GridBagLayout
+          {static} - gbc : GridBagConstraints
+          + Form()
+          + Form()
+          - addValidateButton()
+          - buildEachRows()
+          - buildField()
+          - buildFormRow()
+          - identifyType()
       }
     }
   }
@@ -51,6 +50,8 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.FormRequestDialog {
+          + FormRequestDialog()
+          + FormRequestDialog()
       }
     }
   }
@@ -59,6 +60,8 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.FormsContainer {
+          {static} + dim : Dimension
+          + FormsContainer()
       }
     }
   }
@@ -67,6 +70,7 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.Home {
+          + Home()
       }
     }
   }
@@ -75,6 +79,13 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.JImagePanel {
+          - image : Image
+          - stretch : Boolean
+          + JImagePanel()
+          + JImagePanel()
+          {static} + main()
+          + setStretch()
+          # paintComponent()
       }
     }
   }
@@ -83,6 +94,7 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.JLink {
+          + JLink()
       }
     }
   }
@@ -91,6 +103,7 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.JtextFileChooser {
+          + JtextFileChooser()
       }
     }
   }
@@ -99,6 +112,10 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.ListenedJCheckBox {
+          ~ lbl : String
+          + ListenedJCheckBox()
+          + focusGained()
+          + focusLost()
       }
     }
   }
@@ -107,6 +124,10 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.ListenedJComboBox {
+          ~ lbl : String
+          + ListenedJComboBox()
+          + focusGained()
+          + focusLost()
       }
     }
   }
@@ -115,6 +136,9 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.ListenedJList {
+          - dataList : DefaultListModel<String>
+          - lbl : String
+          + ListenedJList()
       }
     }
   }
@@ -123,6 +147,10 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.ListenedTextField {
+          ~ lbl : String
+          + ListenedTextField()
+          + focusGained()
+          + focusLost()
       }
     }
   }
@@ -131,6 +159,7 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.MainFrame {
+          + MainFrame()
       }
     }
   }
@@ -139,6 +168,9 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.PlusButton {
+          + PlusButton()
+          + PlusButton()
+          + PlusButton()
       }
     }
   }
@@ -147,6 +179,7 @@ title __WIZZARD's Class Diagram__\n
   namespace helron.foundationWizzard.com {
     namespace ihm {
       class helron.foundationWizzard.com.ihm.ValidateButton {
+          + ValidateButton()
       }
     }
   }
