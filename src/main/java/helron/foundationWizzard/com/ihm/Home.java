@@ -7,21 +7,34 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class Home extends JPanel {
+
+
     public Home(ApiStructuresExtractor structures) throws IOException {
-        Frame frame = new MainFrame("Foundation Mod Editor");
+        Color darkGreen = new Color(0x0E1D0E);
+        Color mediumGreen = new Color(0x183818);
+        Color lightGreen = new Color(0x2B632B);
+        JFrame frame = new MainFrame("Foundation Mod Editor");
         frame.setResizable(true);
-        Panel panel = new Panel();
+        //Panel panel = new Panel();
+
+        //TODO set a path in resources. set down the quality of the background image
+        JImagePanel panel = new JImagePanel("src/main/resources/splash.png");
+        panel.setStretch(false);
+
+        UIManager.put("TabbedPane.contentOpaque", false);
+
+
 
 
         JPanel body = new JPanel(new BorderLayout());
+        body.setOpaque(false);
         JPanel horizontalBlue = new JPanel();
-        horizontalBlue.setBackground(new Color(67,119,202));
+        horizontalBlue.setBackground(mediumGreen);
         horizontalBlue.setPreferredSize(new Dimension(1024,50));
 
 
@@ -36,7 +49,7 @@ public class Home extends JPanel {
         leftpanel.setLayout(layoutLeftPanel);
 
         JPanel verticalSeparator = new JPanel();
-        verticalSeparator.setBackground(new Color(67,119,202));
+        verticalSeparator.setBackground(lightGreen);
         LayoutManager layoutVerticalSeparator = new GridLayout(3,1);
         verticalSeparator.setLayout(layoutVerticalSeparator);
         verticalSeparator.setPreferredSize(new Dimension(300,1024));
@@ -45,7 +58,7 @@ public class Home extends JPanel {
         JPanel selectMenu = new JPanel(new GridLayout(2,1));
         selectMenu.setOpaque(false);
         JTextField subMenu = new JTextField("Select your form");
-        subMenu.setBackground(new Color(0x5194E8));
+        subMenu.setBackground(lightGreen);
         subMenu.setFont(new Font("Serif", Font.BOLD, 15));
         subMenu.setForeground(Color.white);
         subMenu.setOpaque(true);
@@ -57,17 +70,23 @@ public class Home extends JPanel {
             formSelector.setBorder(BorderFactory.createEmptyBorder());
             formSelector.setOpaque(false);
             formSelector.setFocusable(false);
-            formSelector.setBackground(new Color(0x5194E8));
+            //formSelector.setBackground(lightGreen);
             formSelector.setEditable(true);
         JTextField boxField = (JTextField)formSelector .getEditor().getEditorComponent();
             boxField.setHorizontalAlignment(JTextField.HORIZONTAL);
             boxField.setFont(new Font("Serif", Font.BOLD, 15));
             boxField.setForeground(Color.white);
             boxField.setBorder(BorderFactory.createEmptyBorder());
-            boxField.setBackground(new Color(0x5194E8));
+            boxField.setBackground(lightGreen);
             boxField.setFocusable(false);
         formSelector.addItem("BUILDING");
         formSelector.addItem("EVENT");
+        formSelector.addItemListener(e -> {
+            myTab.removeAll();
+            Form tab= new Form(Objects.requireNonNull(formSelector.getSelectedItem()).toString(), structures, myTab);
+            tab.setOpaque(false);
+            myTab.add(formSelector.getSelectedItem().toString(),tab);
+        });
 
         JPanel loadSavePanel = new JPanel();
         GridBagLayout loadSavePanelLayout = new GridBagLayout();
@@ -76,8 +95,9 @@ public class Home extends JPanel {
             gbc.insets = new Insets(0,0,0,15);
             gbc.fill= GridBagConstraints.BOTH;
             loadSavePanel.setLayout(loadSavePanelLayout);
-            loadSavePanel.setBackground(new Color(143, 198, 246));
+            loadSavePanel.setBackground(lightGreen);
             loadSavePanel.setOpaque(true);
+
 
         InputStream saveIconeStream =Main.class.getResourceAsStream("/save-files.png");
         JImagePanel saveIcon = new JImagePanel(ImageIO.read(saveIconeStream));
@@ -104,7 +124,7 @@ public class Home extends JPanel {
 
 
         JPanel menu = new JPanel();
-        menu.setBackground(new Color(22,33,53));
+        menu.setBackground(darkGreen);
         LayoutManager layoutMenu = new GridLayout(6,1);
         menu.setLayout(layoutMenu);
 
@@ -113,7 +133,7 @@ public class Home extends JPanel {
         JImagePanel logo = new JImagePanel(ImageIO.read(logoStream));
         logo.setOpaque(false);
         logo.setStretch(true);
-        logo.setBackground(new Color(143, 198, 246));
+        logo.setBackground(mediumGreen);
         logo.setPreferredSize(new Dimension(150,150));
 
 
@@ -132,6 +152,17 @@ public class Home extends JPanel {
         menu.add(title02);
         menu.add(title03);
 
+//test
+        verticalSeparator.setOpaque(false);
+        leftpanel.setOpaque(false);
+        menu.setOpaque(false);
+        horizontalBlue.setOpaque(false);
+        loadSavePanel.setOpaque(false);
+        selectMenu.setOpaque(false);
+        boxField.setOpaque(false);
+        myTab.setOpaque(false);
+        subMenu.setOpaque(false);
+
 
         verticalSeparator.add(logo);
         verticalSeparator.add(loadSavePanel);
@@ -143,12 +174,16 @@ public class Home extends JPanel {
         body.add(horizontalBlue,BorderLayout.NORTH);
         body.add(myTab);
         panel.add(body);
+        //test
+        panel.setOpaque(true);
+
         panel.add(leftpanel,BorderLayout.WEST);
         frame.setVisible(true);
         frame.add(panel);
         frame.pack();
         Dimension frameDim = FormsContainer.dim;
         frameDim.setSize(FormsContainer.dim.width*3/4, FormsContainer.dim.height*3/4 );
+        System.out.println(frame.getSize().toString());
 
         frame.setSize(frameDim);
 

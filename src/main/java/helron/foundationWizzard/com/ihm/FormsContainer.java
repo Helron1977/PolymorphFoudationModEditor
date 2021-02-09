@@ -19,9 +19,11 @@ public class FormsContainer extends JTabbedPane {
     public FormsContainer(String class_ID, ApiStructuresExtractor structures) {
 
         JPanel panel = new Form(class_ID, structures, this);
+        panel.setOpaque(false);
         this.add(class_ID, panel);
 
             setBounds(40, 20, 300, 300);
-            setBackground(Color.white);
+            //setBackground(Color.white);
+
     }
 }

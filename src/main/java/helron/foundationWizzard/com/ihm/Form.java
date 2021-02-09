@@ -19,8 +19,9 @@ public class Form extends JPanel {
     public static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private final FormsContainer formsContainer;
     private final ApiStructuresExtractor structures;
-    private final LinkedHashMap<String, String> userInput = new LinkedHashMap<>();
-    private static final LinkedHashMap<String,String> inputs = new LinkedHashMap<>();
+    public static final LinkedHashMap<String,String> inputs = new LinkedHashMap<>();
+    private final String class_ID;
+    private String assetID;
 
     /**
      * Build a Form
@@ -29,6 +30,7 @@ public class Form extends JPanel {
      * @param formsContainer the tabbedPanel.
      */
     public Form(String class_ID, ApiStructuresExtractor structures, FormsContainer formsContainer) {
+        this.class_ID = class_ID;
         this.structures = structures;
         this.formsContainer = formsContainer;
 
@@ -39,13 +41,22 @@ public class Form extends JPanel {
 
         LinkedHashMap<String, String> params = structures.extractClass(class_ID);
         buildEachRows(params);
-        /*
-        @test
-         */
-        for (String key : inputs.keySet()) {
-            System.out.println(key+"="+ inputs.get(key));
-        }
 
+    }
+
+    public Form(String class_ID, ApiStructuresExtractor structures, FormsContainer formsContainer, String assetID) {
+        this.class_ID = class_ID;
+        this.structures = structures;
+        this.formsContainer = formsContainer;
+        this.assetID = assetID;
+
+        setLayout(gb);
+        setBackground(Color.white);
+        setSize(dim);
+        setLocation(dim.width/2 - getWidth()/2, dim.height/2 - getHeight()/2);
+
+        LinkedHashMap<String, String> params = structures.extractClass(class_ID);
+        buildEachRows(params);
     }
 
     /**
@@ -117,132 +128,152 @@ public class Form extends JPanel {
      * @param label the label linked to this field
      */
     private void buildField(String field, int lineNumber, String defaultValue, String label) {
-        FieldType fieldType = identifyType(field);
 
-        switch (Objects.requireNonNull(fieldType)) {
-            case STRING:
-                JTextField jt = new JTextField(field);
-                gbc.gridx = 1;
-                gbc.gridwidth = 1;
-                gbc.gridy = lineNumber;
-                gb.setConstraints(jt, gbc);
-                this.add(jt);
-                inputs.put(label, jt.getText());
-                break;
-            case ASSET_ENUM:
-                JComboBox<String> jbc = new JComboBox<>();
-                if (structures.isAsset(field)) {
-                    for (String value : structures.assetToList(field)) {
-                        jbc.addItem(value);
-                    }
+        if(label.equals("DataType")) {
+            JTextField jtf = new JTextField(class_ID);
+            gbc.gridx = 1;
+            gbc.gridwidth = 1;
+            gbc.gridy = lineNumber;
+            gb.setConstraints(jtf, gbc);
+            jtf.setEditable(false);
+            this.add(jtf);
 
-                    if(defaultValue != null){
-                        jbc.addItem(defaultValue);
-                        jbc.setSelectedItem(defaultValue);
-                    }
+            inputs.put(label, class_ID);
+        }else if(label.equals("Id") && assetID != null) {
+            JTextField jtf = new JTextField(assetID);
+            gbc.gridx = 1;
+            gbc.gridwidth = 1;
+            gbc.gridy = lineNumber;
+            gb.setConstraints(jtf, gbc);
+            jtf.setEditable(false);
+            this.add(jtf);
+
+            inputs.put(label, assetID);
+
+        } else{
+            FieldType fieldType = identifyType(field);
+
+
+            //TODO add a case Polygon
+            switch (Objects.requireNonNull(fieldType)) {
+                case STRING:
+                    ListenedTextField jt = new ListenedTextField(label, field);
+                    gbc.gridx = 1;
+                    gbc.gridwidth = 1;
+                    gbc.gridy = lineNumber;
+                    gb.setConstraints(jt, gbc);
+                    this.add(jt);
+                    break;
+                case ASSET_ENUM:
+                    ListenedJComboBox<String> jbc = new ListenedJComboBox<>(label);
+                    if (structures.isAsset(field)) {
+                        for (String value : structures.assetToList(field)) {
+                            jbc.addItem(value);
+                        }
+
+                        if (defaultValue != null) {
+                            jbc.addItem(defaultValue);
+                            jbc.setSelectedItem(defaultValue);
+                        }
                         gbc.gridx = 1;
                         gbc.gridwidth = 1;
                         gbc.gridy = lineNumber;
                         gbc.fill = GridBagConstraints.BOTH;
                         gb.setConstraints(jbc, gbc);
-                    this.add(jbc);
+                        this.add(jbc);
 
-                    PlusButton bt = new PlusButton(structures, field, formsContainer);
+                        PlusButton bt = new PlusButton(jbc,structures, field, formsContainer);
                         gbc.gridx = 2;
                         gbc.gridwidth = 1;
                         gbc.gridy = lineNumber;
                         gbc.fill = GridBagConstraints.REMAINDER;
                         gb.setConstraints(bt, gbc);
-                    this.add(bt);
+                        this.add(bt);
 
-                    inputs.put(label, Objects.requireNonNull(jbc.getSelectedItem()).toString());
-                    break;
-                } else if (structures.isEnum(field)) {
-                    for (String value : structures.enumToList(field)) {
-                        jbc.addItem(value);
-                    }
-                    if(defaultValue != null){
-                        jbc.setSelectedItem(defaultValue);
-                    }
+                        break;
+                    } else if (structures.isEnum(field)) {
+                        for (String value : structures.enumToList(field)) {
+                            jbc.addItem(value);
+                        }
+                        if (defaultValue != null) {
+                            jbc.setSelectedItem(defaultValue);
+                        }
                         gbc.gridx = 1;
                         gbc.gridwidth = 1;
                         gbc.gridy = lineNumber;
                         gbc.fill = GridBagConstraints.BOTH;
                         gb.setConstraints(jbc, gbc);
-                    this.add(jbc);
+                        this.add(jbc);
 
-                    inputs.put(label, Objects.requireNonNull(jbc.getSelectedItem()).toString());
-                    break;
-                }
-            case LIST:
-                field = field .replaceAll("list<","")
-                              .replaceAll(">","");
+                        break;
+                    }
+                case LIST:
+                    field = field.replaceAll("list<", "")
+                            .replaceAll(">", "");
 
-                JTextField jtf = new JTextField();
+                    ListenedTextField jtf = new ListenedTextField(label, field);
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jtf, gbc);
-                this.add(jtf);
+                    this.add(jtf);
 
-                PlusButton bt = new PlusButton(structures, field, formsContainer);
+
+                    PlusButton bt = new PlusButton(structures, field, formsContainer);
                     gbc.gridx = 2;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.REMAINDER;
                     gb.setConstraints(bt, gbc);
-                this.add(bt);
+                    this.add(bt);
 
-                inputs.put(label, jtf.getText());
-                break;
+                    break;
 
-            case BOOLEAN:
-                JCheckBox jcb = new JCheckBox();
-                if(defaultValue != null){
-                    if(defaultValue.equals("true"))
-                        jcb.setSelected(true);
-                    else if(defaultValue.equals("false"))
-                        jcb.setSelected(false);
-                }
+                case BOOLEAN:
+                    ListenedJCheckBox jcb = new ListenedJCheckBox(label);
+                    if (defaultValue != null) {
+                        if (defaultValue.equals("true"))
+                            jcb.setSelected(true);
+                        else if (defaultValue.equals("false"))
+                            jcb.setSelected(false);
+                    }
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jcb, gbc);
-                this.add(jcb);
+                    this.add(jcb);
 
-                inputs.put(label, jcb.getText());
-                break;
-            case INTEGER:
-                JSpinner js = new JSpinner();
+                    break;
+                case INTEGER:
+                    JSpinner js = new JSpinner();
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(js, gbc);
-                this.add(js);
+                    this.add(js);
 
-                inputs.put(label, js.getValue().toString());
-                break;
-            case FLOAT:
-                float value = 0f;
-                float min = 0f;
-                float max = 100f;
-                float step = 0.01f;
+                    break;
+                case FLOAT:
+                    float value = 0f;
+                    float min = 0f;
+                    float max = 100f;
+                    float step = 0.01f;
 
-                SpinnerNumberModel myFloatSpinner = new SpinnerNumberModel(value, min, max, step);
+                    SpinnerNumberModel myFloatSpinner = new SpinnerNumberModel(value, min, max, step);
 
-                JSpinner jfs = new JSpinner(myFloatSpinner);
+                    JSpinner jfs = new JSpinner(myFloatSpinner);
                     gbc.gridx = 1;
                     gbc.gridwidth = 1;
                     gbc.gridy = lineNumber;
                     gbc.fill = GridBagConstraints.BOTH;
                     gb.setConstraints(jfs, gbc);
-                this.add(jfs);
+                    this.add(jfs);
 
-                inputs.put(label, jfs.getValue().toString());
-                break;
+                    break;
+            }
         }
     }
 
@@ -253,6 +284,7 @@ public class Form extends JPanel {
      */
     private FieldType identifyType(String field) {
 
+        //TODO add a sort by Polygon type
         if(field.contains("string")){
             return FieldType.STRING;
         }

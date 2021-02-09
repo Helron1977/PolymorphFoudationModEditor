@@ -69,7 +69,7 @@ public class ApiStructuresExtractor {
                         .replace("\",", "\"")
                         .replace("\"", "")
                         .replaceAll("[\\d]+:", "");
-                if(!parameter[0].equals("DataType"))
+                //if(!parameter[0].equals("DataType"))
                     parameters.put(parameter[0], parameter[1]);
             }
         }

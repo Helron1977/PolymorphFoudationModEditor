@@ -1,13 +1,13 @@
 package helron.foundationWizzard.com;
 
-import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import helron.foundationWizzard.com.ihm.App;
+import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 import helron.foundationWizzard.com.ihm.Home;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 
 
 public class Main {
@@ -25,11 +25,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
+
         //Load the file ( SnippetsForVSC.Jsonc)
-        InputStream source = Main.class.getResourceAsStream("/struct.json");
+        InputStream sourceFile = Main.class.getResourceAsStream("/struct.json");
+
+        String configPath= "../config.properties";
+        File f = new File(configPath);
+        if(f.isFile())
+        {
+            Properties config = new Properties();
+            config.load(new FileInputStream(configPath));
+            System.out.println(config.getProperty("Path"));
+            sourceFile = new FileInputStream(config.getProperty("Path"));
+        }
 
         //Read
-        InputStreamReader reader = new InputStreamReader(source, StandardCharsets.UTF_8);
+        InputStreamReader reader = new InputStreamReader(sourceFile, StandardCharsets.UTF_8);
 
         //Build dictionary and a Structures[] Index
         JsonElement dictionary = JsonParser.parseReader(reader).getAsJsonObject();

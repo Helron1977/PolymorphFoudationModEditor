@@ -17,6 +17,7 @@ public class LuaGenerator {
 
     public LuaGenerator(LinkedHashMap<String, String> userInput) {
         LuaGenerator.userInput = userInput;
+
     }
 
     /**
@@ -32,7 +33,6 @@ public class LuaGenerator {
                 .append(":register(")
                 .append(body)
                 .append(")");
-        sb.append(body);
         return sb.toString();
     }
 
@@ -40,7 +40,7 @@ public class LuaGenerator {
      * Build a table lua script representation of an Asset in Foundation
      * @return a string, the script.
      */
-    private String buildLuaTable() {
+    public String buildLuaTable() {
         StringJoiner sj = new StringJoiner(",\n", "{\n","\n}");
 
         for (String param : userInput.keySet()) {
