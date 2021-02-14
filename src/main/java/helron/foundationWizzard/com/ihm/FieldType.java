@@ -1,5 +1,5 @@
 package helron.foundationWizzard.com.ihm;
 
 public enum FieldType {
-    STRING, ASSET_ENUM, LIST, BOOLEAN, INTEGER, FLOAT
+    DATATYPE, ID, STRING, ASSET_ENUM, LIST, BOOLEAN, INTEGER, FLOAT
 }

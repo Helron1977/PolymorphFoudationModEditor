@@ -1,15 +1,12 @@
+/*
 package helron.foundationWizzard.com.ihm;
 
-import helron.foundationWizzard.com.Main;
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
+import helron.foundationWizzard.com.ui.FormsContainer;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class App {
     ApiStructuresExtractor structures;
@@ -32,3 +29,4 @@ public class App {
         f.setVisible(true);
     }
 }
+*/

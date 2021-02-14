@@ -3,7 +3,9 @@ package helron.foundationWizzard.com;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
-import helron.foundationWizzard.com.ihm.Home;
+import helron.foundationWizzard.com.datagenerator.DataStructureSet;
+import helron.foundationWizzard.com.datagenerator.DataStructureSetGenerator;
+import helron.foundationWizzard.com.ui.Home;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -46,7 +48,10 @@ public class Main {
         JsonElement dictionary = JsonParser.parseReader(reader).getAsJsonObject();
         ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
 
-        new Home(structures);
+
+        DataStructureSetGenerator dataStructureSetGenerator = new DataStructureSetGenerator(structures);
+        DataStructureSet dataMap = dataStructureSetGenerator.getDataSet();
+        new Home(dataMap);
 
 
 

@@ -50,7 +50,23 @@ title __WIZZARD's Class Diagram__\n
 
   namespace helron.foundationWizzard.com {
     namespace ihm {
-      class helron.foundationWizzard.com.ihm.FormRequestDialog {
+      abstract class helron.foundationWizzard.com.ihm.FormRequestDialog {
+      }
+    }
+  }
+  
+
+  namespace helron.foundationWizzard.com {
+    namespace ihm {
+      class helron.foundationWizzard.com.ihm.FormRequestDialogForClass {
+      }
+    }
+  }
+  
+
+  namespace helron.foundationWizzard.com {
+    namespace ihm {
+      class helron.foundationWizzard.com.ihm.FormRequestDialogForSetList {
       }
     }
   }
@@ -122,7 +138,23 @@ title __WIZZARD's Class Diagram__\n
 
   namespace helron.foundationWizzard.com {
     namespace ihm {
+      class helron.foundationWizzard.com.ihm.ListenedJSpinner {
+      }
+    }
+  }
+  
+
+  namespace helron.foundationWizzard.com {
+    namespace ihm {
       class helron.foundationWizzard.com.ihm.ListenedTextField {
+      }
+    }
+  }
+  
+
+  namespace helron.foundationWizzard.com {
+    namespace ihm {
+      class helron.foundationWizzard.com.ihm.LuaScriptFrame {
       }
     }
   }
@@ -146,6 +178,14 @@ title __WIZZARD's Class Diagram__\n
 
   namespace helron.foundationWizzard.com {
     namespace ihm {
+      class helron.foundationWizzard.com.ihm.SplitPanel {
+      }
+    }
+  }
+  
+
+  namespace helron.foundationWizzard.com {
+    namespace ihm {
       class helron.foundationWizzard.com.ihm.ValidateButton {
       }
     }
@@ -157,6 +197,10 @@ title __WIZZARD's Class Diagram__\n
   helron.foundationWizzard.com.ihm.Form o-- helron.foundationWizzard.com.ihm.FormsContainer : formsContainer
   helron.foundationWizzard.com.ihm.Form o-- helron.foundationWizzard.com.api.ApiStructuresExtractor : structures
   helron.foundationWizzard.com.ihm.FormRequestDialog -up-|> javax.swing.JDialog
+  helron.foundationWizzard.com.ihm.FormRequestDialog o-- helron.foundationWizzard.com.api.ApiStructuresExtractor : structures
+  helron.foundationWizzard.com.ihm.FormRequestDialog o-- helron.foundationWizzard.com.ihm.FormsContainer : tabsContainer
+  helron.foundationWizzard.com.ihm.FormRequestDialogForClass -up-|> helron.foundationWizzard.com.ihm.FormRequestDialog
+  helron.foundationWizzard.com.ihm.FormRequestDialogForSetList -up-|> helron.foundationWizzard.com.ihm.FormRequestDialog
   helron.foundationWizzard.com.ihm.FormsContainer -up-|> javax.swing.JTabbedPane
   helron.foundationWizzard.com.ihm.Home -up-|> javax.swing.JPanel
   helron.foundationWizzard.com.ihm.JImagePanel -up-|> javax.swing.JPanel
@@ -164,13 +208,22 @@ title __WIZZARD's Class Diagram__\n
   helron.foundationWizzard.com.ihm.JtextFileChooser -up-|> javax.swing.JTextField
   helron.foundationWizzard.com.ihm.ListenedJCheckBox .up.|> java.awt.event.FocusListener
   helron.foundationWizzard.com.ihm.ListenedJCheckBox -up-|> javax.swing.JCheckBox
+  helron.foundationWizzard.com.ihm.ListenedJCheckBox o-- helron.foundationWizzard.com.ihm.Form : activeForm
   helron.foundationWizzard.com.ihm.ListenedJComboBox .up.|> java.awt.event.FocusListener
   helron.foundationWizzard.com.ihm.ListenedJComboBox -up-|> javax.swing.JComboBox
+  helron.foundationWizzard.com.ihm.ListenedJComboBox o-- helron.foundationWizzard.com.ihm.Form : activeForm
   helron.foundationWizzard.com.ihm.ListenedJList -up-|> javax.swing.JList
+  helron.foundationWizzard.com.ihm.ListenedJList o-- helron.foundationWizzard.com.ihm.Form : activeForm
+  helron.foundationWizzard.com.ihm.ListenedJSpinner .up.|> javax.swing.event.ChangeListener
+  helron.foundationWizzard.com.ihm.ListenedJSpinner -up-|> javax.swing.JSpinner
+  helron.foundationWizzard.com.ihm.ListenedJSpinner o-- helron.foundationWizzard.com.ihm.Form : activeForm
   helron.foundationWizzard.com.ihm.ListenedTextField .up.|> java.awt.event.FocusListener
   helron.foundationWizzard.com.ihm.ListenedTextField -up-|> javax.swing.JTextField
+  helron.foundationWizzard.com.ihm.ListenedTextField o-- helron.foundationWizzard.com.ihm.Form : activeForm
+  helron.foundationWizzard.com.ihm.LuaScriptFrame -up-|> javax.swing.JFrame
   helron.foundationWizzard.com.ihm.MainFrame -up-|> javax.swing.JFrame
   helron.foundationWizzard.com.ihm.PlusButton -up-|> javax.swing.JButton
+  helron.foundationWizzard.com.ihm.SplitPanel -up-|> javax.swing.JPanel
   helron.foundationWizzard.com.ihm.ValidateButton -up-|> javax.swing.JButton
 
 

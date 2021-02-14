@@ -1,6 +1,8 @@
+/*
 package helron.foundationWizzard.com.ihm;
 
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
+import helron.foundationWizzard.com.ui.FormsContainer;
 
 import javax.swing.*;
 
@@ -9,20 +11,21 @@ public class PlusButton extends JButton {
         super("+");
         this.addActionListener(e -> {
             try {
-                FormRequestDialog rq = new FormRequestDialog(jbc, structures, class_ID, tabs);
+                FormRequestDialogForClass rq = new FormRequestDialogForClass(jbc, structures, class_ID, tabs);
 
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
         });
     }
-    public PlusButton(ApiStructuresExtractor structures, String class_ID, FormsContainer tabs) {
+    public PlusButton(ApiStructuresExtractor structures, String classID, FormsContainer tabs) {
         super("+");
         this.addActionListener(e -> {
             try {
-                Form tab= new Form(class_ID, structures, tabs);
-                tab.setOpaque(false);
-                tabs.add(class_ID,tab);
+                Form form= new Form(classID, structures, tabs);
+                form.setOpaque(false);
+                tabs.add(classID,form);
+                tabs.setTabComponentAt(tabs.indexOfTab(classID),tabs.getTitlePanel( form, classID));
 
             } catch (Exception exception) {
                 exception.printStackTrace();
@@ -33,9 +36,7 @@ public class PlusButton extends JButton {
         super("+");
         this.addActionListener(e -> {
             try {
-                FormRequestDialog rq = new FormRequestDialog(listData,jList,structures, class_ID, tabs);
-                //Form tab= new Form(class_ID, structures, tabs);
-                //tabs.add(class_ID,tab);
+                FormRequestDialogForSetList rq = new FormRequestDialogForSetList(listData,jList,structures, class_ID, tabs);
 
             } catch (Exception exception) {
                 exception.printStackTrace();
@@ -43,3 +44,4 @@ public class PlusButton extends JButton {
         });
     }
 }
+*/

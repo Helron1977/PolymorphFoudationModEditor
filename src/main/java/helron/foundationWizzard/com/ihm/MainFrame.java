@@ -31,6 +31,7 @@ public class MainFrame extends JFrame{
             frameDim.setSize(FormsContainer.dim.width*3/4, FormsContainer.dim.height*3/4 );
 
         setSize(FormsContainer.dim);*/
+        //setLocationRelativeTo(null);
         setVisible(true);
     }
 

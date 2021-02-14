@@ -1,3 +1,4 @@
+/*
 package helron.foundationWizzard.com.ihm;
 
 import helron.foundationWizzard.com.api.LuaGenerator;
@@ -8,12 +9,13 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 public class ListenedTextField extends JTextField implements FocusListener {
-    String lbl;
+    private String label;
+    private Form activeForm;
 
-    public ListenedTextField(String lbl, String field) {
-        super(field);
-        this.lbl= lbl;
-
+    public ListenedTextField(String lbl, String fieldText, Form activeForm) {
+        super(fieldText);
+        this.label= lbl;
+        this.activeForm = activeForm;
         addFocusListener(this);
     }
 
@@ -25,9 +27,10 @@ public class ListenedTextField extends JTextField implements FocusListener {
 
     @Override
     public void focusLost(FocusEvent e) {
-        Form.inputs.put(lbl, this.getText());
+        activeForm.getInputs().put(label, this.getText());
         setBackground(new Color(0xAFF3C1));
-        LuaGenerator lg = new LuaGenerator(Form.inputs);
+        LuaGenerator lg = new LuaGenerator(activeForm.getInputs());
         System.out.println(lg.InitializeLuaTable("myMod"));
     }
 }
+*/

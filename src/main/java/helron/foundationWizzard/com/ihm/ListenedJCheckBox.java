@@ -1,3 +1,4 @@
+/*
 package helron.foundationWizzard.com.ihm;
 
 import helron.foundationWizzard.com.api.LuaGenerator;
@@ -8,10 +9,12 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 public class ListenedJCheckBox extends JCheckBox implements FocusListener {
-    String label;
+    private String label;
+    private Form activeForm;
 
-    public ListenedJCheckBox(String linkedlabel) {
+    public ListenedJCheckBox(String linkedlabel, Form activeForm) {
         this.label = linkedlabel;
+        this.activeForm = activeForm;
         addFocusListener(this);
     }
 
@@ -24,8 +27,9 @@ public class ListenedJCheckBox extends JCheckBox implements FocusListener {
     @Override
     public void focusLost(FocusEvent e) {
         setBackground(new Color(0xAFF3C1));
-        Form.inputs.put(label,isSelected()?"true":"false");
-        LuaGenerator lg = new LuaGenerator(Form.inputs);
+        activeForm.getInputs().put(label,isSelected()?"true":"false");
+        LuaGenerator lg = new LuaGenerator(activeForm.getInputs());
         System.out.println(lg.InitializeLuaTable("myMod"));
     }
 }
+*/

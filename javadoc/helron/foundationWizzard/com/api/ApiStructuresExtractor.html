@@ -16,7 +16,7 @@
 <script type="text/javascript" src="../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":9,"i3":9,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+<script type="text/javascript">var dataStructure = {"i0":10,"i1":10,"i2":9,"i3":9,"i4":9,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
@@ -145,7 +145,7 @@ extends java.lang.Object</pre>
 <td class="col-first"><code>static java.util.LinkedHashMap&lt;java.lang.String,&#8203;java.lang.String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#clean(com.google.gson.JsonArray)">clean</a></span>&#8203;(com.google.gson.JsonArray&nbsp;structure)</code></th>
 <td class="col-last">
-<div class="block">Clean a jsonArray of VSC snippet's tags and DataType param.</div>
+<div class="block">Clean a jsonArray of VSC snippet's tags and DataType parameter.</div>
 </td>
 </tr>
 <tr class="row-color" id="i3">
@@ -193,16 +193,16 @@ java.lang.String&nbsp;matchingString)</code></th>
 </tr>
 <tr class="row-color" id="i9">
 <td class="col-first"><code>java.lang.String</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#extractParamDefaultValue(java.lang.String)">extractParamDefaultValue</a></span>&#8203;(java.lang.String&nbsp;param)</code></th>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#extractParamDefaultValue(java.lang.String)">extractParamDefaultValue</a></span>&#8203;(java.lang.String&nbsp;parameter)</code></th>
 <td class="col-last">
-<div class="block">Extract the default Value from a String param Type that contain it.</div>
+<div class="block">Extract the default Value from a String parameter Type that contain it.</div>
 </td>
 </tr>
 <tr class="alt-color" id="i10">
 <td class="col-first"><code>java.lang.String</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#extractParamType(java.lang.String)">extractParamType</a></span>&#8203;(java.lang.String&nbsp;param)</code></th>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#extractParamType(java.lang.String)">extractParamType</a></span>&#8203;(java.lang.String&nbsp;parameter)</code></th>
 <td class="col-last">
-<div class="block">Extract an expected parameter type from String param, first word of the String.</div>
+<div class="block">Extract an expected parameter type from String parameter, first word of the String.</div>
 </td>
 </tr>
 <tr class="row-color" id="i11">
@@ -236,14 +236,14 @@ java.lang.String&nbsp;matchingString)</code></th>
 <td class="col-first"><code>boolean</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#isAsset(java.lang.String)">isAsset</a></span>&#8203;(java.lang.String&nbsp;paramType)</code></th>
 <td class="col-last">
-<div class="block">return true if the String use in param match with an Asset of the API</div>
+<div class="block">return true if the String use in parameter match with an Asset of the API</div>
 </td>
 </tr>
 <tr class="row-color" id="i17">
 <td class="col-first"><code>boolean</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#isEnum(java.lang.String)">isEnum</a></span>&#8203;(java.lang.String&nbsp;paramType)</code></th>
 <td class="col-last">
-<div class="block">return true if the String use in param match with an Enum of the API</div>
+<div class="block">return true if the String use in parameter match with an Enum of the API</div>
 </td>
 </tr>
 </tbody>
@@ -302,7 +302,7 @@ java.lang.String&nbsp;matchingString)</span></div>
 <section class="detail" id="clean(com.google.gson.JsonArray)">
 <h3>clean</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">java.util.LinkedHashMap&lt;java.lang.String,&#8203;java.lang.String&gt;</span>&nbsp;<span class="member-name">clean</span>&#8203;(<span class="parameters">com.google.gson.JsonArray&nbsp;structure)</span></div>
-<div class="block">Clean a jsonArray of VSC snippet's tags and DataType param.</div>
+<div class="block">Clean a jsonArray of VSC snippet's tags and DataType parameter.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>structure</code> - JsonArray of parameter Set</dd>
@@ -326,7 +326,7 @@ java.lang.String&nbsp;matchingString)</span></div>
 <section class="detail" id="isEnum(java.lang.String)">
 <h3>isEnum</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="member-name">isEnum</span>&#8203;(<span class="parameters">java.lang.String&nbsp;paramType)</span></div>
-<div class="block">return true if the String use in param match with an Enum of the API</div>
+<div class="block">return true if the String use in parameter match with an Enum of the API</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>paramType</code> - the String you are looking for.</dd>
@@ -339,7 +339,7 @@ java.lang.String&nbsp;matchingString)</span></div>
 <section class="detail" id="isAsset(java.lang.String)">
 <h3>isAsset</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="member-name">isAsset</span>&#8203;(<span class="parameters">java.lang.String&nbsp;paramType)</span></div>
-<div class="block">return true if the String use in param match with an Asset of the API</div>
+<div class="block">return true if the String use in parameter match with an Asset of the API</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>paramType</code> - the String you are looking for.</dd>
@@ -401,12 +401,12 @@ java.lang.String&nbsp;matchingString)</span></div>
 <li>
 <section class="detail" id="extractParamDefaultValue(java.lang.String)">
 <h3>extractParamDefaultValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.lang.String</span>&nbsp;<span class="member-name">extractParamDefaultValue</span>&#8203;(<span class="parameters">java.lang.String&nbsp;param)</span></div>
-<div class="block">Extract the default Value from a String param Type that contain it.
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.lang.String</span>&nbsp;<span class="member-name">extractParamDefaultValue</span>&#8203;(<span class="parameters">java.lang.String&nbsp;parameter)</span></div>
+<div class="block">Extract the default Value from a String parameter Type that contain it.
  ex: TEXTURE_WRAP (default: TEXTURE_WRAP.CLAMP) returns TEXTURE_WRAP.CLAMP</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>param</code> - String Param containing the default value.</dd>
+<dd><code>parameter</code> - String Param containing the default value.</dd>
 <dt>Returns:</dt>
 <dd>String the default value.</dd>
 </dl>
@@ -415,11 +415,11 @@ java.lang.String&nbsp;matchingString)</span></div>
 <li>
 <section class="detail" id="extractParamType(java.lang.String)">
 <h3>extractParamType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.lang.String</span>&nbsp;<span class="member-name">extractParamType</span>&#8203;(<span class="parameters">java.lang.String&nbsp;param)</span></div>
-<div class="block">Extract an expected parameter type from String param, first word of the String.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.lang.String</span>&nbsp;<span class="member-name">extractParamType</span>&#8203;(<span class="parameters">java.lang.String&nbsp;parameter)</span></div>
+<div class="block">Extract an expected parameter type from String parameter, first word of the String.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>param</code> - String Param containing the expected Type.</dd>
+<dd><code>parameter</code> - String Param containing the expected Type.</dd>
 <dt>Returns:</dt>
 <dd>a String, expected parameter type.</dd>
 </dl>
@@ -434,7 +434,7 @@ java.lang.String&nbsp;matchingString)</span></div>
 <dt>Parameters:</dt>
 <dd><code>classToExtract</code> - a String id of the Class to extract</dd>
 <dt>Returns:</dt>
-<dd>a LinkedHashMap param, param type</dd>
+<dd>a LinkedHashMap parameter, parameter type</dd>
 </dl>
 </section>
 </li>

@@ -1,3 +1,4 @@
+/*
 package helron.foundationWizzard.com.ihm;
 
 import helron.foundationWizzard.com.api.LuaGenerator;
@@ -13,11 +14,13 @@ import java.util.List;
 
 public class ListenedJList extends JList<String>{
     private final DefaultListModel<String> dataList;
-    private String lbl;
+    private String label;
+    private Form activeForm;
 
-    public ListenedJList(DefaultListModel<String> listData, String label) {
+    public ListenedJList(DefaultListModel<String> listData, String label, Form activeForm) {
         super(listData);
         this.dataList = listData;
+        this.activeForm = activeForm;
         dataList.addListDataListener(new ListDataListener() {
             @Override
             public void intervalAdded(ListDataEvent e) {
@@ -26,9 +29,9 @@ public class ListenedJList extends JList<String>{
                     listToScript.add(dataList.getElementAt(i));
                 }
                 setBackground(new Color(0xAFF3C1));
-                LuaGenerator lg = new LuaGenerator(Form.inputs);
+                LuaGenerator lg = new LuaGenerator(activeForm.getInputs());
                 String aLuaList = lg.buildLuaList(listToScript);
-                Form.inputs.put(lbl,aLuaList);
+                activeForm.getInputs().put(label,aLuaList);
 
             }
 
@@ -42,7 +45,8 @@ public class ListenedJList extends JList<String>{
 
             }
         });
-        this.lbl = label;
+        this.label = label;
     }
 
 }
+*/

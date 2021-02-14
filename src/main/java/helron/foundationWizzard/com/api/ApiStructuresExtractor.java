@@ -144,7 +144,6 @@ public class ApiStructuresExtractor {
         Set<Map.Entry<String, JsonElement>> structuresIndex = this.dictionary.getAsJsonObject().entrySet();
         for (Map.Entry<String, JsonElement> test: structuresIndex) {
                 entry.add(test.getKey());
-            //System.out.println(test.getKey());
         }
         return entry;
     }
@@ -206,28 +205,32 @@ public class ApiStructuresExtractor {
         JsonArray templates = extractTemplates(CLASSPREFIX+ classToExtract);
         return ApiStructuresExtractor.clean(templates);
     }
+    public LinkedHashMap<String, String> extractStructure(String classToExtract) {
+        JsonArray templates = extractTemplates(classToExtract);
+        return ApiStructuresExtractor.clean(templates);
+    }
 
     /**
-     * Extract the values of an API ENUM using an id without the prefix, set as CONST.
+     * Extract the values of an API ENUM
      * @param enumToExtract a String, id of the Enum to display
      * @return A List String of the Enum values
      */
     public List<String> enumToList(String enumToExtract){
         //look for the VALUES of Enum Structures
-        JsonArray templates = extractTemplates(ENUMPREFIX+enumToExtract);
+        JsonArray templates = extractTemplates(enumToExtract);
         //Clean the ENUM templates
         return cleanEnumTemplate(templates);
         //System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
     }
 
     /**
-     * Extract the values of the API ASSET using a String ID without the prefix set as CONST.
+     * Extract the values of the API
      * @param assetToExtract a String, id of the Asset to display
      * @return a List of String
      */
     public List<String> assetToList(String assetToExtract) {
         //look for the VALUES of Enum Structures
-        JsonArray templates = extractTemplates(ASSETPREFIX+assetToExtract);
+        JsonArray templates = extractTemplates(assetToExtract);
 
         //Clean the ENUM templates
         return ApiStructuresExtractor.cleanEnumTemplate(templates);
@@ -248,4 +251,5 @@ public class ApiStructuresExtractor {
     public LinkedList<String> getDictionaryAssetIndex() {
         return dictionaryAssetIndex;
     }
+
 }
