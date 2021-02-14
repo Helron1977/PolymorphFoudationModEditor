@@ -1,21 +1,22 @@
 package helron.foundationWizzard.com.datagenerator;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class DataStructureClass extends DataStructure {
-    LinkedList<Parameter> parameterLinkedList;
+    List<Parameter> parameterList;
 
-    public DataStructureClass(String id, DataStructureType dataStructureType, LinkedList<Parameter> parameterLinkedList) {
+    public DataStructureClass(String id, DataStructureType dataStructureType, LinkedList<Parameter> parameterList) {
         super(id, dataStructureType);
-        this.parameterLinkedList = parameterLinkedList;
+        this.parameterList = parameterList;
     }
 
-    public LinkedList<Parameter> getParamLinkedList() {
-        return parameterLinkedList;
+    public List<Parameter> getParamLinkedList() {
+        return parameterList;
     }
 
-    public void setParamLinkedList(LinkedList<Parameter> parameterLinkedList) {
-        this.parameterLinkedList = parameterLinkedList;
+    public void setParamLinkedList(List<Parameter> parameterListList) {
+        this.parameterList = parameterListList;
     }
 
 }

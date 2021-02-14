@@ -1,6 +1,6 @@
 package helron.foundationWizzard.com.ui;
 
-import helron.foundationWizzard.com.datagenerator.DataStructureSet;
+import helron.foundationWizzard.com.datagenerator.DataStructureMap;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,7 @@ public class FormsContainer extends JTabbedPane {
      * @param classID a Tab name
      * @param structures Data source of the form to generate in this tab
      */
-    public FormsContainer(String classID, DataStructureSet dataMap) throws IOException {
+    public FormsContainer(String classID, DataStructureMap dataMap) throws IOException {
 
 /*        if(dataMap.isClass(classID)) {
             dataMap.getClassData(classID);

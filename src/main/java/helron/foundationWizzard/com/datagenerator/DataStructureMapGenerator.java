@@ -3,14 +3,14 @@ import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 
 import java.util.*;
 
-public class DataStructureSetGenerator {
-    private final DataStructureSet dataStructureSet;
+public class DataStructureMapGenerator {
+    private final DataStructureMap dataStructureMap;
     Map<String, DataStructure> extractedData;
     Map<String, DataStructure> extractedClass;
     Map<String, DataStructure> extractedEnum;
     Map<String, DataStructure> extractedAsset;
 
-    public DataStructureSetGenerator(ApiStructuresExtractor structures) {
+    public DataStructureMapGenerator(ApiStructuresExtractor structures) {
         LinkedList<String> dataIndex = structures.entryList();
         extractedData = new HashMap<>();
         extractedClass= new HashMap<>();
@@ -18,7 +18,7 @@ public class DataStructureSetGenerator {
         extractedAsset= new HashMap<>();
 
         generateDataSet(dataIndex, structures);
-        dataStructureSet = new DataStructureSet(extractedData);
+        dataStructureMap = new DataStructureMap(extractedData);
     }
 
 
@@ -55,7 +55,6 @@ public class DataStructureSetGenerator {
     private LinkedList<Parameter> generateParams(LinkedHashMap<String, String> extractedData, ApiStructuresExtractor structures){
         LinkedList<Parameter> parameters = new LinkedList<>();
         extractedData.forEach((key, value) ->{
-            String paramType1 = structures.extractParamType(value);
                 //System.out.println(structures.extractParamType(value));
             ParamType paramType = checkParamType(structures.extractParamType(value));
             String defaultValue = structures.extractParamDefaultValue(value);
@@ -72,6 +71,8 @@ public class DataStructureSetGenerator {
     private ParamType checkParamType(String extractParamType) {
         if (extractParamType.contains("list"))
             return ParamType.LIST;
+        else if (extractParamType.contains("PAIR"))
+            return ParamType.PAIR;
 
         return switch (extractParamType) {
             case "float" -> ParamType.FLOAT;
@@ -85,8 +86,8 @@ public class DataStructureSetGenerator {
         };
     }
 
-    public DataStructureSet getDataSet() {
-        return dataStructureSet;
+    public DataStructureMap getDataSet() {
+        return dataStructureMap;
     }
 }
 

@@ -3,8 +3,8 @@ package helron.foundationWizzard.com;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
-import helron.foundationWizzard.com.datagenerator.DataStructureSet;
-import helron.foundationWizzard.com.datagenerator.DataStructureSetGenerator;
+import helron.foundationWizzard.com.datagenerator.DataStructureMap;
+import helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator;
 import helron.foundationWizzard.com.ui.Home;
 
 import java.io.*;
@@ -49,8 +49,8 @@ public class Main {
         ApiStructuresExtractor structures = new ApiStructuresExtractor(dictionary);
 
 
-        DataStructureSetGenerator dataStructureSetGenerator = new DataStructureSetGenerator(structures);
-        DataStructureSet dataMap = dataStructureSetGenerator.getDataSet();
+        DataStructureMapGenerator dataStructureMapGenerator = new DataStructureMapGenerator(structures);
+        DataStructureMap dataMap = dataStructureMapGenerator.getDataSet();
         new Home(dataMap);
 
 

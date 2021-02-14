@@ -1,7 +1,7 @@
 package helron.foundationWizzard.com.ui;
 
 import helron.foundationWizzard.com.Main;
-import helron.foundationWizzard.com.datagenerator.DataStructureSet;
+import helron.foundationWizzard.com.datagenerator.DataStructureMap;
 import helron.foundationWizzard.com.ihm.*;
 
 import javax.imageio.ImageIO;
@@ -14,7 +14,7 @@ import java.io.InputStream;
 public class Home extends JPanel {
 
 
-    public Home(DataStructureSet dataMap) throws IOException {
+    public Home(DataStructureMap dataMap) throws IOException {
 
         Color darkGreen = new Color(0x0E1D0E);
         Color mediumGreen = new Color(0x183818);

@@ -2,11 +2,11 @@ package helron.foundationWizzard.com.datagenerator;
 
 import java.util.Map;
 
-public class DataStructureSet {
+public class DataStructureMap {
     private Map<String, DataStructure> dataMap;
 
 
-    public DataStructureSet(Map<String, DataStructure> dataMap) {
+    public DataStructureMap(Map<String, DataStructure> dataMap) {
         this.dataMap= dataMap;
     }
 

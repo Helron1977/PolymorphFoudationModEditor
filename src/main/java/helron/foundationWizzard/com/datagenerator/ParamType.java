@@ -10,6 +10,7 @@ public enum ParamType {
     VEC3F,
     VEC2I,
     ENUM,
-    ASSET;
+    ASSET,
+    PAIR;
 
 }

@@ -1,4 +1,4 @@
 package helron.foundationWizzard.com.datagenerator;
 
-public class DataStructureData {
+public class DataStructureOther {
 }
