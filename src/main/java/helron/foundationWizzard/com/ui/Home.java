@@ -40,7 +40,8 @@ public class Home extends JPanel {
             horizontalBlue.setPreferredSize(new Dimension(1024,50));
 
 
-        FormsContainer myTab = new FormsContainer("BUILDING", dataMap);
+
+        FormsContainer myTab = new FormsContainer("Foundation-CLASS_BUILDING", dataMap);
 
         panel.add(myTab,BorderLayout.CENTER);
         LayoutManager layout = new BorderLayout();
@@ -84,7 +85,7 @@ public class Home extends JPanel {
         formSelector.addItem("BUILDING");
         formSelector.addItem("EVENT");
         formSelector.addItemListener(e -> {
-            myTab.removeAll();
+            //myTab.removeAll();
            // Form tab= new Form(Objects.requireNonNull(formSelector.getSelectedItem()).toString(), structures, myTab);
             //tab.setOpaque(false);
             //myTab.add(formSelector.getSelectedItem().toString(),tab);
@@ -162,24 +163,24 @@ public class Home extends JPanel {
         loadSavePanel.setOpaque(false);
         selectMenu.setOpaque(false);
         boxField.setOpaque(false);
-        myTab.setOpaque(false);
+        //myTab.setOpaque(false);
         subMenu.setOpaque(false);
 
 
         verticalSeparator.add(logo);
         verticalSeparator.add(selectMenu);
-        //verticalSeparator.add(loadSavePanel);
+        verticalSeparator.add(loadSavePanel);
 
         leftPanel.add(menu);
         leftPanel.add(verticalSeparator, BorderLayout.EAST);
 
-        /*body.add(horizontalBlue,BorderLayout.NORTH);
+        body.add(horizontalBlue,BorderLayout.NORTH);
         body.add(myTab);
         panel.add(body);
         //test
         panel.setOpaque(true);
 
-        panel.add(leftPanel,BorderLayout.WEST);*/
+        panel.add(leftPanel,BorderLayout.WEST);
         frame.setVisible(true);
         frame.add(panel);
         frame.pack();

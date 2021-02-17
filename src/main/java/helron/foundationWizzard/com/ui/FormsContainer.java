@@ -1,6 +1,9 @@
 package helron.foundationWizzard.com.ui;
 
+import helron.foundationWizzard.com.datagenerator.DataStructure;
+import helron.foundationWizzard.com.datagenerator.DataStructureClass;
 import helron.foundationWizzard.com.datagenerator.DataStructureMap;
+import helron.foundationWizzard.com.datagenerator.DataStructureType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,17 +22,16 @@ public class FormsContainer extends JTabbedPane {
      * Build and set  FormsContainer object that is a JtabbedPane.
      * Instanciate a form set as a tab in the TabbedPane.
      * @param classID a Tab name
-     * @param structures Data source of the form to generate in this tab
+     * @param dataMap the DataStructureMap source of the form to generate in this tab
      */
     public FormsContainer(String classID, DataStructureMap dataMap) throws IOException {
 
-/*        if(dataMap.isClass(classID)) {
-            dataMap.getClassData(classID);
-            Form form = new Form(dataMap.getClassData(classID), FormType.CLASS);
+        if(dataMap.getDataMap().get(classID).getClassType().equals(DataStructureType.CLASS)) {
 
-            this.add(form.getForm());
+            Form form = new Form((DataStructureClass)dataMap.getDataMap().get(classID), FormType.CLASS);
+
+            this.add(form.id,form);
             setBounds(40, 20, 300, 300);
-            System.out.println(indexOfTab(classID));
-        }*/
+        }
     }
 }

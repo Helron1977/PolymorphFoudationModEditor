@@ -3,6 +3,7 @@ package helron.foundationWizzard.com.api;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import helron.foundationWizzard.com.datagenerator.DataStructureType;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -11,14 +12,16 @@ import java.util.regex.Pattern;
 public class ApiStructuresExtractor {
     private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
     private final static Pattern defaultValueMatcher = Pattern.compile("\\S+(?=\\))");
-    private final String CLASSPREFIX = "Foundation-CLASS_";
-    private final String ENUMPREFIX = "Foundation-ENUM_";
-    private final String ASSETPREFIX = "Foundation-ASSET_";
+    private final String CLASS_PREFIX = DataStructureType.CLASS.getPrefix();
+    private final String ENUM_PREFIX = DataStructureType.ENUM.getPrefix();
+    private final String ASSET_PREFIX = DataStructureType.ASSET.getPrefix();
+    private final String STRUCTURE_PREFIX = DataStructureType.STRUCTURE.getPrefix();
     private final JsonElement dictionary;
     private final LinkedList<String> dictionaryIndex;
     private final LinkedList<String> dictionaryClassIndex;
     private final LinkedList<String> dictionaryEnumIndex;
     private final LinkedList<String> dictionaryAssetIndex;
+    private final LinkedList<String> dictionaryStructIndex;
 
     /**
      *Set a JsonElement as a dictionary and set an Index list , an Index Class list, an Index Enum list, an Asset list
@@ -27,9 +30,10 @@ public class ApiStructuresExtractor {
     public ApiStructuresExtractor(JsonElement dictionary) {
         this.dictionary = dictionary;
         this.dictionaryIndex = entryList();
-        this.dictionaryClassIndex = extractMatchTypeIndex(dictionaryIndex, "CLASS");
-        this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, "-ASSET");
-        this.dictionaryEnumIndex = extractMatchTypeIndex(dictionaryIndex, "ENUM");
+        this.dictionaryClassIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.CLASS.getPrefix());
+        this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.ASSET.getPrefix());
+        this.dictionaryEnumIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.ENUM.getPrefix());
+        this.dictionaryStructIndex = extractMatchTypeIndex(dictionaryIndex,DataStructureType.STRUCTURE.getPrefix());
     }
 
     /**
@@ -94,7 +98,7 @@ public class ApiStructuresExtractor {
      */
     public boolean isEnum(String paramType){
         for(String index: getDictionaryEnumIndex()) {
-            if((ENUMPREFIX+paramType).equals(index)){
+            if((ENUM_PREFIX+paramType).equals(index)){
                 //System.out.println("enum");
                 return true;}
         }
@@ -108,12 +112,40 @@ public class ApiStructuresExtractor {
      */
     public boolean isAsset(String paramType){
         for(String index: getDictionaryAssetIndex()) {
-            if((ASSETPREFIX+paramType).equals(index)) {
+            if((ASSET_PREFIX+paramType).equals(index)) {
                 return true;
             }
         }
         return false;
     }
+    /**
+     * return true if the String use in param match with an Class of the API
+     * @param paramType the String you are looking for.
+     * @return a boolean true/false
+     */
+    public boolean isClass(String paramType){
+        for(String index: getDictionaryClassIndex()){
+            if((CLASS_PREFIX+paramType).equals(index)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * return true if the String use in param match with a Struct of the API
+     * @param paramType the String you are looking for.
+     * @return a boolean true/false
+     */
+    public boolean isStruct(String paramType){
+        for(String index: getDictionaryAssetIndex()) {
+            if((ASSET_PREFIX+paramType).equals(index)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     /**
      * Parse the Capital letter as VALUES of Enums. Enums do not have an equal char.So can be identify by a lenght of 1
@@ -164,7 +196,7 @@ public class ApiStructuresExtractor {
      * @param classToExtract a String Name, id of the class to display
      */
     public void classToString(String classToExtract){
-        JsonArray templates = extractTemplates(CLASSPREFIX+ classToExtract);
+        JsonArray templates = extractTemplates(CLASS_PREFIX+ classToExtract);
         LinkedHashMap<String, String> parameters = ApiStructuresExtractor.clean(templates);
         for (String param : parameters.keySet()) {
             System.out.print(param + " = ");
@@ -202,7 +234,7 @@ public class ApiStructuresExtractor {
      * @return a LinkedHashMap param, param type
      */
     public LinkedHashMap<String, String> extractClass(String classToExtract) {
-        JsonArray templates = extractTemplates(CLASSPREFIX+ classToExtract);
+        JsonArray templates = extractTemplates(CLASS_PREFIX+ classToExtract);
         return ApiStructuresExtractor.clean(templates);
     }
     public LinkedHashMap<String, String> extractStructure(String classToExtract) {
@@ -252,4 +284,7 @@ public class ApiStructuresExtractor {
         return dictionaryAssetIndex;
     }
 
+    public LinkedList<String> getDictionaryStructIndex() {
+        return dictionaryStructIndex;
+    }
 }

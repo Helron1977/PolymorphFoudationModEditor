@@ -3,7 +3,7 @@ package helron.foundationWizzard.com.datagenerator;
 import java.util.Map;
 
 public class DataStructureMap {
-    private Map<String, DataStructure> dataMap;
+    private final Map<String, DataStructure> dataMap;
 
 
     public DataStructureMap(Map<String, DataStructure> dataMap) {
@@ -24,7 +24,7 @@ public class DataStructureMap {
         if( dataStructure.getClassType() == DataStructureType.ASSET)
             return (DataStructureAsset) dataStructure;
 
-        throw new IllegalArgumentException("Cette source n'est pas une Asset");
+        throw new IllegalArgumentException("Cette source n'est pas un Asset");
     }
 
     public DataStructureClass getClassData(String id){
@@ -49,4 +49,7 @@ public class DataStructureMap {
         return dataStructure.getClassType().equals(DataStructureType.CLASS);
     }
 
+    public Map<String, DataStructure> getDataMap() {
+        return dataMap;
+    }
 }

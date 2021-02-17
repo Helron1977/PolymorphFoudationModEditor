@@ -4,14 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class DataStructureClass extends DataStructure {
-    List<Parameter> parameterList;
+    private List<Parameter> parameterList;
 
     public DataStructureClass(String id, DataStructureType dataStructureType, LinkedList<Parameter> parameterList) {
         super(id, dataStructureType);
         this.parameterList = parameterList;
     }
 
-    public List<Parameter> getParamLinkedList() {
+    public List<Parameter> getParamList() {
         return parameterList;
     }
 

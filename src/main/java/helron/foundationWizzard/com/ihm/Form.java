@@ -95,9 +95,9 @@ public class Form extends JPanel {
 /**
      * Build each Rows following the number of the params inside a Structure description.
      * @param params LinkedHashMap description of a Structure, result of ApiStructuresExtractor.extractClass()
-     *//*
+    */
 
-    private void buildEachRows(LinkedList<Param> params) {
+/*    private void buildEachRows(LinkedList<Param> params) {
         int cptRow = 0;
         int finalCptRow = cptRow;
         params.forEach((key, value) -> buildFormRow(key,value, finalCptRow, key.getDefaultValue()));
@@ -111,19 +111,18 @@ public class Form extends JPanel {
             cptRow++;
 
         addValidateButton(cptRow);
-    }
+    }*/
 
-    */
-/**
+    /**
      * Build a couple of Jlabel, Jcomponent from Strings, a line number and a String defaultValue
      * The Jcomponent to create can be deducted of the string, field, that contains identifiable subString.
      * @param label use to set the Jlabel Text
      * @param field use to identify the JComponent
      * @param lineNumber int, line number in the form
      * @param defaultValue default value extract from ApiStructuresExtractor.extractParamDefaultValue
-     *//*
+     */
 
-    private void buildFormRow(String label, String field, int lineNumber, String defaultValue) {
+/*    private void buildFormRow(String label, String field, int lineNumber, String defaultValue) {
 
         JTextField lbl = new JTextField(label);
             lbl.setBackground(Color.white);
@@ -140,12 +139,12 @@ public class Form extends JPanel {
             gbc.gridy= lineNumber;
             gbc.fill= GridBagConstraints.BOTH;
             gb.setConstraints(lbl, gbc);
-        this.add(lbl);
+        this.add(lbl);*/
 
-        buildField(field, lineNumber, defaultValue, label);
-    }
+/*        buildField(field, lineNumber, defaultValue, label);
+    }*/
 
-    */
+
 /**
      * Build the correct JComponent needed to represent the field.
      * Invoke identifyType()
@@ -315,43 +314,5 @@ public class Form extends JPanel {
         }
     }
 
-    */
-/**
-     * identify the param Type looking for substring
-     * @param field String, the field to scan
-     * @return int, an arbitrary value
-     *//*
-
-    private FieldType identifyType(String field) {
-
-        //TODO add a sort by Polygon type
-        if(field.contains("string")){
-            return FieldType.STRING;
-        }
-        else if(field.equals(field.toUpperCase())){
-            return FieldType.ASSET_ENUM;
-        }
-        else if(field.contains("list<")){
-            return FieldType.LIST;
-        }
-        else if(field.contains("boolean")) {
-            return FieldType.BOOLEAN;
-        }
-        else if(field.contains("integer")) {
-            return FieldType.INTEGER;
-        }
-        else if(field.contains("float")) {
-            return FieldType.FLOAT;
-        }
-        return null;
-    }
-
-    public LinkedHashMap<String, String> getInputs() {
-        return inputs;
-    }
-
-    public void setInputs(LinkedHashMap<String, String> inputs) {
-        this.inputs = inputs;
-    }
 }
 */

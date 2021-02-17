@@ -4,61 +4,71 @@ import helron.foundationWizzard.com.api.ApiStructuresExtractor;
 import java.util.*;
 
 public class DataStructureMapGenerator {
+    private final ApiStructuresExtractor structures;
     private final DataStructureMap dataStructureMap;
     Map<String, DataStructure> extractedData;
     Map<String, DataStructure> extractedClass;
     Map<String, DataStructure> extractedEnum;
     Map<String, DataStructure> extractedAsset;
+    Map<String, DataStructure> extractedStruct;
+
 
     public DataStructureMapGenerator(ApiStructuresExtractor structures) {
+        this.structures=structures;
+
         LinkedList<String> dataIndex = structures.entryList();
         extractedData = new HashMap<>();
         extractedClass= new HashMap<>();
         extractedEnum = new HashMap<>();
         extractedAsset= new HashMap<>();
+        extractedStruct= new HashMap<>();
 
-        generateDataSet(dataIndex, structures);
+        generateDataSet(dataIndex);
         dataStructureMap = new DataStructureMap(extractedData);
     }
 
 
-    private void generateDataSet(LinkedList<String> dataIndex, ApiStructuresExtractor structures) {
+    private void generateDataSet(LinkedList<String> dataIndex) {
 
         for(String index : structures.getDictionaryClassIndex())
-            generateDataClass(index,structures);
+            generateDataClass(index);
         for(String index : structures.getDictionaryAssetIndex())
-            generateDataAsset(index,structures);
+            generateDataAsset(index);
         for(String index : structures.getDictionaryEnumIndex())
-            generateDataEnum(index,structures);
+            generateDataEnum(index);
+        for(String index : structures.getDictionaryStructIndex())
+            generateDataClass(index);
     }
 
-    private void generateDataClass(String index, ApiStructuresExtractor structures) {
-        LinkedList<Parameter> parameters = generateParams(structures.extractStructure(index), structures);
+
+    private void generateDataClass(String index) {
+        LinkedList<Parameter> parameters = generateParams(structures.extractStructure(index));
         DataStructureClass data = new DataStructureClass(index, DataStructureType.CLASS, parameters);
 
         extractedClass.put(index, data);
         extractedData.put(index, data);
     }
 
-    private void generateDataEnum(String index, ApiStructuresExtractor structures) {
+    private void generateDataEnum(String index) {
         DataStructureEnum data = new DataStructureEnum(index, DataStructureType.ENUM, structures.assetToList(index));
         extractedEnum.put(index, data);
         extractedData.put(index, data);
     }
 
-    private void generateDataAsset (String index, ApiStructuresExtractor structures){
+    private void generateDataAsset (String index){
         DataStructureAsset data = new DataStructureAsset(index, DataStructureType.ASSET, structures.assetToList(index));
         extractedAsset.put(index, data);
         extractedData.put(index, data);
     }
 
-    private LinkedList<Parameter> generateParams(LinkedHashMap<String, String> extractedData, ApiStructuresExtractor structures){
+    private LinkedList<Parameter> generateParams(LinkedHashMap<String, String> extractedData){
         LinkedList<Parameter> parameters = new LinkedList<>();
         extractedData.forEach((key, value) ->{
-                //System.out.println(structures.extractParamType(value));
+
             ParamType paramType = checkParamType(structures.extractParamType(value));
+            //System.out.println(structures.extractParamType(value)+" "+value+" "+paramType);
+
             String defaultValue = structures.extractParamDefaultValue(value);
-                //System.out.println(structures.extractParamDefaultValue(value));
             Parameter parameter =new Parameter(key,paramType, defaultValue);
 
             parameters.add(parameter);
@@ -69,21 +79,18 @@ public class DataStructureMapGenerator {
     }
 
     private ParamType checkParamType(String extractParamType) {
-        if (extractParamType.contains("list"))
-            return ParamType.LIST;
-        else if (extractParamType.contains("PAIR"))
-            return ParamType.PAIR;
 
-        return switch (extractParamType) {
-            case "float" -> ParamType.FLOAT;
-            case "boolean" -> ParamType.BOOLEAN;
-            case "string" -> ParamType.STRING;
-            case "integer" -> ParamType.INTEGER;
-            case "vecf2f" -> ParamType.VEC2F;
-            case "vec3f" -> ParamType.VEC3F;
-            case "vec2i" -> ParamType.VEC2I;
-            default -> null;
-        };
+        if(structures.isAsset(extractParamType)){
+            return ParamType.ASSET;
+        } else if (structures.isEnum(extractParamType)){
+            return ParamType.ENUM;
+        } else if (structures.isClass(extractParamType)){
+            return ParamType.ClASS;
+        } else if( extractParamType.contains("list")){
+            return ParamType.LIST;
+        } else {
+            return ParamType.searchByShortValue(extractParamType);
+        }
     }
 
     public DataStructureMap getDataSet() {

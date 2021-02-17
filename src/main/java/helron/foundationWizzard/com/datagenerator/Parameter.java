@@ -4,18 +4,15 @@ public class Parameter {
 
     private String id;
     private ParamType type;
-    private String Value;
+    private String value;
 
     public Parameter(String id, ParamType paramType, String defaultValue) {
         this.id = id;
-        this.Value = defaultValue;
-        this.type = parseType(defaultValue);
+        this.value = defaultValue;
+        this.type = paramType;
     }
 
-    private ParamType parseType(String defaultValue) {
-        System.out.println(getValue());
-        return ParamType.ASSET;
-    }
+
 
     public String getId() {
         return id;
@@ -34,10 +31,10 @@ public class Parameter {
     }
 
     public String getValue() {
-        return Value;
+        return value;
     }
 
     public void setValue(String value) {
-        Value = value;
+        this.value = value;
     }
 }
