@@ -38,7 +38,7 @@ public class FormField{
 
 
                 } else if (ApiStructures.isEnum(paramName)) {
-                    for (String value : ApiStructures.enumToList(paramName)) {
+                    for (String value : ApiStructures.EnumToList(paramName)) {
                         jbc.addItem(value);
                     }
                     if (defaultFieldText != null) {

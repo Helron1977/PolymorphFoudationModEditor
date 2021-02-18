@@ -10,7 +10,7 @@ public enum ParamType {
     LIST("list"),
     //dataStructureType,
     ASSET(""),
-    ClASS(""),
+    CLASS(""),
     ENUM(""),
     //dataStructureStruct, same treatment as Class,
     LINE("LINE"),

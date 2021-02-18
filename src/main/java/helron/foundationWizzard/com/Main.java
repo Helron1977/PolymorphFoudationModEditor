@@ -3,13 +3,16 @@ package helron.foundationWizzard.com;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import helron.foundationWizzard.com.api.ApiStructuresExtractor;
-import helron.foundationWizzard.com.datagenerator.*;
+import helron.foundationWizzard.com.datagenerator.DataStructureClass;
+import helron.foundationWizzard.com.datagenerator.DataStructureMap;
+import helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator;
+import helron.foundationWizzard.com.datagenerator.Parameter;
 import helron.foundationWizzard.com.ui.Home;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.List;
+import java.util.Properties;
 
 
 public class Main {
@@ -53,11 +56,6 @@ public class Main {
         DataStructureMap dataMap = dataStructureMapGenerator.getDataSet();
 
         new Home(dataMap);
-        DataStructureClass test = ((DataStructureClass)dataMap.getDataMap().get("Foundation-CLASS_BUILDING"));
-        List<Parameter> paramList = test.getParamList();
-        for (Parameter p: paramList ) {
-            System.out.println(p.getId()+" "+p.getValue()+" "+p.getType());
-        }
 
 
     }

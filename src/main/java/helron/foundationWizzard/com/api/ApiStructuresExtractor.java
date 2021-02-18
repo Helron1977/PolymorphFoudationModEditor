@@ -3,6 +3,7 @@ package helron.foundationWizzard.com.api;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import helron.foundationWizzard.com.datagenerator.DataStructure;
 import helron.foundationWizzard.com.datagenerator.DataStructureType;
 
 import java.util.*;
@@ -13,7 +14,9 @@ public class ApiStructuresExtractor {
     private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
     private final static Pattern defaultValueMatcher = Pattern.compile("\\S+(?=\\))");
     private final String CLASS_PREFIX = DataStructureType.CLASS.getPrefix();
+
     private final String ENUM_PREFIX = DataStructureType.ENUM.getPrefix();
+
     private final String ASSET_PREFIX = DataStructureType.ASSET.getPrefix();
     private final String STRUCTURE_PREFIX = DataStructureType.STRUCTURE.getPrefix();
     private final JsonElement dictionary;
@@ -22,7 +25,6 @@ public class ApiStructuresExtractor {
     private final LinkedList<String> dictionaryEnumIndex;
     private final LinkedList<String> dictionaryAssetIndex;
     private final LinkedList<String> dictionaryStructIndex;
-
     /**
      *Set a JsonElement as a dictionary and set an Index list , an Index Class list, an Index Enum list, an Asset list
      * @param dictionary A JsonElement result of a JsonParser.parseReader( Reader) to JsonObject
@@ -118,6 +120,7 @@ public class ApiStructuresExtractor {
         }
         return false;
     }
+
     /**
      * return true if the String use in param match with an Class of the API
      * @param paramType the String you are looking for.
@@ -144,7 +147,6 @@ public class ApiStructuresExtractor {
         }
         return false;
     }
-
 
 
     /**
@@ -237,19 +239,19 @@ public class ApiStructuresExtractor {
         JsonArray templates = extractTemplates(CLASS_PREFIX+ classToExtract);
         return ApiStructuresExtractor.clean(templates);
     }
+
     public LinkedHashMap<String, String> extractStructure(String classToExtract) {
         JsonArray templates = extractTemplates(classToExtract);
         return ApiStructuresExtractor.clean(templates);
     }
-
     /**
      * Extract the values of an API ENUM
      * @param enumToExtract a String, id of the Enum to display
      * @return A List String of the Enum values
      */
-    public List<String> enumToList(String enumToExtract){
+    public List<String> EnumToList(String enumToExtract){
         //look for the VALUES of Enum Structures
-        JsonArray templates = extractTemplates(enumToExtract);
+        JsonArray templates = extractTemplates(ENUM_PREFIX+enumToExtract);
         //Clean the ENUM templates
         return cleanEnumTemplate(templates);
         //System.out.println(ApiStructuresExtractor.cleanEnumTemplate(templates));
@@ -266,6 +268,13 @@ public class ApiStructuresExtractor {
 
         //Clean the ENUM templates
         return ApiStructuresExtractor.cleanEnumTemplate(templates);
+    }
+
+    public String extractDataStructureEnumID(String paramDescription){
+        return new Scanner(paramDescription).next();
+    }
+    public String extractDataStructureAssetID(String paramDescription) {
+        return new Scanner(paramDescription).next();
     }
 
     public List<String> getDictionaryIndex() {
@@ -286,5 +295,17 @@ public class ApiStructuresExtractor {
 
     public LinkedList<String> getDictionaryStructIndex() {
         return dictionaryStructIndex;
+    }
+
+    public String getCLASS_PREFIX() {
+        return CLASS_PREFIX;
+    }
+
+    public String getENUM_PREFIX() {
+        return ENUM_PREFIX;
+    }
+
+    public String getASSET_PREFIX() {
+        return ASSET_PREFIX;
     }
 }

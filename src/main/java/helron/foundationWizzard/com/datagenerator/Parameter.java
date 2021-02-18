@@ -1,15 +1,41 @@
 package helron.foundationWizzard.com.datagenerator;
 
+import java.util.List;
+
 public class Parameter {
 
     private String id;
     private ParamType type;
-    private String value;
+    private String description;
+    private String defaultValue;
+    private List<String> values;
 
-    public Parameter(String id, ParamType paramType, String defaultValue) {
+    public Parameter(String id) {
         this.id = id;
-        this.value = defaultValue;
-        this.type = paramType;
+    }
+
+    public boolean requestEnumType(){
+        return type==ParamType.ENUM;
+    }
+
+    public boolean requestAssetType(){
+        return type==ParamType.ASSET;
+    }
+
+    public boolean isClassType(){
+        return type==ParamType.CLASS;
+    }
+
+    public boolean isListType(){
+        return type==ParamType.LIST;
+    }
+
+    public boolean isIntegerType(){
+        return type==ParamType.INTEGER;
+    }
+
+    public boolean isFloatType(){
+        return type==ParamType.FLOAT;
     }
 
 
@@ -30,11 +56,39 @@ public class Parameter {
         this.type = type;
     }
 
-    public String getValue() {
-        return value;
+    public String getDescription() {
+        return description;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public List<String> getValues() {
+        return values;
+    }
+
+    public void setValues(List<String> values) {
+        this.values = values;
+    }
+
+    public boolean requestBooleanType() {
+        return type == ParamType.BOOLEAN;
+    }
+
+    public boolean requestIntegerType() {
+        return type == ParamType.INTEGER;
+    }
+
+    public boolean requestStringType() {
+        return type== ParamType.STRING;
     }
 }

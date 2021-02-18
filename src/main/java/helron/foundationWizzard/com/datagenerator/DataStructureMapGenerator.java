@@ -64,12 +64,29 @@ public class DataStructureMapGenerator {
     private LinkedList<Parameter> generateParams(LinkedHashMap<String, String> extractedData){
         LinkedList<Parameter> parameters = new LinkedList<>();
         extractedData.forEach((key, value) ->{
+            Parameter parameter =new Parameter(key);
 
             ParamType paramType = checkParamType(structures.extractParamType(value));
             //System.out.println(structures.extractParamType(value)+" "+value+" "+paramType);
-
             String defaultValue = structures.extractParamDefaultValue(value);
-            Parameter parameter =new Parameter(key,paramType, defaultValue);
+            parameter.setDescription(value);
+            parameter.setType(paramType);
+            parameter.setDefaultValue(defaultValue);
+
+            if (parameter.requestEnumType()){
+                String enumId = structures.extractDataStructureEnumID(value);
+                parameter.setValues(structures.EnumToList(enumId));
+            }
+            if (parameter.requestAssetType()){
+                List<String> assetList = structures.assetToList(structures.getASSET_PREFIX()+new Scanner(parameter.getDescription()).next());
+                parameter.setValues(assetList);
+
+            }
+
+
+
+
+
 
             parameters.add(parameter);
 
@@ -85,8 +102,8 @@ public class DataStructureMapGenerator {
         } else if (structures.isEnum(extractParamType)){
             return ParamType.ENUM;
         } else if (structures.isClass(extractParamType)){
-            return ParamType.ClASS;
-        } else if( extractParamType.contains("list")){
+            return ParamType.CLASS;
+        } else if( extractParamType.contains("list<")){
             return ParamType.LIST;
         } else {
             return ParamType.searchByShortValue(extractParamType);

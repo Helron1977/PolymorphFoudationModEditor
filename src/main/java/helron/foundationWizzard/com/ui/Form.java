@@ -1,6 +1,7 @@
 package helron.foundationWizzard.com.ui;
 
 import helron.foundationWizzard.com.datagenerator.*;
+import helron.foundationWizzard.com.ihm.ListenedJCheckBox;
 import helron.foundationWizzard.com.ihm.ListenedJComboBox;
 import helron.foundationWizzard.com.ihm.ListenedTextField;
 
@@ -69,12 +70,6 @@ public class Form extends JPanel {
         gb.setConstraints(lbl, gbc);
         this.add(lbl);
 
-//        JTextField jtf = new JTextField(parameter.getValue());
-//        setGridBagConstrains(lineNumber);
-//        gb.setConstraints(jtf, gbc);
-//        jtf.setEditable(false);
-//        this.add(jtf);
-
         buildField(parameter, lineNumber);
 
     }
@@ -86,37 +81,49 @@ public class Form extends JPanel {
             gb.setConstraints(jtf, gbc);
             jtf.setEditable(false);
             this.add(jtf);
-        } else {
-            if (parameter.getType() == ParamType.STRING) {
-                ListenedTextField jt = new ListenedTextField(parameter.getType().getShortValue());
-                setGridBagConstrains(lineNumber);
-                gb.setConstraints(jt, gbc);
-                this.add(jt);
-                //                   inputs.put(label, defaultValue);
+        } else if (parameter.requestStringType()){
 
-            } else if (parameter.getType() == ParamType.ASSET) {
-                ListenedJComboBox<String> jbc = new ListenedJComboBox<>();
-//                System.out.println(DataStructureType.ASSET.getPrefix()+parameter.getValue());
-//                System.out.println(dataStructureMap.getAssetData(DataStructureType.ASSET.getPrefix()+parameter.getValue()));
+            ListenedTextField jt = new ListenedTextField(parameter.getType().getShortValue());
+            setGridBagConstrains(lineNumber);
+            gb.setConstraints(jt, gbc);
+            this.add(jt);
+            //                   inputs.put(label, defaultValue);
 
+        } else if (parameter.requestEnumType()) {
+            ListenedJComboBox<String> jbc = new ListenedJComboBox<>();
+            for ( String value : parameter.getValues())
+                jbc.addItem(value);
 
-                    List<String> assetNames = dataStructureMap.getAssetData(DataStructureType.ASSET.getPrefix()+parameter.getValue()).getAssetNames();
-                    for (String value : assetNames) {
-                        jbc.addItem(value);
-                    }
-//
-//                    if (parameter.getValue() != null) {
-//                        jbc.addItem(parameter.getValue());
-//                        jbc.setSelectedItem(parameter.getValue());
-//                    }
-//                    gbc.gridx = 1;
-//                    gbc.gridwidth = 1;
-//                    gbc.gridy = lineNumber;
-//                    gbc.fill = GridBagConstraints.BOTH;
-//                    gb.setConstraints(jbc, gbc);
-//                    this.add(jbc);
-//                }
+            setGridBagConstrains(lineNumber);
+            gb.setConstraints(jbc, gbc);
+            this.add(jbc);
+        } else if (parameter.requestAssetType()){
+            ListenedJComboBox<String> jbc = new ListenedJComboBox<>();
+            for ( String value : parameter.getValues()) {
+                jbc.addItem(value);
             }
+            setGridBagConstrains(lineNumber);
+            gb.setConstraints(jbc,gbc);
+            this.add(jbc);
+
+        }else if (parameter.requestBooleanType()){
+            ListenedJCheckBox listenedJCheckBox = new ListenedJCheckBox();
+            if (parameter.getDefaultValue()!= null) {
+                if (parameter.getDefaultValue().equals("true"))
+                    listenedJCheckBox.setSelected(true);
+                else if (parameter.getDefaultValue().equals("false"))
+                    listenedJCheckBox.setSelected(false);
+            }
+            setGridBagConstrains(lineNumber);
+            gb.setConstraints(listenedJCheckBox,gbc);
+            this.add(listenedJCheckBox);
+
+        } else if (parameter.requestIntegerType()) {
+            ListenedJSpinner listenedJSpinner= new ListenedJSpinner();
+            setGridBagConstrains(lineNumber);
+            gb.setConstraints(listenedJSpinner,gbc);
+            this.add(listenedJSpinner);
+
         }
     }
 
