@@ -28,7 +28,7 @@ public class FormsContainer extends JTabbedPane {
 
         if(dataMap.getDataMap().get(classID).getClassType().equals(DataStructureType.CLASS)) {
 
-            Form form = new Form((DataStructureClass)dataMap.getDataMap().get(classID), FormType.CLASS);
+            Form form = new Form(dataMap,classID, FormType.CLASS);
 
             this.add(form.id,form);
             setBounds(40, 20, 300, 300);
