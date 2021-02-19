@@ -5,6 +5,7 @@ import helron.foundationWizzard.com.datagenerator.DataStructureClass;
 import helron.foundationWizzard.com.datagenerator.DataStructureMap;
 import helron.foundationWizzard.com.datagenerator.Parameter;
 import helron.foundationWizzard.com.ui.customcomponents.*;
+import helron.foundationWizzard.com.ui.requests.RequestsGenerator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,24 +77,31 @@ public class Form extends JPanel {
     }
 
     public void buildField(Parameter parameter, int lineNumber) {
+        RequestsGenerator requests = new RequestsGenerator();
+        requests.getRequestsList().forEach(requestable -> {
+            if (requestable.condition(parameter))
+            requestable.action(this,parameter,2);
+        });
+
         if (parameter.getId().equals("DataType")) {
             JTextField jTextField = new JTextField(dataStructure.getId());
             addComponentToColumnX(jTextField,2,lineNumber);
 
-        } else if (parameter.requestStringType()){
+        }/* else if (parameter.requestStringType()){
 
             ListenedTextField listenedTextField = new ListenedTextField(parameter.getType().getShortValue());
             addComponentToColumnX(listenedTextField,2,lineNumber);
 
             //                   inputs.put(label, defaultValue); TODO gerer les input via listener sur les champs depuis FormContainer
 
-        } else if (parameter.requestEnumType()) {
+        }*/ else if (parameter.requestEnumType()) {
             ListenedJComboBox<String> listenedJComboBox = new ListenedJComboBox<>();
             for ( String value : parameter.getValues())
                 listenedJComboBox.addItem(value);
 
             addComponentToColumnX(listenedJComboBox,2,lineNumber);
-            JButton plusButton = new PlusButton();
+            JButton plusButton = new PlusButton(parameter.getDescription());
+            System.out.println(parameter.getDefaultValue() + " " + parameter.getDescription());
             addComponentToColumnX(plusButton,3, lineNumber);
             addButtons.add(plusButton);
 
@@ -103,7 +111,7 @@ public class Form extends JPanel {
                 jbc.addItem(value);
             }
             addComponentToColumnX(jbc,2,lineNumber);
-            JButton plusButton = new PlusButton();
+            JButton plusButton = new PlusButton(parameter.getDefaultValue());
             addComponentToColumnX(plusButton,3,lineNumber);
             addButtons.add(plusButton);
 
@@ -128,7 +136,7 @@ public class Form extends JPanel {
             DefaultListModel<String> stringList = new DefaultListModel<>();
             ListenedJList listenedJList = new ListenedJList(stringList);
             addComponentToColumnX(listenedJList,2,lineNumber);
-            JButton plusButton = new PlusButton();
+            JButton plusButton = new PlusButton(parameter.getDefaultValue());
             addComponentToColumnX(plusButton,3,lineNumber);
             addButtons.add(plusButton);
 
@@ -146,7 +154,7 @@ public class Form extends JPanel {
      * Line number a iterate by a int
      * @param lineNumber line iterator
      */
-    private void addComponentToColumnX(JComponent component, int columnNumber, int lineNumber) {
+    public void addComponentToColumnX(JComponent component, int columnNumber, int lineNumber) {
         gbc.gridx = columnNumber - 1;
         gbc.gridwidth = 1;
         gbc.gridy = lineNumber;
@@ -154,7 +162,7 @@ public class Form extends JPanel {
         this.add(component);
     }
 
-    private void addValidateButton(int lineNumber) {
+    public void addValidateButton(int lineNumber) {
         this.validateButton = new ValidateButton(this);
         gbc.gridx = 7;
         gbc.gridwidth = 0;
@@ -174,10 +182,6 @@ public class Form extends JPanel {
 
     public FormType getFormType() {
         return formType;
-    }
-
-    public void setFormType(FormType formType) {
-        this.formType = formType;
     }
 
     public DataStructure getData() {
