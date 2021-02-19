@@ -1,4 +1,4 @@
-package helron.foundationWizzard.com.ui;
+package helron.foundationWizzard.com.ui.customcomponents;
 
 import helron.foundationWizzard.com.ui.Form;
 

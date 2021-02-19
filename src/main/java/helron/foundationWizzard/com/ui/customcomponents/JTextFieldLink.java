@@ -1,4 +1,4 @@
-package helron.foundationWizzard.com.ui;
+package helron.foundationWizzard.com.ui.customcomponents;
 
 
 import javax.swing.*;
@@ -6,12 +6,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-class JTextFieldLink extends JTextField {
+public class JTextFieldLink extends JTextField {
     public JTextFieldLink(String text, String Link) {
         super(text);
         setForeground(Color.white);

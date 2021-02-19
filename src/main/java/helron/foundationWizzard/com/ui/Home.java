@@ -3,6 +3,7 @@ package helron.foundationWizzard.com.ui;
 import helron.foundationWizzard.com.Main;
 import helron.foundationWizzard.com.datagenerator.DataStructureMap;
 import helron.foundationWizzard.com.ihm.*;
+import helron.foundationWizzard.com.ui.customcomponents.JTextFieldLink;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

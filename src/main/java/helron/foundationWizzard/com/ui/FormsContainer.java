@@ -1,7 +1,5 @@
 package helron.foundationWizzard.com.ui;
 
-import helron.foundationWizzard.com.datagenerator.DataStructure;
-import helron.foundationWizzard.com.datagenerator.DataStructureClass;
 import helron.foundationWizzard.com.datagenerator.DataStructureMap;
 import helron.foundationWizzard.com.datagenerator.DataStructureType;
 
@@ -32,6 +30,10 @@ public class FormsContainer extends JTabbedPane {
 
             this.add(form.id,form);
             setBounds(40, 20, 300, 300);
+            form.getValidateButton().addActionListener(e -> System.out.println("test"));
+            for ( JButton plusButton : form.getAddButtons()){
+                plusButton.addActionListener(e -> System.out.println("je suis un plus bouton"));
+            }
         }
     }
 }

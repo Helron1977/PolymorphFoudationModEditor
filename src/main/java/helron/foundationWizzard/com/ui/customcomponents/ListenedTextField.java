@@ -1,4 +1,4 @@
-package helron.foundationWizzard.com.ihm;
+package helron.foundationWizzard.com.ui.customcomponents;
 
 import helron.foundationWizzard.com.api.LuaGenerator;
 

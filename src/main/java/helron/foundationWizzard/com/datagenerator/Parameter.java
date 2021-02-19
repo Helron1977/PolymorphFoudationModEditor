@@ -91,4 +91,12 @@ public class Parameter {
     public boolean requestStringType() {
         return type== ParamType.STRING;
     }
+
+    public boolean requestListType() {
+        return type== ParamType.LIST;
+    }
+
+    public boolean requestClassType() {
+        return type == ParamType.CLASS;
+    }
 }

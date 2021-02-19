@@ -1,6 +1,6 @@
-/*package helron.foundationWizzard.com.ihm;
+package helron.foundationWizzard.com.ui.customcomponents;
 
-import helron.foundationWizzard.com.api.LuaGenerator;
+import helron.foundationWizzard.com.ui.Form;
 
 import javax.swing.*;
 
@@ -9,13 +9,10 @@ public class ValidateButton extends JButton {
         super("Validate");
         this.addActionListener(e -> {
             try {
-                LuaGenerator lg = new LuaGenerator(activeTab.getInputs());
-                new LuaScriptFrame(lg);
 
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
         });
     }
-
-}*/
+}
