@@ -4,17 +4,18 @@ import helron.foundationWizzard.com.datagenerator.Parameter;
 import helron.foundationWizzard.com.ui.Form;
 import helron.foundationWizzard.com.ui.customcomponents.ListenedTextField;
 
-public class RequestStringType implements Requestable{
+import javax.swing.*;
 
-
+public class RequestClassType implements Requestable{
     @Override
     public boolean isRequired(Parameter parameter) {
-        return parameter.requestStringType();
+        return parameter.requestClassType();
     }
 
     @Override
     public void action(Form form, Parameter parameter, int lineNumber) {
-        ListenedTextField listenedTextField = new ListenedTextField(parameter.getType().getShortValue());
+        JTextField listenedTextField = new ListenedTextField(null);
+        listenedTextField.setEditable(false);
         form.addComponentToColumnX(listenedTextField,2,lineNumber);
     }
 }

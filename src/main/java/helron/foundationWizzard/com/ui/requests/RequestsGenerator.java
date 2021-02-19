@@ -7,8 +7,13 @@ public class RequestsGenerator {
 List<Requestable> requestsList = new ArrayList<>();
 
     public RequestsGenerator() {
-        RequestStringType requestStringType = new RequestStringType();
-        requestsList.add(requestStringType);
+        requestsList.add(new RequestStringType());
+        requestsList.add(new RequestEnumType());
+        requestsList.add(new RequestAssetType());
+        requestsList.add(new RequestBooleanType());
+        requestsList.add(new RequestIntegerType());
+        requestsList.add(new RequestListType());
+        requestsList.add(new RequestClassType());
     }
 
     public List<Requestable> getRequestsList() {

@@ -18,7 +18,7 @@ public class Form extends JPanel {
     private static final GridBagConstraints gbc = new GridBagConstraints();
 
     protected String id;
-    private FormType formType;
+    private final FormType formType;
     private final DataStructure dataStructure;
     private final List<JButton> addButtons;
     private JButton validateButton;
@@ -77,75 +77,19 @@ public class Form extends JPanel {
     }
 
     public void buildField(Parameter parameter, int lineNumber) {
-        RequestsGenerator requests = new RequestsGenerator();
-        requests.getRequestsList().forEach(requestable -> {
-            if (requestable.condition(parameter))
-            requestable.action(this,parameter,2);
-        });
 
         if (parameter.getId().equals("DataType")) {
             JTextField jTextField = new JTextField(dataStructure.getId());
             addComponentToColumnX(jTextField,2,lineNumber);
 
-        }/* else if (parameter.requestStringType()){
-
-            ListenedTextField listenedTextField = new ListenedTextField(parameter.getType().getShortValue());
-            addComponentToColumnX(listenedTextField,2,lineNumber);
-
-            //                   inputs.put(label, defaultValue); TODO gerer les input via listener sur les champs depuis FormContainer
-
-        }*/ else if (parameter.requestEnumType()) {
-            ListenedJComboBox<String> listenedJComboBox = new ListenedJComboBox<>();
-            for ( String value : parameter.getValues())
-                listenedJComboBox.addItem(value);
-
-            addComponentToColumnX(listenedJComboBox,2,lineNumber);
-            JButton plusButton = new PlusButton(parameter.getDescription());
-            System.out.println(parameter.getDefaultValue() + " " + parameter.getDescription());
-            addComponentToColumnX(plusButton,3, lineNumber);
-            addButtons.add(plusButton);
-
-        } else if (parameter.requestAssetType()){
-            ListenedJComboBox<String> jbc = new ListenedJComboBox<>();
-            for ( String value : parameter.getValues()) {
-                jbc.addItem(value);
-            }
-            addComponentToColumnX(jbc,2,lineNumber);
-            JButton plusButton = new PlusButton(parameter.getDefaultValue());
-            addComponentToColumnX(plusButton,3,lineNumber);
-            addButtons.add(plusButton);
-
-
-        } else if (parameter.requestBooleanType()){
-            JCheckBox listenedJCheckBox = new ListenedJCheckBox();
-            if (parameter.getDefaultValue()!= null) {
-                if (parameter.getDefaultValue().equals("true"))
-                    listenedJCheckBox.setSelected(true);
-                else if (parameter.getDefaultValue().equals("false"))
-                    listenedJCheckBox.setSelected(false);
-            }
-            addComponentToColumnX(listenedJCheckBox,2,lineNumber);
-
-
-        } else if (parameter.requestIntegerType()) {
-            JSpinner listenedJSpinner= new ListenedJSpinner();
-            addComponentToColumnX(listenedJSpinner,2,lineNumber);
-
-
-        } else if (parameter.requestListType()) {
-            DefaultListModel<String> stringList = new DefaultListModel<>();
-            ListenedJList listenedJList = new ListenedJList(stringList);
-            addComponentToColumnX(listenedJList,2,lineNumber);
-            JButton plusButton = new PlusButton(parameter.getDefaultValue());
-            addComponentToColumnX(plusButton,3,lineNumber);
-            addButtons.add(plusButton);
-
-
-        } else if (parameter.requestClassType()){
-            JTextField listenedTextField = new ListenedTextField(null);
-            listenedTextField.setEditable(false);
-            addComponentToColumnX(listenedTextField,2,lineNumber);
         }
+        RequestsGenerator requests = new RequestsGenerator();
+        requests.getRequestsList().forEach(requestable -> {
+            if (requestable.isRequired(parameter)) {
+                requestable.action(this,parameter,lineNumber);
+            }
+        });
+
     }
 
 
