@@ -16,19 +16,17 @@ public class Form extends JPanel {
     private static final GridBagLayout gb = new GridBagLayout();
     private static final GridBagConstraints gbc = new GridBagConstraints();
 
-    String id;
-    FormType formType;
-    DataStructure dataStructure;
-    DataStructureMap dataStructureMap;
-    List<JButton> addButtons;
-    JButton validateButton;
+    protected String id;
+    private FormType formType;
+    private final DataStructure dataStructure;
+    private final List<JButton> addButtons;
+    private JButton validateButton;
 
 
     public Form(DataStructureMap dataStructureMap, String id, FormType formType) {
         this.id = id;
         this.formType = formType;
         this.dataStructure = dataStructureMap.getDataMap().get(id);
-        this.dataStructureMap = dataStructureMap;
         this.addButtons = new ArrayList<>();
 
         setLayout(gb);
