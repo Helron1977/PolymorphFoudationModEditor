@@ -17,7 +17,8 @@ public class DataStructure {
         this.id = id;
     }
 
-    public DataStructureType getClassType() {
+
+    public DataStructureType getDataStructureType() {
         return dataStructureType;
     }
 

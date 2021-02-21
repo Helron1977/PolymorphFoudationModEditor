@@ -19,7 +19,10 @@ public class Parameter {
     }
 
     public boolean requestAssetType(){
+        if (!id.equals("DataType"))
         return type==ParamType.ASSET;
+        else
+            return type==ParamType.DATATYPE;
     }
 
     public boolean isClassType(){

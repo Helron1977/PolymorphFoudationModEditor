@@ -18,7 +18,7 @@ public class RequestListType implements Requestable{
         DefaultListModel<String> stringList = new DefaultListModel<>();
         ListenedJList listenedJList = new ListenedJList(stringList);
         form.addComponentToColumnX(listenedJList,2,lineNumber);
-        JButton plusButton = new PlusButton(parameter.getDefaultValue());
+        PlusButton plusButton = new PlusButton(parameter.getDefaultValue());
         form.addComponentToColumnX(plusButton,3,lineNumber);
         form.getAddButtons().add(plusButton);
     }

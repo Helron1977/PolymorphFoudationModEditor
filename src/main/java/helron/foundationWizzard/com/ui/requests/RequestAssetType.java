@@ -6,6 +6,7 @@ import helron.foundationWizzard.com.ui.customcomponents.ListenedJComboBox;
 import helron.foundationWizzard.com.ui.customcomponents.PlusButton;
 
 import javax.swing.*;
+import java.util.Scanner;
 
 public class RequestAssetType implements Requestable{
 
@@ -21,7 +22,7 @@ public class RequestAssetType implements Requestable{
             jbc.addItem(value);
         }
         form.addComponentToColumnX(jbc,2,lineNumber);
-        JButton plusButton = new PlusButton(parameter.getDefaultValue());
+        PlusButton plusButton = new PlusButton(new Scanner (parameter.getDescription()).next());
         form.addComponentToColumnX(plusButton,3,lineNumber);
         form.getAddButtons().add(plusButton);
     }

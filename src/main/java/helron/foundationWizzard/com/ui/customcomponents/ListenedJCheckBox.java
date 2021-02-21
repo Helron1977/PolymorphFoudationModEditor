@@ -1,6 +1,5 @@
 package helron.foundationWizzard.com.ui.customcomponents;
 
-import helron.foundationWizzard.com.api.LuaGenerator;
 import helron.foundationWizzard.com.ui.Form;
 
 import javax.swing.*;

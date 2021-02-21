@@ -1,9 +1,6 @@
 package helron.foundationWizzard.com.ui;
 
-import helron.foundationWizzard.com.datagenerator.DataStructure;
-import helron.foundationWizzard.com.datagenerator.DataStructureClass;
-import helron.foundationWizzard.com.datagenerator.DataStructureMap;
-import helron.foundationWizzard.com.datagenerator.Parameter;
+import helron.foundationWizzard.com.datagenerator.*;
 import helron.foundationWizzard.com.ui.customcomponents.*;
 import helron.foundationWizzard.com.ui.requests.RequestsGenerator;
 
@@ -13,34 +10,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Form extends JPanel {
-    public static final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    public static final Dimension DIM = Toolkit.getDefaultToolkit().getScreenSize();
     private static final GridBagLayout gb = new GridBagLayout();
     private static final GridBagConstraints gbc = new GridBagConstraints();
 
     protected String id;
-    private final FormType formType;
     private final DataStructure dataStructure;
-    private final List<JButton> addButtons;
+    private final List<PlusButton> addButtons;
     private JButton validateButton;
 
 
-    public Form(DataStructureMap dataStructureMap, String id, FormType formType) {
+    public Form(DataStructure dataStructure, String id) {
+        this.dataStructure = dataStructure;
         this.id = id;
-        this.formType = formType;
-        this.dataStructure = dataStructureMap.getDataMap().get(id);
         this.addButtons = new ArrayList<>();
 
         setLayout(gb);
         setBackground(Color.white);
-        setSize(dim);
-        setLocation(dim.width / 2 - getWidth() / 2, dim.height / 2 - getHeight() / 2);
+        setSize(DIM);
+        setLocation(DIM.width / 2 - getWidth() / 2, DIM.height / 2 - getHeight() / 2);
         setOpaque(false);
 
-        if (formType.equals(FormType.CLASS)) {
+        init();
+
+    }
+    private void init(){
+        if (dataStructure.getDataStructureType().equals(DataStructureType.CLASS)){
             List<Parameter> parameterList = ((DataStructureClass) dataStructure).getParamList();
             buildEachRows(parameterList);
         }
-
     }
 
     private void buildEachRows(List<Parameter> parameterList) {
@@ -79,14 +77,16 @@ public class Form extends JPanel {
     public void buildField(Parameter parameter, int lineNumber) {
 
         if (parameter.getId().equals("DataType")) {
-            JTextField jTextField = new JTextField(dataStructure.getId());
+            JTextField jTextField = new JTextField(parameter.getDescription());
+            jTextField.setBackground(new Color(0x22471D));
+            jTextField.setForeground(Color.WHITE);
             addComponentToColumnX(jTextField,2,lineNumber);
 
         }
         RequestsGenerator requests = new RequestsGenerator();
         requests.getRequestsList().forEach(requestable -> {
             if (requestable.isRequired(parameter)) {
-                requestable.action(this,parameter,lineNumber);
+                requestable.action(this, parameter, lineNumber);
             }
         });
 
@@ -124,15 +124,12 @@ public class Form extends JPanel {
         this.id = id;
     }
 
-    public FormType getFormType() {
-        return formType;
-    }
 
     public DataStructure getData() {
         return dataStructure;
     }
 
-    public List<JButton> getAddButtons() {
+    public List<PlusButton> getAddButtons() {
         return addButtons;
     }
 

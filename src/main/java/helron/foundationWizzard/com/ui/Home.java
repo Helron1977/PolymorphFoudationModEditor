@@ -42,7 +42,7 @@ public class Home extends JPanel {
 
 
 
-        FormsContainer myTab = new FormsContainer("Foundation-CLASS_BUILDING", dataMap);
+        FormsContainer myTab = new FormsContainer("Foundation-CLASS_BUILDING", dataMap, FormType.CLASS);
 
         panel.add(myTab,BorderLayout.CENTER);
         LayoutManager layout = new BorderLayout();

@@ -12,7 +12,7 @@ public class DataStructureMap {
 
     public DataStructureEnum getEnumData(String id){
         DataStructure dataStructure = dataMap.get(id);
-        if( dataStructure.getClassType()== DataStructureType.ENUM)
+        if( dataStructure.getDataStructureType()== DataStructureType.ENUM)
             return (DataStructureEnum) dataStructure;
 
         throw  new IllegalArgumentException("Cette source n'est pas une Enum");
@@ -21,7 +21,7 @@ public class DataStructureMap {
     public DataStructureAsset getAssetData(String id){
         DataStructure dataStructure = dataMap.get(id);
 
-        if( dataStructure.getClassType() == DataStructureType.ASSET)
+        if( dataStructure.getDataStructureType() == DataStructureType.ASSET)
             return (DataStructureAsset) dataStructure;
 
         throw new IllegalArgumentException("Cette source n'est pas un Asset");
@@ -30,7 +30,7 @@ public class DataStructureMap {
     public DataStructureClass getClassData(String id){
         DataStructure dataStructure = dataMap.get(id);
 
-        if( dataStructure.getClassType() == DataStructureType.CLASS)
+        if( dataStructure.getDataStructureType() == DataStructureType.CLASS)
             return (DataStructureClass) dataStructure;
 
         throw  new IllegalArgumentException("Cette  source n'est pas une Class");
@@ -38,15 +38,15 @@ public class DataStructureMap {
 
     public boolean isEnum(String id){
         DataStructure dataStructure = dataMap.get(id);
-        return dataStructure.getClassType().equals(DataStructureType.ENUM);
+        return dataStructure.getDataStructureType().equals(DataStructureType.ENUM);
     }
     public boolean isAsset(String id){
         DataStructure dataStructure = dataMap.get(id);
-        return dataStructure.getClassType().equals(DataStructureType.ASSET);
+        return dataStructure.getDataStructureType().equals(DataStructureType.ASSET);
     }
     public boolean isClass(String id){
         DataStructure dataStructure = dataMap.get(id);
-        return dataStructure.getClassType().equals(DataStructureType.CLASS);
+        return dataStructure.getDataStructureType().equals(DataStructureType.CLASS);
     }
 
     public Map<String, DataStructure> getDataMap() {

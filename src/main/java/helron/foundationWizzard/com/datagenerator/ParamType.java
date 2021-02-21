@@ -1,6 +1,7 @@
 package helron.foundationWizzard.com.datagenerator;
 
 public enum ParamType {
+    DATATYPE("DataType"),
     //primitiveType
     FLOAT("float"),
     BOOLEAN("boolean"),

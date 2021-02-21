@@ -67,7 +67,7 @@ public class DataStructureMapGenerator {
             Parameter parameter =new Parameter(key);
 
             ParamType paramType = checkParamType(structures.extractParamType(value));
-            //System.out.println(structures.extractParamType(value)+" "+value+" "+paramType);
+
             String defaultValue = structures.extractParamDefaultValue(value);
             parameter.setDescription(value);
             parameter.setType(paramType);
@@ -80,11 +80,7 @@ public class DataStructureMapGenerator {
             if (parameter.requestAssetType()){
                 List<String> assetList = structures.assetToList(structures.getASSET_PREFIX()+new Scanner(parameter.getDescription()).next());
                 parameter.setValues(assetList);
-
             }
-
-
-
 
 
 
