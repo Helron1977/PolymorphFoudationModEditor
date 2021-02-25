@@ -1,0 +1,218 @@
+@startuml
+
+title __DATAGENERATOR's Class Diagram__\n
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructure {
+            - id : String
+            + DataStructure()
+            + getDataStructureType()
+            + getId()
+            + setDataType()
+            + setId()
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructureAsset {
+            ~ assetNames : List<String>
+            + DataStructureAsset()
+            + getAssetNames()
+            + setAssetNames()
+        }
+      }
+    }
+
+  
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructureClass {
+            - parameterList : List<Parameter>
+            + DataStructureClass()
+            + getParamList()
+            + setParamLinkedList()
+        }
+      }
+    }
+
+  
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructureEnum {
+            ~ enumValues : List<String>
+            + DataStructureEnum()
+            + getEnumValues()
+            + setEnumValues()
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructureMap {
+            - dataMap : Map<String, DataStructure>
+            + DataStructureMap()
+            + getAssetData()
+            + getClassData()
+            + getDataMap()
+            + getEnumData()
+            + isAsset()
+            + isClass()
+            + isEnum()
+        }
+      }
+    }
+
+  
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator {
+            ~ extractedAsset : Map<String, DataStructure>
+            ~ extractedClass : Map<String, DataStructure>
+            ~ extractedData : Map<String, DataStructure>
+            ~ extractedEnum : Map<String, DataStructure>
+            ~ extractedStruct : Map<String, DataStructure>
+            + DataStructureMapGenerator()
+            + getDataSet()
+            - checkParamType()
+            - generateDataAsset()
+            - generateDataClass()
+            - generateDataEnum()
+            - generateDataSet()
+            - generateParams()
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.DataStructureStruct {
+            + DataStructureStruct()
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        enum DataStructureType {
+          ASSET
+          ASSET_PROCESSOR
+          CLASS
+          ENGINECORE
+          ENUM
+          STRUCTURE
+          prefix
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        enum ParamType {
+          ASSET
+          BOOLEAN
+          CLASS
+          COLOR
+          DATATYPE
+          ENUM
+          FLOAT
+          INTEGER
+          LINE
+          LIST
+          MATRIX
+          PHYSICS_RAY_RESULT
+          POLYGON
+          QUATERNION
+          STRING
+          VEC2D
+          VEC2F
+          VEC2I
+          VEC3D
+          VEC3F
+          VEC3I
+          shortValue
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationWizzard.com {
+      namespace datagenerator {
+        class helron.foundationWizzard.com.datagenerator.Parameter {
+            - defaultValue : String
+            - description : String
+            - id : String
+            - values : List<String>
+            - wantedDataStructureid : String
+            + Parameter()
+            + getDefaultValue()
+            + getDescription()
+            + getId()
+            + getType()
+            + getValues()
+            + getWantedDataStructureid()
+            + isClassType()
+            + isFloatType()
+            + isIntegerType()
+            + isListType()
+            + requestAssetType()
+            + requestBooleanType()
+            + requestClassType()
+            + requestEnumType()
+            + requestIntegerType()
+            + requestListType()
+            + requestStringType()
+            + setDefaultValue()
+            + setDescription()
+            + setId()
+            + setType()
+            + setValues()
+            + setWantedDataStructureid()
+        }
+      }
+    }
+
+  
+
+  helron.foundationWizzard.com.datagenerator.DataStructure o-- helron.foundationWizzard.com.datagenerator.DataStructureType : dataStructureType
+  helron.foundationWizzard.com.datagenerator.DataStructureAsset -up-|> helron.foundationWizzard.com.datagenerator.DataStructure
+  helron.foundationWizzard.com.datagenerator.DataStructureClass -up-|> helron.foundationWizzard.com.datagenerator.DataStructure
+  helron.foundationWizzard.com.datagenerator.DataStructureEnum -up-|> helron.foundationWizzard.com.datagenerator.DataStructure
+  helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationWizzard.com.datagenerator.DataStructureMap : dataStructureMap
+  helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationWizzard.com.api.ApiStructuresExtractor : structures
+  helron.foundationWizzard.com.datagenerator.DataStructureStruct -up-|> helron.foundationWizzard.com.datagenerator.DataStructureClass
+  helron.foundationWizzard.com.datagenerator.Parameter o-- helron.foundationWizzard.com.datagenerator.ParamType : type
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -2,6 +2,7 @@ package helron.foundationWizzard.com.ihm;
 
 import helron.foundationWizzard.com.Main;
 import helron.foundationWizzard.com.api.LuaGenerator;
+import helron.foundationWizzard.com.ui.customcomponents.JImagePanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

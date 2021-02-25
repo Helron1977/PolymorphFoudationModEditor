@@ -8,7 +8,9 @@ public class Parameter {
     private ParamType type;
     private String description;
     private String defaultValue;
+    private String input;
     private List<String> values;
+    private String wantedDataStructureid;
 
     public Parameter(String id) {
         this.id = id;
@@ -101,5 +103,21 @@ public class Parameter {
 
     public boolean requestClassType() {
         return type == ParamType.CLASS;
+    }
+
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
+    }
+
+    public String getWantedDataStructureid() {
+        return wantedDataStructureid;
+    }
+
+    public void setWantedDataStructureid(String wantedDataStructureid) {
+        this.wantedDataStructureid = wantedDataStructureid;
     }
 }

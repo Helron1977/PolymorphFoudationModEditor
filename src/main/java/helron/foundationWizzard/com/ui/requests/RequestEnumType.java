@@ -1,12 +1,12 @@
 package helron.foundationWizzard.com.ui.requests;
 
 import helron.foundationWizzard.com.datagenerator.Parameter;
-import helron.foundationWizzard.com.ui.Form;
+import helron.foundationWizzard.com.ui.FormCLass;
 import helron.foundationWizzard.com.ui.customcomponents.ListenedJComboBox;
-import helron.foundationWizzard.com.ui.customcomponents.PlusButton;
 
-import javax.swing.*;
-import java.util.Scanner;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.Objects;
 
 public class RequestEnumType implements Requestable{
     @Override
@@ -15,11 +15,18 @@ public class RequestEnumType implements Requestable{
     }
 
     @Override
-    public void action(Form form, Parameter parameter, int lineNumber) {
+    public void action(FormCLass formCLass, Parameter parameter, int lineNumber) {
         ListenedJComboBox<String> listenedJComboBox = new ListenedJComboBox<>();
         for ( String value : parameter.getValues())
             listenedJComboBox.addItem(value);
+        parameter.setInput(listenedJComboBox.getSelectedItem().toString());
+        listenedJComboBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                formCLass.inputs.put(parameter.getId(), Objects.requireNonNull(listenedJComboBox.getSelectedItem()).toString());
+            }
+        });
 
-        form.addComponentToColumnX(listenedJComboBox,2,lineNumber);
+        formCLass.addComponentToColumnX(listenedJComboBox,2,lineNumber);
     }
 }

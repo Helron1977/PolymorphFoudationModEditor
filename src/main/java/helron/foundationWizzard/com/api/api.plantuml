@@ -2,55 +2,72 @@
 
 title __API's Class Diagram__\n
 
-  namespace helron.foundationWizzard.com {
-    namespace api {
-      class helron.foundationWizzard.com.api.ApiStructuresExtractor {
-          - ASSETPREFIX : String
-          - CLASSPREFIX : String
-          - ENUMPREFIX : String
-          {static} - custom : Pattern
-          {static} - defaultValueMatcher : Pattern
-          - dictionary : JsonElement
-          - dictionaryAssetIndex : LinkedList<String>
-          - dictionaryClassIndex : LinkedList<String>
-          - dictionaryEnumIndex : LinkedList<String>
-          - dictionaryIndex : LinkedList<String>
-          + ApiStructuresExtractor()
-          + assetToList()
-          + classToString()
-          {static} + clean()
-          {static} + cleanEnumTemplate()
-          {static} + consoleDisplayLinkedMapToString()
-          + entryList()
-          + enumToList()
-          + extractClass()
-          + extractMatchTypeIndex()
-          + extractParamDefaultValue()
-          + extractParamType()
-          + extractTemplates()
-          + getDictionaryAssetIndex()
-          + getDictionaryClassIndex()
-          + getDictionaryEnumIndex()
-          + getDictionaryIndex()
-          + isAsset()
-          + isEnum()
+    namespace elron.foundationWizzard.com {
+      namespace api {
+        class helron.foundationWizzard.com.api.ApiStructuresExtractor {
+            - ASSET_PREFIX : String
+            - CLASS_PREFIX : String
+            - ENUM_PREFIX : String
+            - STRUCTURE_PREFIX : String
+            {static} - custom : Pattern
+            {static} - dataIDExtractorFromParam : Pattern
+            {static} - defaultValueMatcher : Pattern
+            - dictionary : JsonElement
+            - dictionaryAssetIndex : LinkedList<String>
+            - dictionaryClassIndex : LinkedList<String>
+            - dictionaryEnumIndex : LinkedList<String>
+            - dictionaryIndex : LinkedList<String>
+            - dictionaryStructIndex : LinkedList<String>
+            + ApiStructuresExtractor()
+            + EnumToList()
+            + assetToList()
+            + classToString()
+            {static} + clean()
+            {static} + cleanEnumTemplate()
+            {static} + consoleDisplayLinkedMapToString()
+            + entryList()
+            + extractClass()
+            + extractDataStructureAssetID()
+            + extractDataStructureEnumID()
+            + extractMatchTypeIndex()
+            + extractParamDefaultValue()
+            + extractParamType()
+            + extractStructure()
+            + extractTemplates()
+            + extractWantedDataStructureId()
+            + getASSET_PREFIX()
+            + getCLASS_PREFIX()
+            + getDictionaryAssetIndex()
+            + getDictionaryClassIndex()
+            + getDictionaryEnumIndex()
+            + getDictionaryIndex()
+            + getDictionaryStructIndex()
+            + getENUM_PREFIX()
+            + isAsset()
+            + isClass()
+            + isEnum()
+            + isStruct()
+        }
       }
     }
-  }
+
   
 
-  namespace helron.foundationWizzard.com {
-    namespace api {
-      class helron.foundationWizzard.com.api.LuaGenerator {
-          {static} - userInput : LinkedHashMap<String, String>
-          + InitializeLuaTable()
-          + LuaGenerator()
-          + buildLuaList()
-          + buildLuaTable()
-          {static} + main()
+
+    namespace elron.foundationWizzard.com {
+      namespace api {
+        class helron.foundationWizzard.com.api.LuaGenerator {
+            {static} - userInput : LinkedHashMap<String, String>
+            + InitializeLuaTable()
+            + LuaGenerator()
+            + LuaGenerator()
+            + buildLuaList()
+            + buildLuaTable()
+            {static} + main()
+        }
       }
     }
-  }
+
   
 
 

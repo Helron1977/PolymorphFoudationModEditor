@@ -1,7 +1,7 @@
 package helron.foundationWizzard.com.ui.requests;
 
 import helron.foundationWizzard.com.datagenerator.Parameter;
-import helron.foundationWizzard.com.ui.Form;
+import helron.foundationWizzard.com.ui.FormCLass;
 import helron.foundationWizzard.com.ui.customcomponents.ListenedTextField;
 
 public class RequestStringType implements Requestable{
@@ -13,8 +13,10 @@ public class RequestStringType implements Requestable{
     }
 
     @Override
-    public void action(Form form, Parameter parameter, int lineNumber) {
+    public void action(FormCLass formCLass, Parameter parameter, int lineNumber) {
         ListenedTextField listenedTextField = new ListenedTextField(parameter.getType().getShortValue());
-        form.addComponentToColumnX(listenedTextField,2,lineNumber);
+        formCLass.addComponentToColumnX(listenedTextField,2,lineNumber);
+        formCLass.inputs.put(parameter.getId(), listenedTextField.getText());
+        parameter.setInput(listenedTextField.getText());
     }
 }

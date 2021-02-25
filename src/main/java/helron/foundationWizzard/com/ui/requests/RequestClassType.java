@@ -1,7 +1,7 @@
 package helron.foundationWizzard.com.ui.requests;
 
 import helron.foundationWizzard.com.datagenerator.Parameter;
-import helron.foundationWizzard.com.ui.Form;
+import helron.foundationWizzard.com.ui.FormCLass;
 import helron.foundationWizzard.com.ui.customcomponents.ListenedTextField;
 import helron.foundationWizzard.com.ui.customcomponents.PlusButton;
 
@@ -15,12 +15,19 @@ public class RequestClassType implements Requestable{
     }
 
     @Override
-    public void action(Form form, Parameter parameter, int lineNumber) {
+    public void action(FormCLass formCLass, Parameter parameter, int lineNumber) {
         JTextField listenedTextField = new ListenedTextField(null);
+        listenedTextField.addActionListener(e -> {
+            formCLass.inputs.put(parameter.getId(), listenedTextField.getText());
+            parameter.setInput(listenedTextField.getText());
+        });
         listenedTextField.setEditable(false);
-        form.addComponentToColumnX(listenedTextField,2,lineNumber);
+        formCLass.addComponentToColumnX(listenedTextField,2,lineNumber);
         PlusButton plusButton = new PlusButton(new Scanner (parameter.getDescription()).next());
-        form.addComponentToColumnX(plusButton,3,lineNumber);
-        form.getAddButtons().add(plusButton);
+        //ajoute le bouton dans la colonne 3
+        formCLass.addComponentToColumnX(plusButton,3,lineNumber);
+        //ajoute le bouton a la liste des boutons plus dans form
+        formCLass.getAddButtons().add(plusButton);
+
     }
 }

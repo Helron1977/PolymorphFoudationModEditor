@@ -73,6 +73,9 @@ public class DataStructureMapGenerator {
             parameter.setType(paramType);
             parameter.setDefaultValue(defaultValue);
 
+            if (parameter.requestListType())
+            parameter.setWantedDataStructureid(structures.extractWantedDataStructureId(value));
+
             if (parameter.requestEnumType()){
                 String enumId = structures.extractDataStructureEnumID(value);
                 parameter.setValues(structures.EnumToList(enumId));

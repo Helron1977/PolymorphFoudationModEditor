@@ -1,6 +1,6 @@
 package helron.foundationWizzard.com.ui.customcomponents;
 
-import helron.foundationWizzard.com.ui.Form;
+import helron.foundationWizzard.com.ui.FormCLass;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.awt.event.FocusListener;
 
 public class ListenedJCheckBox extends JCheckBox implements FocusListener {
     private String label;
-    private Form activeForm;
+    private FormCLass activeFormCLass;
 
     public ListenedJCheckBox() {
 

@@ -20,6 +20,9 @@ public class LuaGenerator {
 
     }
 
+    public LuaGenerator() {
+    }
+
     /**
      * Build a String, a lua Table script.
      * @param localVar Name of the lua Table

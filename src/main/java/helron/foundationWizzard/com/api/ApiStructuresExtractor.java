@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 public class ApiStructuresExtractor {
     private final static Pattern custom = Pattern.compile("([A-Z])\\w+");
     private final static Pattern defaultValueMatcher = Pattern.compile("\\S+(?=\\))");
+    private final static Pattern dataIDExtractorFromParam = Pattern.compile("\\<(.*?)\\>");
     private final String CLASS_PREFIX = DataStructureType.CLASS.getPrefix();
 
     private final String ENUM_PREFIX = DataStructureType.ENUM.getPrefix();
@@ -36,6 +37,15 @@ public class ApiStructuresExtractor {
         this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.ASSET.getPrefix());
         this.dictionaryEnumIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.ENUM.getPrefix());
         this.dictionaryStructIndex = extractMatchTypeIndex(dictionaryIndex,DataStructureType.STRUCTURE.getPrefix());
+    }
+
+    public String extractWantedDataStructureId(String paramDescription) {
+        Matcher m = dataIDExtractorFromParam.matcher(paramDescription);
+
+        while (m.find()) {
+            paramDescription = m.group();
+        }
+        return paramDescription.replace("<","").replace(">","");
     }
 
     /**

@@ -1,6 +1,6 @@
 package helron.foundationWizzard.com.ui.customcomponents;
 
-import helron.foundationWizzard.com.ui.Form;
+import helron.foundationWizzard.com.ui.FormCLass;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class ListenedJSpinner extends JSpinner implements ChangeListener {
 
-    private Form activeForm;
+    private FormCLass activeFormCLass;
     public ListenedJSpinner(){
 
         addChangeListener(this);

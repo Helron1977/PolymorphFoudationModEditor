@@ -3,7 +3,9 @@ package helron.foundationWizzard.com.ui;
 import helron.foundationWizzard.com.Main;
 import helron.foundationWizzard.com.datagenerator.DataStructureMap;
 import helron.foundationWizzard.com.ihm.*;
+import helron.foundationWizzard.com.ui.customcomponents.JImagePanel;
 import helron.foundationWizzard.com.ui.customcomponents.JTextFieldLink;
+import helron.foundationWizzard.com.ui.customcomponents.JtextFileChooser;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -63,7 +65,7 @@ public class Home extends JPanel {
         selectMenu.setOpaque(false);
         JTextField subMenu = new JTextField("Select your form");
         subMenu.setBackground(lightGreen);
-        subMenu.setFont(new Font("Serif", Font.BOLD, 15));
+        subMenu.setFont(new Font("Serif", Font.BOLD, 20));
         subMenu.setForeground(Color.white);
         subMenu.setOpaque(true);
         subMenu.setEditable(false);
@@ -74,11 +76,10 @@ public class Home extends JPanel {
             formSelector.setBorder(BorderFactory.createEmptyBorder());
             formSelector.setOpaque(false);
             formSelector.setFocusable(false);
-            //formSelector.setBackground(lightGreen);
             formSelector.setEditable(true);
         JTextField boxField = (JTextField)formSelector .getEditor().getEditorComponent();
             boxField.setHorizontalAlignment(JTextField.HORIZONTAL);
-            boxField.setFont(new Font("Serif", Font.BOLD, 15));
+            boxField.setFont(new Font("Serif", Font.BOLD, 20));
             boxField.setForeground(Color.white);
             boxField.setBorder(BorderFactory.createEmptyBorder());
             boxField.setBackground(lightGreen);
@@ -86,10 +87,10 @@ public class Home extends JPanel {
         formSelector.addItem("BUILDING");
         formSelector.addItem("EVENT");
         formSelector.addItemListener(e -> {
-            //myTab.removeAll();
-           // Form tab= new Form(Objects.requireNonNull(formSelector.getSelectedItem()).toString(), structures, myTab);
-            //tab.setOpaque(false);
-            //myTab.add(formSelector.getSelectedItem().toString(),tab);
+/*            myTab.removeAll();
+           Form tab= new Form(dataMap.getDataMap().get(formSelector.getSelectedItem()),formSelector.getSelectedItem().toString());
+            tab.setOpaque(false);
+            myTab.add(formSelector.getSelectedItem().toString(),tab);*/
         });
 
         JPanel loadSavePanel = new JPanel();
