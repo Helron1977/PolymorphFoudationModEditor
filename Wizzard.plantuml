@@ -2,535 +2,528 @@
 
 title __WIZZARD's Class Diagram__\n
 
-    namespace elron.foundationWizzard.com {
-      class helron.foundationWizzard.com.Main {
+  namespace  {
+    namespace elron.foundationwizard.com {
+      class helron.foundationwizard.com.Main {
       }
     }
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace api {
-        class helron.foundationWizzard.com.api.ApiStructuresExtractor {
+        class helron.foundationwizard.com.api.ApiStructuresExtractor {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace api {
-        class helron.foundationWizzard.com.api.LuaGenerator {
+        class helron.foundationwizard.com.api.LuaGenerator {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructure {
+        class helron.foundationwizard.com.datagenerator.DataStructure {
         }
       }
     }
-
-
-    namespace elron.foundationWizzard.com {
-      namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructureAsset {
-        }
-      }
-    }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructureClass {
+        class helron.foundationwizard.com.datagenerator.DataStructureAsset {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructureEnum {
+        class helron.foundationwizard.com.datagenerator.DataStructureClass {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructureMap {
+        class helron.foundationwizard.com.datagenerator.DataStructureEnum {
         }
       }
     }
-
+  }
   
 
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator {
+        class helron.foundationwizard.com.datagenerator.DataStructureMap {
         }
       }
     }
-
-
-
-    namespace elron.foundationWizzard.com {
-      namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.DataStructureStruct {
-        }
-      }
-    }
-
+  }
   
 
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace datagenerator {
+        class helron.foundationwizard.com.datagenerator.DataStructureMapGenerator {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace datagenerator {
+        class helron.foundationwizard.com.datagenerator.DataStructureStruct {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
         enum DataStructureType {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
         enum ParamType {
         }
       }
     }
-
+  }
   
 
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace datagenerator {
-        class helron.foundationWizzard.com.datagenerator.Parameter {
+        class helron.foundationwizard.com.datagenerator.Parameter {
         }
       }
     }
-
+  }
   
 
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
         enum FieldType {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
-        class helron.foundationWizzard.com.ihm.FormField {
+        class helron.foundationwizard.com.ihm.FormField {
         }
       }
     }
+  }
+  
 
-
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
-        abstract class helron.foundationWizzard.com.ihm.FormRequestDialog {
+        abstract class helron.foundationwizard.com.ihm.FormRequestDialog {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
-        class helron.foundationWizzard.com.ihm.FormRow {
+        class helron.foundationwizard.com.ihm.FormRow {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
-        class helron.foundationWizzard.com.ihm.FoundationAPI {
+        class helron.foundationwizard.com.ihm.FoundationAPI {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
-        class helron.foundationWizzard.com.ihm.JImagePanel {
+        class helron.foundationwizard.com.ihm.LuaScriptFrame {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ihm {
-        class helron.foundationWizzard.com.ihm.JtextFileChooser {
+        class helron.foundationwizard.com.ihm.MainFrame {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
-      namespace ihm {
-        class helron.foundationWizzard.com.ihm.LuaScriptFrame {
-        }
-      }
-    }
-
-  
-
-
-    namespace elron.foundationWizzard.com {
-      namespace ihm {
-        class helron.foundationWizzard.com.ihm.MainFrame {
-        }
-      }
-    }
-
-  
-
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
-        class helron.foundationWizzard.com.ui.Form {
+        class helron.foundationwizard.com.ui.FormCLass {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
-        interface helron.foundationWizzard.com.ui.FormSelector {
+        interface helron.foundationwizard.com.ui.FormSelector {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         enum FormType {
         }
       }
     }
-
+  }
   
 
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
-        class helron.foundationWizzard.com.ui.FormsContainer {
+        class helron.foundationwizard.com.ui.FormsContainer {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
-        class helron.foundationWizzard.com.ui.Home {
+        class helron.foundationwizard.com.ui.Home {
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
-      namespace ui {
-        class helron.foundationWizzard.com.ui.SplitPanel {
-        }
-      }
-    }
-
-  
-
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.JTextFieldLink {
+          class helron.foundationwizard.com.ui.customcomponents.JImagePanel {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.ListenedJCheckBox {
+          class helron.foundationwizard.com.ui.customcomponents.JTextFieldLink {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.ListenedJComboBox {
+          class helron.foundationwizard.com.ui.customcomponents.JtextFileChooser {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.ListenedJList {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.ListenedJSpinner {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJComboBox {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.ListenedTextField {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJList {
           }
         }
       }
     }
+  }
+  
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.PlusButton {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.ValidateButton {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedTextField {
           }
         }
       }
     }
+  }
+  
 
-
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
-          class helron.foundationWizzard.com.ui.customcomponents.mySplitpanel {
+          class helron.foundationwizard.com.ui.customcomponents.PlusButton {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
-        namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestAssetType {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ValidateButton {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestBooleanType {
+          class helron.foundationwizard.com.ui.requests.RequestAssetType {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestClassType {
+          class helron.foundationwizard.com.ui.requests.RequestBooleanType {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestEnumType {
+          class helron.foundationwizard.com.ui.requests.RequestClassType {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestIntegerType {
+          class helron.foundationwizard.com.ui.requests.RequestEnumType {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestListType {
+          class helron.foundationwizard.com.ui.requests.RequestIntegerType {
           }
         }
       }
     }
-
-
-
-    namespace elron.foundationWizzard.com {
-      namespace ui {
-        namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestStringType {
-          }
-        }
-      }
-    }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          interface helron.foundationWizzard.com.ui.requests.Requestable {
+          class helron.foundationwizard.com.ui.requests.RequestListType {
           }
         }
       }
     }
-
+  }
   
 
-
-    namespace elron.foundationWizzard.com {
+  namespace  {
+    namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
-          class helron.foundationWizzard.com.ui.requests.RequestsGenerator {
+          class helron.foundationwizard.com.ui.requests.RequestStringType {
           }
         }
       }
     }
-
+  }
   
 
-  helron.foundationWizzard.com.datagenerator.DataStructure o-- helron.foundationWizzard.com.datagenerator.DataStructureType : dataStructureType
-  helron.foundationWizzard.com.datagenerator.DataStructureAsset -up-|> helron.foundationWizzard.com.datagenerator.DataStructure
-  helron.foundationWizzard.com.datagenerator.DataStructureClass -up-|> helron.foundationWizzard.com.datagenerator.DataStructure
-  helron.foundationWizzard.com.datagenerator.DataStructureEnum -up-|> helron.foundationWizzard.com.datagenerator.DataStructure
-  helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationWizzard.com.datagenerator.DataStructureMap : dataStructureMap
-  helron.foundationWizzard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationWizzard.com.api.ApiStructuresExtractor : structures
-  helron.foundationWizzard.com.datagenerator.DataStructureStruct -up-|> helron.foundationWizzard.com.datagenerator.DataStructureClass
-  helron.foundationWizzard.com.datagenerator.Parameter o-- helron.foundationWizzard.com.datagenerator.ParamType : type
-  helron.foundationWizzard.com.ihm.FormField o-- helron.foundationWizzard.com.ihm.FieldType : fieldType
-  helron.foundationWizzard.com.ihm.FormRequestDialog -up-|> javax.swing.JDialog
-  helron.foundationWizzard.com.ihm.FormRequestDialog o-- helron.foundationWizzard.com.api.ApiStructuresExtractor : structures
-  helron.foundationWizzard.com.ihm.FormRequestDialog o-- helron.foundationWizzard.com.ui.FormsContainer : tabsContainer
-  helron.foundationWizzard.com.ihm.FormRow -up-|> javax.swing.JPanel
-  helron.foundationWizzard.com.ihm.FoundationAPI o-- helron.foundationWizzard.com.api.ApiStructuresExtractor : structures
-  helron.foundationWizzard.com.ihm.JImagePanel -up-|> javax.swing.JPanel
-  helron.foundationWizzard.com.ihm.JtextFileChooser -up-|> javax.swing.JTextField
-  helron.foundationWizzard.com.ihm.LuaScriptFrame -up-|> javax.swing.JFrame
-  helron.foundationWizzard.com.ihm.MainFrame -up-|> javax.swing.JFrame
-  helron.foundationWizzard.com.ui.Form -up-|> javax.swing.JPanel
-  helron.foundationWizzard.com.ui.Form o-- helron.foundationWizzard.com.datagenerator.DataStructure : dataStructure
-  helron.foundationWizzard.com.ui.FormsContainer .up.|> helron.foundationWizzard.com.ui.FormSelector
-  helron.foundationWizzard.com.ui.FormsContainer -up-|> javax.swing.JTabbedPane
-  helron.foundationWizzard.com.ui.FormsContainer o-- helron.foundationWizzard.com.datagenerator.DataStructureMap : dataStructureMap
-  helron.foundationWizzard.com.ui.Home -up-|> javax.swing.JPanel
-  helron.foundationWizzard.com.ui.SplitPanel -up-|> javax.swing.JPanel
-  helron.foundationWizzard.com.ui.SplitPanel o-- helron.foundationWizzard.com.datagenerator.DataStructure : wantedDataStructure
-  helron.foundationWizzard.com.ui.SplitPanel o-- helron.foundationWizzard.com.ui.Form : form
-  helron.foundationWizzard.com.ui.customcomponents.JTextFieldLink -up-|> javax.swing.JTextField
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJCheckBox .up.|> java.awt.event.FocusListener
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJCheckBox -up-|> javax.swing.JCheckBox
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJCheckBox o-- helron.foundationWizzard.com.ui.Form : activeForm
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJComboBox .up.|> java.awt.event.FocusListener
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJComboBox -up-|> javax.swing.JComboBox
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJList -up-|> javax.swing.JList
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJSpinner .up.|> javax.swing.event.ChangeListener
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJSpinner -up-|> javax.swing.JSpinner
-  helron.foundationWizzard.com.ui.customcomponents.ListenedJSpinner o-- helron.foundationWizzard.com.ui.Form : activeForm
-  helron.foundationWizzard.com.ui.customcomponents.ListenedTextField .up.|> java.awt.event.FocusListener
-  helron.foundationWizzard.com.ui.customcomponents.ListenedTextField -up-|> javax.swing.JTextField
-  helron.foundationWizzard.com.ui.customcomponents.PlusButton -up-|> javax.swing.JButton
-  helron.foundationWizzard.com.ui.customcomponents.PlusButton o-- helron.foundationWizzard.com.datagenerator.ParamType : requestedFormType
-  helron.foundationWizzard.com.ui.customcomponents.ValidateButton -up-|> javax.swing.JButton
-  helron.foundationWizzard.com.ui.customcomponents.mySplitpanel -up-|> javax.swing.JPanel
-  helron.foundationWizzard.com.ui.requests.RequestAssetType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
-  helron.foundationWizzard.com.ui.requests.RequestBooleanType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
-  helron.foundationWizzard.com.ui.requests.RequestClassType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
-  helron.foundationWizzard.com.ui.requests.RequestEnumType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
-  helron.foundationWizzard.com.ui.requests.RequestIntegerType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
-  helron.foundationWizzard.com.ui.requests.RequestListType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
-  helron.foundationWizzard.com.ui.requests.RequestStringType .up.|> helron.foundationWizzard.com.ui.requests.Requestable
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          interface helron.foundationwizard.com.ui.requests.Requestable {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestsGenerator {
+          }
+        }
+      }
+    }
+  }
+  
+
+  helron.foundationwizard.com.datagenerator.DataStructure o-- helron.foundationwizard.com.datagenerator.DataStructureType : dataStructureType
+  helron.foundationwizard.com.datagenerator.DataStructureAsset -up-|> helron.foundationwizard.com.datagenerator.DataStructure
+  helron.foundationwizard.com.datagenerator.DataStructureClass -up-|> helron.foundationwizard.com.datagenerator.DataStructure
+  helron.foundationwizard.com.datagenerator.DataStructureEnum -up-|> helron.foundationwizard.com.datagenerator.DataStructure
+  helron.foundationwizard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationwizard.com.datagenerator.DataStructureMap : dataStructureMap
+  helron.foundationwizard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationwizard.com.api.ApiStructuresExtractor : structures
+  helron.foundationwizard.com.datagenerator.DataStructureStruct -up-|> helron.foundationwizard.com.datagenerator.DataStructureClass
+  helron.foundationwizard.com.datagenerator.Parameter o-- helron.foundationwizard.com.datagenerator.ParamType : type
+  helron.foundationwizard.com.ihm.FormField o-- helron.foundationwizard.com.ihm.FieldType : fieldType
+  helron.foundationwizard.com.ihm.FormRequestDialog -up-|> javax.swing.JDialog
+  helron.foundationwizard.com.ihm.FormRequestDialog o-- helron.foundationwizard.com.api.ApiStructuresExtractor : structures
+  helron.foundationwizard.com.ihm.FormRequestDialog o-- helron.foundationwizard.com.ui.FormsContainer : tabsContainer
+  helron.foundationwizard.com.ihm.FormRow -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ihm.FoundationAPI o-- helron.foundationwizard.com.api.ApiStructuresExtractor : structures
+  helron.foundationwizard.com.ihm.LuaScriptFrame -up-|> javax.swing.JFrame
+  helron.foundationwizard.com.ihm.MainFrame -up-|> javax.swing.JFrame
+  helron.foundationwizard.com.ui.FormCLass -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.FormCLass o-- helron.foundationwizard.com.datagenerator.DataStructure : dataStructure
+  helron.foundationwizard.com.ui.FormsContainer .up.|> helron.foundationwizard.com.ui.FormSelector
+  helron.foundationwizard.com.ui.FormsContainer -up-|> javax.swing.JTabbedPane
+  helron.foundationwizard.com.ui.FormsContainer o-- helron.foundationwizard.com.datagenerator.DataStructureMap : dataStructureMap
+  helron.foundationwizard.com.ui.Home -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JImagePanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JTextFieldLink -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.JtextFileChooser -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox .up.|> java.awt.event.FocusListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox -up-|> javax.swing.JCheckBox
+  helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox o-- helron.foundationwizard.com.ui.FormCLass : activeFormCLass
+  helron.foundationwizard.com.ui.customcomponents.ListenedJComboBox .up.|> java.awt.event.FocusListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedJComboBox -up-|> javax.swing.JComboBox
+  helron.foundationwizard.com.ui.customcomponents.ListenedJList -up-|> javax.swing.JList
+  helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner .up.|> javax.swing.event.ChangeListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner -up-|> javax.swing.JSpinner
+  helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner o-- helron.foundationwizard.com.ui.FormCLass : activeFormCLass
+  helron.foundationwizard.com.ui.customcomponents.ListenedTextField .up.|> java.awt.event.FocusListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedTextField -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.PlusButton -up-|> javax.swing.JButton
+  helron.foundationwizard.com.ui.customcomponents.PlusButton o-- helron.foundationwizard.com.datagenerator.ParamType : requestedFormType
+  helron.foundationwizard.com.ui.customcomponents.ValidateButton -up-|> javax.swing.JButton
+  helron.foundationwizard.com.ui.requests.RequestAssetType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestBooleanType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestClassType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestEnumType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestIntegerType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestListType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestStringType .up.|> helron.foundationwizard.com.ui.requests.Requestable
 
 
 right footer

@@ -1,0 +1,184 @@
+@startuml
+
+title __CUSTOMCOMPONENTS's Class Diagram__\n
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JImagePanel {
+              - image : Image
+              - stretch : Boolean
+              + JImagePanel()
+              + JImagePanel()
+              {static} + main()
+              + setStretch()
+              # paintComponent()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JTextFieldLink {
+              + JTextFieldLink()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JtextFileChooser {
+              + JtextFileChooser()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox {
+              - label : String
+              + ListenedJCheckBox()
+              + focusGained()
+              + focusLost()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJComboBox {
+              + ListenedJComboBox()
+              + focusGained()
+              + focusLost()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJList {
+              - dataList : DefaultListModel<String>
+              + ListenedJList()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner {
+              + ListenedJSpinner()
+              + stateChanged()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ListenedTextField {
+              - label : String
+              + ListenedTextField()
+              + focusGained()
+              + focusLost()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.PlusButton {
+              ~ dataList : DefaultListModel<String>
+              - dataStructureID : String
+              + PlusButton()
+              + PlusButton()
+              + PlusButton()
+              + getDataList()
+              + getRequestedFormType()
+              + getStructureIdRequest()
+          }
+        }
+      }
+    }
+
+  
+
+
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ValidateButton {
+              + ValidateButton()
+          }
+        }
+      }
+    }
+
+  
+
+  helron.foundationwizard.com.ui.customcomponents.JImagePanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JTextFieldLink -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.JtextFileChooser -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox .up.|> java.awt.event.FocusListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox -up-|> javax.swing.JCheckBox
+  helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox o-- helron.foundationwizard.com.ui.FormCLass : activeFormCLass
+  helron.foundationwizard.com.ui.customcomponents.ListenedJComboBox .up.|> java.awt.event.FocusListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedJComboBox -up-|> javax.swing.JComboBox
+  helron.foundationwizard.com.ui.customcomponents.ListenedJList -up-|> javax.swing.JList
+  helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner .up.|> javax.swing.event.ChangeListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner -up-|> javax.swing.JSpinner
+  helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner o-- helron.foundationwizard.com.ui.FormCLass : activeFormCLass
+  helron.foundationwizard.com.ui.customcomponents.ListenedTextField .up.|> java.awt.event.FocusListener
+  helron.foundationwizard.com.ui.customcomponents.ListenedTextField -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.PlusButton -up-|> javax.swing.JButton
+  helron.foundationwizard.com.ui.customcomponents.PlusButton o-- helron.foundationwizard.com.datagenerator.ParamType : requestedFormType
+  helron.foundationwizard.com.ui.customcomponents.ValidateButton -up-|> javax.swing.JButton
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
