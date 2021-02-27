@@ -15,6 +15,11 @@ List<Requestable> requestsList = new ArrayList<>();
         requestsList.add(new RequestListType());
         requestsList.add(new RequestClassType());
         requestsList.add(new RequestFloatType());
+        requestsList.add(new RequestVec2iType());
+        requestsList.add(new RequestVect3iType());
+        requestsList.add(new RequestVec2fType());
+        requestsList.add(new RequestVec3fType());
+        requestsList.add(new RequestQuaternionType());
     }
 
     public List<Requestable> getRequestsList() {

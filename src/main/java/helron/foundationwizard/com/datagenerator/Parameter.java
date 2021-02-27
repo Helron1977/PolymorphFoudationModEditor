@@ -124,4 +124,24 @@ public class Parameter {
     public boolean requestFloatType() {
         return  type == ParamType.FLOAT;
     }
+
+    public boolean requestVec2iType() {
+        return  type == ParamType.VEC2I;
+    }
+
+    public boolean requestVec3iType() {
+        return type == ParamType.VEC3I;
+    }
+
+    public boolean requestVec2fType() {
+        return type == ParamType.VEC2F;
+    }
+
+    public boolean requestVec3fType() {
+        return type == ParamType.VEC3F;
+    }
+
+    public boolean requestQuaternionType() {
+        return type  == ParamType.QUATERNION;
+    }
 }

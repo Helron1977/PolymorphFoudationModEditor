@@ -5,8 +5,6 @@ import helron.foundationwizard.com.ui.FormCLass;
 import helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class RequestFloatType implements Requestable{
     @Override
