@@ -4,6 +4,8 @@ import helron.foundationwizard.com.api.LuaGenerator;
 import helron.foundationwizard.com.datagenerator.DataStructure;
 import helron.foundationwizard.com.datagenerator.DataStructureMap;
 import helron.foundationwizard.com.datagenerator.DataStructureType;
+import helron.foundationwizard.com.ui.customcomponents.JColorPicker;
+import helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel;
 import helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame;
 import helron.foundationwizard.com.ui.customcomponents.PlusButton;
 
@@ -61,6 +63,8 @@ public class FormsContainer extends JTabbedPane {
 
                     try {
                         LuaScriptFrame scriptFrame = new LuaScriptFrame(scriptGenerator);
+
+
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }

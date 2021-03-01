@@ -32,11 +32,13 @@ public class ApiStructuresExtractor {
     public ApiStructuresExtractor(JsonElement dictionary) {
         this.dictionary = dictionary;
         this.dictionaryIndex = entryList();
-        this.dictionaryClassIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.CLASS.getPrefix());
+        dictionaryClassIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.CLASS.getPrefix());
         this.dictionaryAssetIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.ASSET.getPrefix());
         this.dictionaryEnumIndex = extractMatchTypeIndex(dictionaryIndex, DataStructureType.ENUM.getPrefix());
         this.dictionaryStructIndex = extractMatchTypeIndex(dictionaryIndex,DataStructureType.STRUCTURE.getPrefix());
+
     }
+
 
     public String extractWantedDataStructureId(String paramDescription) {
         Matcher m = dataIDExtractorFromParam.matcher(paramDescription);

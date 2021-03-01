@@ -144,4 +144,8 @@ public class Parameter {
     public boolean requestQuaternionType() {
         return type  == ParamType.QUATERNION;
     }
+
+    public boolean requestColorType() {
+        return type == ParamType.COLOR;
+    }
 }

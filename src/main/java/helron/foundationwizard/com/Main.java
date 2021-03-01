@@ -7,6 +7,7 @@ import helron.foundationwizard.com.datagenerator.DataStructureMap;
 import helron.foundationwizard.com.datagenerator.DataStructureMapGenerator;
 import helron.foundationwizard.com.ui.Home;
 
+import javax.swing.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
@@ -51,6 +52,8 @@ public class Main {
 
         DataStructureMapGenerator dataStructureMapGenerator = new DataStructureMapGenerator(structures);
         DataStructureMap dataMap = dataStructureMapGenerator.getDataSet();
+
+
 
         new Home(dataMap);
 

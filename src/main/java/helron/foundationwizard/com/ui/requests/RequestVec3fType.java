@@ -24,6 +24,7 @@ public class RequestVec3fType implements Requestable{
         columnTitle.addElement("X");
         columnTitle.addElement("Y");
         columnTitle.addElement("Z");
+        columnTitle.addElement("W");
 
         Vector<Integer> row = new Vector<>();
         row.add(0);
