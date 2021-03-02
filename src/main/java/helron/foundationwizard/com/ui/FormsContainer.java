@@ -48,6 +48,7 @@ public class FormsContainer extends JTabbedPane {
         addValidateButton(formCLass, dataList);
 
         this.add(formCLass.id, formCLass);
+        this.setSelectedIndex(this.getComponentCount()-1);
     }
 
 
@@ -69,6 +70,7 @@ public class FormsContainer extends JTabbedPane {
                         ioException.printStackTrace();
                     }
                 }
+                this.remove(this.getSelectedComponent());
             });
     }
 

@@ -30,6 +30,7 @@ public class JImagePanel extends JPanel {
         this.image = getToolkit().getImage(file);
     }
 
+
     /**
      * Image position in the panel
      * @param stretch true: Strech the image / false: center the image
