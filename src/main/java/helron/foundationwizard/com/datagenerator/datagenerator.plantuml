@@ -2,7 +2,7 @@
 
 title __DATAGENERATOR's Class Diagram__\n
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructure {
@@ -15,10 +15,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructureAsset {
@@ -29,10 +29,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructureClass {
@@ -43,10 +43,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructureEnum {
@@ -57,9 +57,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
+  }
+  
 
-
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructureMap {
@@ -75,10 +76,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructureMapGenerator {
@@ -98,10 +99,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.DataStructureStruct {
@@ -109,10 +110,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         enum DataStructureType {
@@ -126,10 +127,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         enum ParamType {
@@ -158,10 +159,10 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace datagenerator {
         class helron.foundationwizard.com.datagenerator.Parameter {
@@ -186,10 +187,17 @@ title __DATAGENERATOR's Class Diagram__\n
             + requestAssetType()
             + requestBooleanType()
             + requestClassType()
+            + requestColorType()
             + requestEnumType()
+            + requestFloatType()
             + requestIntegerType()
             + requestListType()
+            + requestQuaternionType()
             + requestStringType()
+            + requestVec2fType()
+            + requestVec2iType()
+            + requestVec3fType()
+            + requestVec3iType()
             + setDefaultValue()
             + setDescription()
             + setId()
@@ -200,7 +208,7 @@ title __DATAGENERATOR's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
   helron.foundationwizard.com.datagenerator.DataStructure o-- helron.foundationwizard.com.datagenerator.DataStructureType : dataStructureType

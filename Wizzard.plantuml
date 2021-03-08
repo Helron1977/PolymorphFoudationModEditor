@@ -132,88 +132,8 @@ title __WIZZARD's Class Diagram__\n
 
   namespace  {
     namespace elron.foundationwizard.com {
-      namespace ihm {
-        enum FieldType {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ihm {
-        class helron.foundationwizard.com.ihm.FormField {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ihm {
-        abstract class helron.foundationwizard.com.ihm.FormRequestDialog {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ihm {
-        class helron.foundationwizard.com.ihm.FormRow {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ihm {
-        class helron.foundationwizard.com.ihm.FoundationAPI {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ihm {
-        class helron.foundationwizard.com.ihm.LuaScriptFrame {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ihm {
-        class helron.foundationwizard.com.ihm.MainFrame {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
       namespace ui {
         class helron.foundationwizard.com.ui.FormCLass {
-        }
-      }
-    }
-  }
-  
-
-  namespace  {
-    namespace elron.foundationwizard.com {
-      namespace ui {
-        interface helron.foundationwizard.com.ui.FormSelector {
         }
       }
     }
@@ -254,7 +174,103 @@ title __WIZZARD's Class Diagram__\n
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.AnimationManager {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ButtonState {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ColorPickerSliderUI {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPicker {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPickerDialog {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorSwatch {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
           class helron.foundationwizard.com.ui.customcomponents.JImagePanel {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JScrollTableCellEditor {
           }
         }
       }
@@ -350,6 +366,42 @@ title __WIZZARD's Class Diagram__\n
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.MainFrame {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.PlafPaintUtils {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
           class helron.foundationwizard.com.ui.customcomponents.PlusButton {
           }
         }
@@ -362,7 +414,117 @@ title __WIZZARD's Class Diagram__\n
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
+          interface helron.foundationwizard.com.ui.customcomponents.ResourceSample {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
           class helron.foundationwizard.com.ui.customcomponents.ValidateButton {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace irregularpolygons {
+            class helron.foundationwizard.com.ui.customcomponents.irregularpolygons.Canvas {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace irregularpolygons {
+            class helron.foundationwizard.com.ui.customcomponents.irregularpolygons.CustomCursor {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace irregularpolygons {
+            class helron.foundationwizard.com.ui.customcomponents.irregularpolygons.GUIHelper {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace irregularpolygons {
+            class helron.foundationwizard.com.ui.customcomponents.irregularpolygons.PolygonMouseCreator {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace irregularpolygons {
+            class helron.foundationwizard.com.ui.customcomponents.irregularpolygons.Test {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace polygon {
+            class helron.foundationwizard.com.ui.customcomponents.polygon.PolygonCreatorPanel {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          namespace polygon {
+            class helron.foundationwizard.com.ui.customcomponents.polygon.PolygonPanel {
+            }
           }
         }
       }
@@ -410,7 +572,31 @@ title __WIZZARD's Class Diagram__\n
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestColorType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
           class helron.foundationwizard.com.ui.requests.RequestEnumType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestFloatType {
           }
         }
       }
@@ -446,7 +632,67 @@ title __WIZZARD's Class Diagram__\n
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestQuaternionType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
           class helron.foundationwizard.com.ui.requests.RequestStringType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVec2fType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVec2iType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVec3fType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVect3iType {
           }
         }
       }
@@ -486,21 +732,32 @@ title __WIZZARD's Class Diagram__\n
   helron.foundationwizard.com.datagenerator.DataStructureMapGenerator o-- helron.foundationwizard.com.api.ApiStructuresExtractor : structures
   helron.foundationwizard.com.datagenerator.DataStructureStruct -up-|> helron.foundationwizard.com.datagenerator.DataStructureClass
   helron.foundationwizard.com.datagenerator.Parameter o-- helron.foundationwizard.com.datagenerator.ParamType : type
-  helron.foundationwizard.com.ihm.FormField o-- helron.foundationwizard.com.ihm.FieldType : fieldType
-  helron.foundationwizard.com.ihm.FormRequestDialog -up-|> javax.swing.JDialog
-  helron.foundationwizard.com.ihm.FormRequestDialog o-- helron.foundationwizard.com.api.ApiStructuresExtractor : structures
-  helron.foundationwizard.com.ihm.FormRequestDialog o-- helron.foundationwizard.com.ui.FormsContainer : tabsContainer
-  helron.foundationwizard.com.ihm.FormRow -up-|> javax.swing.JPanel
-  helron.foundationwizard.com.ihm.FoundationAPI o-- helron.foundationwizard.com.api.ApiStructuresExtractor : structures
-  helron.foundationwizard.com.ihm.LuaScriptFrame -up-|> javax.swing.JFrame
-  helron.foundationwizard.com.ihm.MainFrame -up-|> javax.swing.JFrame
   helron.foundationwizard.com.ui.FormCLass -up-|> javax.swing.JPanel
   helron.foundationwizard.com.ui.FormCLass o-- helron.foundationwizard.com.datagenerator.DataStructure : dataStructure
-  helron.foundationwizard.com.ui.FormsContainer .up.|> helron.foundationwizard.com.ui.FormSelector
   helron.foundationwizard.com.ui.FormsContainer -up-|> javax.swing.JTabbedPane
   helron.foundationwizard.com.ui.FormsContainer o-- helron.foundationwizard.com.datagenerator.DataStructureMap : dataStructureMap
   helron.foundationwizard.com.ui.Home -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.Home o-- helron.foundationwizard.com.datagenerator.DataStructureMap : dataStructureMap
+  helron.foundationwizard.com.ui.Home o-- helron.foundationwizard.com.ui.FormsContainer : formsContainer
+  helron.foundationwizard.com.ui.customcomponents.ColorPickerSliderUI -up-|> javax.swing.plaf.basic.BasicSliderUI
+  helron.foundationwizard.com.ui.customcomponents.ColorPickerSliderUI o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker : colorPicker
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.HexDocumentListener : hexDocListener
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : alpha
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : blue
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : bri
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel : colorPanel
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : green
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : hue
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorSwatch : preview
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : red
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : sat
+  helron.foundationwizard.com.ui.customcomponents.JColorPickerDialog -up-|> javax.swing.JDialog
+  helron.foundationwizard.com.ui.customcomponents.JColorPickerDialog o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker : cp
+  helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JColorSwatch -up-|> javax.swing.JPanel
   helron.foundationwizard.com.ui.customcomponents.JImagePanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JScrollTableCellEditor -up-|> javax.swing.DefaultCellEditor
   helron.foundationwizard.com.ui.customcomponents.JTextFieldLink -up-|> javax.swing.JTextField
   helron.foundationwizard.com.ui.customcomponents.JtextFileChooser -up-|> javax.swing.JTextField
   helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox .up.|> java.awt.event.FocusListener
@@ -514,16 +771,31 @@ title __WIZZARD's Class Diagram__\n
   helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner o-- helron.foundationwizard.com.ui.FormCLass : activeFormCLass
   helron.foundationwizard.com.ui.customcomponents.ListenedTextField .up.|> java.awt.event.FocusListener
   helron.foundationwizard.com.ui.customcomponents.ListenedTextField -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame -up-|> javax.swing.JFrame
+  helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame o-- helron.foundationwizard.com.api.LuaGenerator : luaGenerator
+  helron.foundationwizard.com.ui.customcomponents.MainFrame -up-|> javax.swing.JFrame
   helron.foundationwizard.com.ui.customcomponents.PlusButton -up-|> javax.swing.JButton
   helron.foundationwizard.com.ui.customcomponents.PlusButton o-- helron.foundationwizard.com.datagenerator.ParamType : requestedFormType
   helron.foundationwizard.com.ui.customcomponents.ValidateButton -up-|> javax.swing.JButton
+  helron.foundationwizard.com.ui.customcomponents.irregularpolygons.Canvas -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.irregularpolygons.PolygonMouseCreator -up-|> java.awt.event.MouseAdapter
+  helron.foundationwizard.com.ui.customcomponents.irregularpolygons.PolygonMouseCreator o-- helron.foundationwizard.com.ui.customcomponents.irregularpolygons.Canvas : canvas
+  helron.foundationwizard.com.ui.customcomponents.polygon.PolygonCreatorPanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.polygon.PolygonPanel -up-|> javax.swing.JPanel
   helron.foundationwizard.com.ui.requests.RequestAssetType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestBooleanType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestClassType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestColorType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestEnumType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestFloatType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestIntegerType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestListType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestQuaternionType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestStringType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVec2fType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVec2iType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVec3fType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVect3iType .up.|> helron.foundationwizard.com.ui.requests.Requestable
 
 
 right footer

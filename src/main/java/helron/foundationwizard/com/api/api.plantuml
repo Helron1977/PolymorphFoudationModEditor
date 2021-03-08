@@ -2,7 +2,7 @@
 
 title __API's Class Diagram__\n
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace api {
         class helron.foundationwizard.com.api.ApiStructuresExtractor {
@@ -15,7 +15,7 @@ title __API's Class Diagram__\n
             {static} - defaultValueMatcher : Pattern
             - dictionary : JsonElement
             - dictionaryAssetIndex : LinkedList<String>
-            - dictionaryClassIndex : LinkedList<String>
+            {static} - dictionaryClassIndex : LinkedList<String>
             - dictionaryEnumIndex : LinkedList<String>
             - dictionaryIndex : LinkedList<String>
             - dictionaryStructIndex : LinkedList<String>
@@ -39,7 +39,7 @@ title __API's Class Diagram__\n
             + getASSET_PREFIX()
             + getCLASS_PREFIX()
             + getDictionaryAssetIndex()
-            + getDictionaryClassIndex()
+            {static} + getDictionaryClassIndex()
             + getDictionaryEnumIndex()
             + getDictionaryIndex()
             + getDictionaryStructIndex()
@@ -51,10 +51,10 @@ title __API's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace api {
         class helron.foundationwizard.com.api.LuaGenerator {
@@ -68,7 +68,7 @@ title __API's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
 

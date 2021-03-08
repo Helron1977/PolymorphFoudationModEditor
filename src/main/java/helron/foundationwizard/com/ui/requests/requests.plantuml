@@ -2,7 +2,7 @@
 
 title __REQUESTS's Class Diagram__\n
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -13,10 +13,10 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -27,9 +27,10 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -40,10 +41,24 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestColorType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -54,10 +69,24 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestFloatType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -68,10 +97,10 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -82,10 +111,24 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestQuaternionType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -96,10 +139,66 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVec2fType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVec2iType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVec3fType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace requests {
+          class helron.foundationwizard.com.ui.requests.RequestVect3iType {
+              + action()
+              + isRequired()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -110,10 +209,10 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace requests {
@@ -125,16 +224,23 @@ title __REQUESTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
   helron.foundationwizard.com.ui.requests.RequestAssetType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestBooleanType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestClassType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestColorType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestEnumType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestFloatType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestIntegerType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestListType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestQuaternionType .up.|> helron.foundationwizard.com.ui.requests.Requestable
   helron.foundationwizard.com.ui.requests.RequestStringType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVec2fType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVec2iType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVec3fType .up.|> helron.foundationwizard.com.ui.requests.Requestable
+  helron.foundationwizard.com.ui.requests.RequestVect3iType .up.|> helron.foundationwizard.com.ui.requests.Requestable
 
 
 right footer

@@ -21,6 +21,7 @@ List<Requestable> requestsList = new ArrayList<>();
         requestsList.add(new RequestVec3fType());
         requestsList.add(new RequestQuaternionType());
         requestsList.add(new RequestColorType());
+        requestsList.add(new RequestPolygonType());
     }
 
     public List<Requestable> getRequestsList() {

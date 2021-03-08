@@ -12,6 +12,7 @@ import javax.swing.*;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -144,7 +145,11 @@ public class FormCLass extends JPanel {
             RequestsGenerator requests = new RequestsGenerator();
             requests.getRequestsList().forEach(requestable -> {
                 if (requestable.isRequired(parameter)) {
-                    requestable.action(this, parameter, lineNumber);
+                    try {
+                        requestable.action(this, parameter, lineNumber);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     inputs.put(parameter.getId(), parameter.getDefaultValue());
                     System.out.println(parameter.getId() + " " + parameter.getDefaultValue());
                 }

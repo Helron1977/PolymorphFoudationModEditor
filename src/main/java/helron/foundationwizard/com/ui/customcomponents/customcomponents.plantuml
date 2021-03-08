@@ -2,7 +2,409 @@
 
 title __CUSTOMCOMPONENTS's Class Diagram__\n
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.AnimationManager {
+              ~ actionListener : ActionListener
+              {static} ~ singleton : AnimationManager
+              ~ ticketCount : int
+              ~ ticketsByComponentAndProperty : Map<JComponent, Map<String, Ticket>>
+              ~ timer : Timer
+              {static} + get()
+              {static} + setTargetProperty()
+              {static} + setTargetProperty()
+              {static} + setTargetProperty()
+              {static} + tween()
+              {static} + tween()
+              ~ add()
+              ~ getTicket()
+              ~ getTicketCount()
+              ~ getTickets()
+              ~ remove()
+              - AnimationManager()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          abstract class helron.foundationwizard.com.ui.customcomponents.AnimationManager.Adjuster {
+              ~ duration : long
+              ~ endTime : long
+              ~ startTime : long
+              + getTargetValue()
+              + increment()
+              {abstract} + increment()
+              + setInitialValue()
+              # Adjuster()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.AnimationManager.ButtonStateAdjuster {
+              + ButtonStateAdjuster()
+              + increment()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.AnimationManager.DoubleAdjuster {
+              + DoubleAdjuster()
+              + increment()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.AnimationManager.Ticket {
+              ~ adjuster : Adjuster<?>
+              ~ component : JComponent
+              ~ propertyName : String
+              + getAdjuster()
+              + getComponent()
+              + getPropertyName()
+              ~ Ticket()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ButtonState {
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ButtonState.Boolean {
+              ~ isArmed : boolean
+              ~ isEnabled : boolean
+              ~ isPressed : boolean
+              ~ isRollover : boolean
+              ~ isSelected : boolean
+              + Boolean()
+              + Boolean()
+              + equals()
+              + hashCode()
+              + isArmed()
+              + isEnabled()
+              + isPressed()
+              + isRollover()
+              + isSelected()
+              + toString()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ButtonState.Float {
+              ~ isArmed : float
+              ~ isEnabled : float
+              ~ isPressed : float
+              ~ isRollover : float
+              ~ isSelected : float
+              + Float()
+              + Float()
+              + Float()
+              + equals()
+              + hashCode()
+              + isArmed()
+              + isEnabled()
+              + isPressed()
+              + isRollover()
+              + isSelected()
+              + toString()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.ColorPickerSliderUI {
+              ~ ARROW_HALF : int
+              ~ bi : BufferedImage
+              ~ intArray : int[]
+              ~ lastMode : int
+              ~ myMouseListener : MouseInputAdapter
+              + ColorPickerSliderUI()
+              + paintFocus()
+              + paintThumb()
+              + paintTrack()
+              # calculateThumbSize()
+              # calculateTrackRect()
+              # installListeners()
+              # uninstallListeners()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPicker {
+              {static} + BLUE : int
+              {static} + BRI : int
+              {static} + GREEN : int
+              {static} + HUE : int
+              {static} + MODE_CONTROLS_VISIBLE_PROPERTY : String
+              {static} + MODE_PROPERTY : String
+              {static} + OPACITY_PROPERTY : String
+              {static} + RED : int
+              {static} + SAT : int
+              {static} + SELECTED_COLOR_PROPERTY : String
+              {static} # strings : ResourceBundle
+              ~ actionListener : ActionListener
+              ~ changeListener : ChangeListener
+              - adjustingColorPanel : int
+              - adjustingHexField : int
+              - adjustingOpacity : int
+              - adjustingSlider : int
+              - adjustingSpinners : int
+              - currentBlue : int
+              - currentGreen : int
+              - currentRed : int
+              - expertControls : JPanel
+              - hexField : JTextField
+              - hexLabel : JLabel
+              - lastOpacity : int
+              - opacityLabel : JLabel
+              - opacitySlider : JSlider
+              {static} - serialVersionUID : long
+              - slider : JSlider
+              + JColorPicker()
+              + JColorPicker()
+              + getColor()
+              + getColorPanel()
+              + getExpertControls()
+              + getHSB()
+              + getMode()
+              + getOpacity()
+              + getRGB()
+              + setColor()
+              + setExpertControlsVisible()
+              + setHSB()
+              + setHSBControlsVisible()
+              + setHexControlsVisible()
+              + setMode()
+              + setModeControlsVisible()
+              + setOpacity()
+              + setOpacityVisible()
+              + setPreviewSwatchVisible()
+              + setRGB()
+              + setRGBControlsVisible()
+              {static} + showDialog()
+              {static} + showDialog()
+              {static} + showDialog()
+              - getSelectedOption()
+              {static} - setOpaque()
+              - updateHexField()
+              - updateSlider()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPicker.HexDocumentListener {
+              ~ DELAY : int
+              ~ delayedUpdater : Timer
+              ~ uncommittedText : String
+              + changedUpdate()
+              + insertUpdate()
+              + removeUpdate()
+              - stripToHex()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option {
+              ~ label : JLabel
+              ~ radioButton : JRadioButton
+              ~ slider : JSlider
+              ~ spinner : JSpinner
+              + Option()
+              + contains()
+              + getFloatValue()
+              + getIntValue()
+              + getMaximum()
+              + isVisible()
+              + setValue()
+              + setVisible()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPicker.SetRGBRunnable {
+              ~ blue : int
+              ~ green : int
+              ~ red : int
+              + run()
+              ~ SetRGBRunnable()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPickerDialog {
+              ~ alpha : int
+              ~ okListener : ActionListener
+              ~ returnValue : Color
+              {static} - serialVersionUID : long
+              + JColorPickerDialog()
+              + JColorPickerDialog()
+              + getColor()
+              - initialize()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel {
+              {static} + MAX_SIZE : int
+              ~ blue : int
+              ~ bri : float
+              ~ componentListener : ComponentListener
+              ~ focusListener : FocusListener
+              ~ green : int
+              ~ hue : float
+              ~ image : BufferedImage
+              ~ imagePadding : Insets
+              ~ keyListener : KeyListener
+              ~ mouseListener : MouseInputListener
+              ~ red : int
+              ~ sat : float
+              - changeListeners : List<ChangeListener>
+              - mode : int
+              - point : Point
+              - row : int[]
+              {static} - serialVersionUID : long
+              + JColorPickerPanel()
+              + addChangeListener()
+              + getHSB()
+              + getHSB()
+              + getRGB()
+              + getRGB()
+              + paint()
+              + removeChangeListener()
+              + setHSB()
+              + setMode()
+              + setRGB()
+              # fireChangeListeners()
+              - regenerateImage()
+              - regeneratePoint()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JColorSwatch {
+              {static} + PROPERTY_COPY_CONTEXTUAL_MENU_ITEM : String
+              ~ w : int
+              {static} - checkerPaint : TexturePaint
+              {static} - serialVersionUID : long
+              + JColorSwatch()
+              + JColorSwatch()
+              + paint()
+              # updateContextualMenu()
+              {static} - getCheckerPaint()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -18,10 +420,28 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.JScrollTableCellEditor {
+              ~ defaultEditor : DefaultEditor
+              ~ jSpinner : JSpinner
+              ~ text : JTextField
+              + JScrollTableCellEditor()
+              + getCellEditorValue()
+              + getTableCellEditorComponent()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -31,10 +451,10 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -44,10 +464,10 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -60,10 +480,10 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -75,10 +495,10 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -89,10 +509,10 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -103,10 +523,10 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -119,10 +539,70 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame {
+              - consolePanel : JPanel
+              - luaScriptContainer : JTextArea
+              - script : String
+              + LuaScriptFrame()
+              - init()
+              - initContainer()
+              - initPanel()
+              - initScript()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.MainFrame {
+              + MainFrame()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          class helron.foundationwizard.com.ui.customcomponents.PlafPaintUtils {
+              {static} ~ blacks : Color[]
+              {static} ~ whites : Color[]
+              {static} - checkers : Map<String, TexturePaint>
+              {static} - diagonalStripes : Map<Object, TexturePaint>
+              {static} - verticalGradients : Map<String, TexturePaint>
+              {static} + drawBevel()
+              {static} + getCheckerBoard()
+              {static} + getCheckerBoard()
+              {static} + getDiagonalStripes()
+              {static} + getFocusRingColor()
+              {static} + getVerticalGradient()
+              {static} + paintCenteredString()
+              {static} + paintFocus()
+              {static} + paintFocus()
+              {static} - drawColors()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -139,10 +619,28 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  namespace  {
+    namespace elron.foundationwizard.com {
+      namespace ui {
+        namespace customcomponents {
+          interface helron.foundationwizard.com.ui.customcomponents.ResourceSample {
+              {abstract} + columnCount()
+              {abstract} + columnNames()
+              {abstract} + names()
+              {abstract} + rowNames()
+              {abstract} + sample()
+              {abstract} + tableIntroduction()
+          }
+        }
+      }
+    }
+  }
+  
 
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         namespace customcomponents {
@@ -152,10 +650,45 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
         }
       }
     }
-
+  }
   
 
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager +-down- helron.foundationwizard.com.ui.customcomponents.AnimationManager.Adjuster
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager +-down- helron.foundationwizard.com.ui.customcomponents.AnimationManager.ButtonStateAdjuster
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager +-down- helron.foundationwizard.com.ui.customcomponents.AnimationManager.DoubleAdjuster
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager +-down- helron.foundationwizard.com.ui.customcomponents.AnimationManager.Ticket
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager.Adjuster o-- T : initialValue
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager.Adjuster o-- T : targetValue
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager.ButtonStateAdjuster -up-|> helron.foundationwizard.com.ui.customcomponents.AnimationManager.Adjuster
+  helron.foundationwizard.com.ui.customcomponents.AnimationManager.DoubleAdjuster -up-|> helron.foundationwizard.com.ui.customcomponents.AnimationManager.Adjuster
+  helron.foundationwizard.com.ui.customcomponents.ButtonState +-down- helron.foundationwizard.com.ui.customcomponents.ButtonState.Boolean
+  helron.foundationwizard.com.ui.customcomponents.ButtonState +-down- helron.foundationwizard.com.ui.customcomponents.ButtonState.Float
+  helron.foundationwizard.com.ui.customcomponents.ButtonState.Boolean -up-|> helron.foundationwizard.com.ui.customcomponents.ButtonState
+  helron.foundationwizard.com.ui.customcomponents.ButtonState.Float -up-|> helron.foundationwizard.com.ui.customcomponents.ButtonState
+  helron.foundationwizard.com.ui.customcomponents.ColorPickerSliderUI -up-|> javax.swing.plaf.basic.BasicSliderUI
+  helron.foundationwizard.com.ui.customcomponents.ColorPickerSliderUI o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker : colorPicker
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.HexDocumentListener : hexDocListener
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : alpha
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : blue
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : bri
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel : colorPanel
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : green
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : hue
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorSwatch : preview
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : red
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option : sat
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker +-down- helron.foundationwizard.com.ui.customcomponents.JColorPicker.HexDocumentListener
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker +-down- helron.foundationwizard.com.ui.customcomponents.JColorPicker.Option
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker +-down- helron.foundationwizard.com.ui.customcomponents.JColorPicker.SetRGBRunnable
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker.HexDocumentListener .up.|> javax.swing.event.DocumentListener
+  helron.foundationwizard.com.ui.customcomponents.JColorPicker.SetRGBRunnable .up.|> java.lang.Runnable
+  helron.foundationwizard.com.ui.customcomponents.JColorPickerDialog -up-|> javax.swing.JDialog
+  helron.foundationwizard.com.ui.customcomponents.JColorPickerDialog o-- helron.foundationwizard.com.ui.customcomponents.JColorPicker : cp
+  helron.foundationwizard.com.ui.customcomponents.JColorPickerPanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JColorSwatch -up-|> javax.swing.JPanel
   helron.foundationwizard.com.ui.customcomponents.JImagePanel -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.customcomponents.JScrollTableCellEditor -up-|> javax.swing.DefaultCellEditor
   helron.foundationwizard.com.ui.customcomponents.JTextFieldLink -up-|> javax.swing.JTextField
   helron.foundationwizard.com.ui.customcomponents.JtextFileChooser -up-|> javax.swing.JTextField
   helron.foundationwizard.com.ui.customcomponents.ListenedJCheckBox .up.|> java.awt.event.FocusListener
@@ -169,6 +702,9 @@ title __CUSTOMCOMPONENTS's Class Diagram__\n
   helron.foundationwizard.com.ui.customcomponents.ListenedJSpinner o-- helron.foundationwizard.com.ui.FormCLass : activeFormCLass
   helron.foundationwizard.com.ui.customcomponents.ListenedTextField .up.|> java.awt.event.FocusListener
   helron.foundationwizard.com.ui.customcomponents.ListenedTextField -up-|> javax.swing.JTextField
+  helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame -up-|> javax.swing.JFrame
+  helron.foundationwizard.com.ui.customcomponents.LuaScriptFrame o-- helron.foundationwizard.com.api.LuaGenerator : luaGenerator
+  helron.foundationwizard.com.ui.customcomponents.MainFrame -up-|> javax.swing.JFrame
   helron.foundationwizard.com.ui.customcomponents.PlusButton -up-|> javax.swing.JButton
   helron.foundationwizard.com.ui.customcomponents.PlusButton o-- helron.foundationwizard.com.datagenerator.ParamType : requestedFormType
   helron.foundationwizard.com.ui.customcomponents.ValidateButton -up-|> javax.swing.JButton

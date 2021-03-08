@@ -2,13 +2,13 @@
 
 title __COM's Class Diagram__\n
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       class helron.foundationwizard.com.Main {
           {static} + main()
       }
     }
-
+  }
   
 
 

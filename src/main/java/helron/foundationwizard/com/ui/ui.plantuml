@@ -2,7 +2,7 @@
 
 title __UI's Class Diagram__\n
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         class helron.foundationwizard.com.ui.FormCLass {
@@ -29,18 +29,18 @@ title __UI's Class Diagram__\n
             + setId()
             + setInputs()
             + setValidateButton()
+            - addDatatypeField()
             - buildEachRows()
             - init()
+            - initBody()
             - initLeftPanel()
         }
       }
     }
-
-
-
+  }
   
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         enum FormType {
@@ -49,24 +49,26 @@ title __UI's Class Diagram__\n
         }
       }
     }
+  }
+  
 
-
-
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         class helron.foundationwizard.com.ui.FormsContainer {
             {static} + dim : Dimension
             ~ formCLassLinkedList : LinkedList<FormCLass>
             + FormsContainer()
+            + init()
             - addPanel()
             - addValidateButton()
-            - init()
         }
       }
     }
+  }
+  
 
-
+  namespace  {
     namespace elron.foundationwizard.com {
       namespace ui {
         class helron.foundationwizard.com.ui.Home {
@@ -74,15 +76,16 @@ title __UI's Class Diagram__\n
         }
       }
     }
-
-
+  }
   
 
   helron.foundationwizard.com.ui.FormCLass -up-|> javax.swing.JPanel
-  helron.foundationwizard.com.ui.FormsContainer -up-|> javax.swing.JTabbedPane
   helron.foundationwizard.com.ui.FormCLass o-- helron.foundationwizard.com.datagenerator.DataStructure : dataStructure
+  helron.foundationwizard.com.ui.FormsContainer -up-|> javax.swing.JTabbedPane
   helron.foundationwizard.com.ui.FormsContainer o-- helron.foundationwizard.com.datagenerator.DataStructureMap : dataStructureMap
   helron.foundationwizard.com.ui.Home -up-|> javax.swing.JPanel
+  helron.foundationwizard.com.ui.Home o-- helron.foundationwizard.com.datagenerator.DataStructureMap : dataStructureMap
+  helron.foundationwizard.com.ui.Home o-- helron.foundationwizard.com.ui.FormsContainer : formsContainer
 
 
 right footer

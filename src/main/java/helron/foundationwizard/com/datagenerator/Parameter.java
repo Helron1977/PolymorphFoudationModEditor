@@ -148,4 +148,8 @@ public class Parameter {
     public boolean requestColorType() {
         return type == ParamType.COLOR;
     }
+
+    public boolean requestPolygonType() {
+        return  type == ParamType.POLYGON;
+    }
 }
