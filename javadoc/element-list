@@ -1,3 +1,7 @@
-helron.foundationWizzard.com
-helron.foundationWizzard.com.api
-helron.foundationWizzard.com.ihm
+module:Wizzard
+helron.foundationwizard.com
+helron.foundationwizard.com.api
+helron.foundationwizard.com.datagenerator
+helron.foundationwizard.com.ui
+helron.foundationwizard.com.ui.customcomponents
+helron.foundationwizard.com.ui.requests
