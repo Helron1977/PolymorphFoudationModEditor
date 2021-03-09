@@ -6,13 +6,12 @@ import helron.foundationwizard.com.ui.customcomponents.ListenedTextField;
 import helron.foundationwizard.com.ui.customcomponents.PlusButton;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class RequestClassType implements Requestable{
 
-    //todo modify the form to list subclasses in a abstract class
-    //todo create a propertie files to list subclasses of a abstract class
-    //todo add a Abstractclass parameter
+
     @Override
     public boolean isRequired(Parameter parameter) {
         return parameter.requestClassType();
@@ -34,4 +33,6 @@ public class RequestClassType implements Requestable{
         formCLass.getAddButtons().add(plusButton);
 
     }
+
 }
+

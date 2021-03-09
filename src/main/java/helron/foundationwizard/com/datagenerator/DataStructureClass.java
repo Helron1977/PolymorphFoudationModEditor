@@ -5,6 +5,7 @@ import java.util.List;
 
 public class DataStructureClass extends DataStructure {
     private List<Parameter> parameterList;
+    private boolean isAbstract;
 
     public DataStructureClass(String id, DataStructureType dataStructureType, LinkedList<Parameter> parameterList) {
         super(id, dataStructureType);
@@ -19,4 +20,11 @@ public class DataStructureClass extends DataStructure {
         this.parameterList = parameterListList;
     }
 
+    public boolean isAbstract() {
+        return isAbstract;
+    }
+
+    public void setAbstract(boolean anAbstract) {
+        isAbstract = anAbstract;
+    }
 }

@@ -25,9 +25,11 @@ public enum ParamType {
     VEC2I("vec2i"),
     VEC3D("vec3d"),
     VEC3F("vec3f"),
-    VEC3I("vec3i");
+    VEC3I("vec3i"),
+    ABSTRACT("");
 
-private final String shortValue;
+
+    private final String shortValue;
 
     ParamType(String shortValue) {
         this.shortValue= shortValue;

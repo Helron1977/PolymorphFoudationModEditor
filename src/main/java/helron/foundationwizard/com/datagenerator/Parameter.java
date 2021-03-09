@@ -152,4 +152,8 @@ public class Parameter {
     public boolean requestPolygonType() {
         return  type == ParamType.POLYGON;
     }
+
+    public boolean RequestAbstractClass() {
+        return type == ParamType.ABSTRACT;
+    }
 }
